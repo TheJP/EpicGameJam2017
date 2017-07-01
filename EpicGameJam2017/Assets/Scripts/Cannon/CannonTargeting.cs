@@ -15,14 +15,14 @@ public class CannonTargeting : MonoBehaviour
   private float firingDistance;
   private CannonWaggon cannon;
 
-	// Use this for initialization
-	void Start()
-	{
-	  cannon = GetComponentInParent<CannonWaggon>();
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    // Use this for initialization
+    void Start()
+    {
+      cannon = GetComponentInParent<CannonWaggon>();
+    }
+    
+    // Update is called once per frame
+    void Update ()
   {
     if(isFiringAllowed && !isBroken && Input.GetButton(Constants.ActionButton + cannon.player))
     {
@@ -50,9 +50,10 @@ public class CannonTargeting : MonoBehaviour
 
       var shellBody = Instantiate(this.shell, transform.position, transform.rotation);
       var shell = shellBody.GetComponent<Shell>();
+      shell.Player = cannon.player;
       shell.Goto(target, 10.0f);
     }
-	}
+    }
 
   public void EnableFiring()
   {

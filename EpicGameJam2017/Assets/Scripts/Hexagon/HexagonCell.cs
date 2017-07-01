@@ -51,25 +51,10 @@ public class HexagonCell : MonoBehaviour
         ParticleSystem ps = other.GetComponent<ParticleSystem>();
         if (ps)
         {
-            var color = ps.customData.GetColor(ParticleSystemCustomData.Custom1);
+            var color = ps.customData.GetColor(ParticleSystemCustomData.Custom1).color;
             Player = Constants.PlayerColors.FirstOrDefault(c => c.Value.Equals(color)).Key;
-
-            print(Player);
+            //print("received color :" + color + " , matches:Player:" + Player);
         }
-    }
-
-    void OnParticleTrigger()
-    {
-
-        ParticleSystem ps = GetComponent<ParticleSystem>();
-
-      
-        if (ps)
-        {
-            Debug.Log("particle trigger! particleSystem");
-
-
-        } else print("null");
     }
 
 
