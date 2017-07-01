@@ -31,6 +31,10 @@ public class HexagonGrid : MonoBehaviour
         hexcellGameObject = HexagonCell.gameObject;
         UpdateHexagonCellSize();
         CreateGrid(Radius);
+        if (gameObject.layer==0 || LayerMask.LayerToName(gameObject.layer) != "HexGrid")
+        {
+            Debug.LogWarning("HexGrid should be on Layer HexGrid for particles to collide with it");
+        }
     }
 
     // Use this for initialization

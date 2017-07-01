@@ -46,7 +46,7 @@ public class HexagonCell : MonoBehaviour
         if (ps)
         {
             Player = ps.gameObject.GetComponentInParent<Shell>().Player;
-            print("shot by Player" + Player);
+            //print("shot by Player" + Player);
         }
     }
 
