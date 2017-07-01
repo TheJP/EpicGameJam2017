@@ -26,6 +26,9 @@ public class CannonWaggon : MonoBehaviour
   public CannonTargeting cheeseCannon;
 
   private bool isTomatoFiring;
+  private bool isUsedByPlayer;
+
+  private MuzzleRotation[] muzzlesRotations;
 
 	// Use this for initialization
 	void Start ()
@@ -33,26 +36,59 @@ public class CannonWaggon : MonoBehaviour
 	  tomatoCannon.EnableFiring();
 	  cheeseCannon.DisableFiring();
 
+	  muzzlesRotations = GetComponentsInChildren<MuzzleRotation>();
+
 	  isTomatoFiring = true;
-	}
+	  isUsedByPlayer = true;
+  }
 	
 	// Update is called once per frame
 	void Update ()
   {
-    if(Input.GetButtonDown(Constants.SpecialButton + player))
+    if(Input.GetButtonDown(Constants.SwitchButton + player))
     {
-      if(isTomatoFiring)
+      if(isUsedByPlayer)
       {
         tomatoCannon.DisableFiring();
-        cheeseCannon.EnableFiring();
+        cheeseCannon.DisableFiring();
+
+        foreach(var muzzlesRotation in muzzlesRotations)
+        {
+          muzzlesRotation.SetEnabled(false);
+        }
       }
       else
       {
-        tomatoCannon.EnableFiring();
-        cheeseCannon.DisableFiring();
+        foreach(var muzzlesRotation in muzzlesRotations)
+        {
+          muzzlesRotation.SetEnabled(true);
+        }
+
+        SwitchFiringCannons();
       }
+
+      isUsedByPlayer = !isUsedByPlayer;
+    }
+    
+    if(isUsedByPlayer && Input.GetButtonDown(Constants.SpecialButton + player))
+    {
+      SwitchFiringCannons();
 
       isTomatoFiring = !isTomatoFiring;
     }
 	}
+
+  private void SwitchFiringCannons()
+  {
+    if(isTomatoFiring)
+    {
+      tomatoCannon.DisableFiring();
+      cheeseCannon.EnableFiring();
+    }
+    else
+    {
+      tomatoCannon.EnableFiring();
+      cheeseCannon.DisableFiring();
+    }
+  }
 }

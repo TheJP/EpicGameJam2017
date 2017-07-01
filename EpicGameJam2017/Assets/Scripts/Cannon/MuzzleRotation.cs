@@ -7,6 +7,7 @@ public class MuzzleRotation
 {
   private CannonWaggon cannon;
 
+  private bool isEnabled;
   private float currentRotation;
   private float maxRotationLeft;
   private float maxRotationRight;
@@ -14,6 +15,7 @@ public class MuzzleRotation
 	// Use this for initialization
 	void Start ()
 	{
+	  isEnabled = true;
 	  cannon = GetComponentInParent<CannonWaggon>();
 
 	  currentRotation = 0;
@@ -25,6 +27,11 @@ public class MuzzleRotation
 	// Update is called once per frame
 	void Update ()
 	{
+	  if(!isEnabled)
+	  {
+	    return;
+	  }
+
 	  var direction = Input.GetAxis(Constants.HorizontalAxis + cannon.player);
     
 	  var rotation = Time.deltaTime * cannon.rotationSpeed * -direction;
@@ -44,4 +51,9 @@ public class MuzzleRotation
 
     transform.RotateAround(new Vector3(transform.position.x, transform.parent.position.y), transform.forward, rotation);
 	}
+
+  public void SetEnabled(bool enabled)
+  {
+    isEnabled = enabled;
+  }
 }
