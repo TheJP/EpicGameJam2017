@@ -1,1 +1,5 @@
-﻿public enum Players { A, B }
+﻿using System.Collections.Generic;
+using UnityEngine;
+
+public enum Players { A, B }
+

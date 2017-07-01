@@ -11,8 +11,14 @@ public class HexagonCell : MonoBehaviour
     public const float outerRadius = 3f;
     public const float innerRadius = outerRadius * outer2inner;
 
-    public Color Color = Color.blue;
+    public Players Player = Players.A;
     public bool Outline = true; //TODO
+
+    private static readonly Dictionary<Players, Color> PlayerColors = new Dictionary<Players, Color>()
+    {
+        {Players.A, Color.yellow},
+        {Players.B, Color.blue}
+    };
 
     private Mesh mesh;
     private List<Vector3> vertices = new List<Vector3>();
@@ -43,7 +49,7 @@ public class HexagonCell : MonoBehaviour
     void Start()
     {
         Triangulate();
-        GetComponent<MeshRenderer>().material.color = Color;
+        GetComponent<MeshRenderer>().material.color = PlayerColors[Player];
         //TODO
         if (Outline)
         {
