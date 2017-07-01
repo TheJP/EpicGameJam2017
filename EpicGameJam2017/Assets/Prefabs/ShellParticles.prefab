@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4789623743642144}
   - component: {fileID: 198777933237074096}
   - component: {fileID: 199936039288233526}
+  - component: {fileID: 114695580989148152}
   m_Layer: 0
   m_Name: ShellParticles
   m_TagString: Untagged
@@ -34,13 +35,24 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1810257587586018}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.34, y: 1.05, z: 0}
+  m_LocalRotation: {x: -0.39327773, y: 0.016119393, z: -0.047225293, w: 0.9180646}
+  m_LocalPosition: {x: 0.698, y: 0.06, z: -1.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -46.103, y: 5.524, z: -8.241}
+--- !u!114 &114695580989148152
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1810257587586018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581062b9caa4cd148b0b1aee5fef2013, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198777933237074096
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -98,7 +110,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2088585871
+  randomSeed: 1384244584
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -2235,8 +2247,8 @@ ParticleSystem:
   CollisionModule:
     enabled: 1
     serializedVersion: 3
-    type: 0
-    collisionMode: 0
+    type: 1
+    collisionMode: 1
     plane0: {fileID: 0}
     plane1: {fileID: 0}
     plane2: {fileID: 0}
@@ -2375,7 +2387,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 1
   TriggerModule:
@@ -2708,8 +2720,8 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
   CustomDataModule:
-    enabled: 0
-    mode0: 0
+    enabled: 1
+    mode0: 2
     vectorComponentCount0: 4
     color0:
       serializedVersion: 2

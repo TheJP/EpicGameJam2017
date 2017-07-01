@@ -191,62 +191,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 198777933237074096, guid: e988b61803737274f8a778e5ef3960ac,
-        type: 2}
-      propertyPath: randomSeed
-      value: 43925777
-      objectReference: {fileID: 0}
-    - target: {fileID: 4789623743642144, guid: e988b61803737274f8a778e5ef3960ac, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -46.103
-      objectReference: {fileID: 0}
-    - target: {fileID: 4789623743642144, guid: e988b61803737274f8a778e5ef3960ac, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 5.524
-      objectReference: {fileID: 0}
-    - target: {fileID: 4789623743642144, guid: e988b61803737274f8a778e5ef3960ac, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -8.241
-      objectReference: {fileID: 0}
-    - target: {fileID: 198777933237074096, guid: e988b61803737274f8a778e5ef3960ac,
-        type: 2}
-      propertyPath: CustomDataModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198777933237074096, guid: e988b61803737274f8a778e5ef3960ac,
-        type: 2}
-      propertyPath: CustomDataModule.mode0
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 198777933237074096, guid: e988b61803737274f8a778e5ef3960ac,
-        type: 2}
-      propertyPath: CollisionModule.collisionMessages
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198777933237074096, guid: e988b61803737274f8a778e5ef3960ac,
-        type: 2}
-      propertyPath: TriggerModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e988b61803737274f8a778e5ef3960ac, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &618000472 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1810257587586018, guid: e988b61803737274f8a778e5ef3960ac,
-    type: 2}
-  m_PrefabInternal: {fileID: 306180774}
---- !u!114 &618000476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 618000472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 581062b9caa4cd148b0b1aee5fef2013, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1399007265
 GameObject:
   m_ObjectHideFlags: 0
