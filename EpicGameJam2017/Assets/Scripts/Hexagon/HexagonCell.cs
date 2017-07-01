@@ -21,11 +21,11 @@ public class HexagonCell : MonoBehaviour
     private static readonly Vector3[] corners =
     {
         new Vector3(0, outerRadius),
-        new Vector3(outerRadius, outerRadius * 0.5f),
-        new Vector3(outerRadius, outerRadius * -0.5f),
+        new Vector3(innerRadius, outerRadius * 0.5f),
+        new Vector3(innerRadius, outerRadius * -0.5f),
         new Vector3(0, -outerRadius),
-        new Vector3(-outerRadius, outerRadius * -0.5f),
-        new Vector3(-outerRadius, outerRadius * 0.5f),
+        new Vector3(-innerRadius, outerRadius * -0.5f),
+        new Vector3(-innerRadius, outerRadius * 0.5f),
         //repeat first corner for lazy bum drawing
         new Vector3(0, outerRadius),
     };

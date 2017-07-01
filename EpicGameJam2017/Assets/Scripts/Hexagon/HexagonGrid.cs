@@ -8,6 +8,7 @@ public class HexagonGrid : MonoBehaviour
 
     public int Height = 10;
     public int Width = 10;
+    //public float HexCellOuterRadius = 3f; //TODO configurable via editor?
     public HexagonCell HexagonCell;
     private GameObject hexcellGameObject;
 
@@ -21,23 +22,18 @@ public class HexagonGrid : MonoBehaviour
         CreateGrid(Width,Height);
     }
     
-    // Update is called once per frame
-    void Update () {
-        
-    }
-
     void CreateGrid(int width, int height)
     {
-        var cellwidth = HexagonCell.outerRadius;
-        var cellheight = HexagonCell.innerRadius * 1.5f / 2;
+        var cellwidth = HexagonCell.innerRadius * 2 / 2;
+        var cellheight = HexagonCell.outerRadius * 1.5f / 2;
 
-        var ncols = (int)(width / cellwidth)+1;
-        var nrows = (int)(height / cellheight)+1;
+        var ncols = Mathf.RoundToInt(width / cellwidth);
+        var nrows = Mathf.RoundToInt(height / cellheight);
 
         //center is at 0/0 => tiles start at  - ncols / 2 * cellwidth
   
-        var offsetX = -ncols * cellwidth / 2f + cellwidth/2f;
-        var offsetY = -nrows / 2f * cellheight + cellheight/2f; 
+        var offsetX = ncols * cellwidth / 2;
+        var offsetY = nrows * cellheight / 2; 
 
 
         List<GameObject> hexagons = new List<GameObject>(ncols*nrows);
@@ -49,7 +45,7 @@ public class HexagonGrid : MonoBehaviour
                 var y = offsetY + j * cellheight;
             
                 //place hexagon at x,y
-                var hexcell = Instantiate(hexcellGameObject);
+                var hexcell = Instantiate(hexcellGameObject,transform);
                 hexcell.GetComponent<HexagonCell>().setPosition(x,y);
                 hexagons.Add(hexcell);
             }
