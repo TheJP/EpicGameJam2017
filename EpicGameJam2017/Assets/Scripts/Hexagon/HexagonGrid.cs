@@ -45,7 +45,6 @@ public class HexagonGrid : MonoBehaviour
     {
         if (mustRedraw)
         {
-            print("redrawing"+hexagons.Count);
             UpdateHexagonCellSize();
             CreateGrid(Radius);
             mustRedraw = false;
@@ -85,10 +84,8 @@ public class HexagonGrid : MonoBehaviour
                 //if (xx*xx+yy*yy >= Radius * Radius) continue;
                 if(x*x +y*y >= Radius*Radius) continue; //center not within circle
 
-                var hexcell = Instantiate(hexcellGameObject, transform);
-                hexcell.GetComponent<HexagonCell>().SetPosition(x, y);
+                var hexcell = Instantiate(hexcellGameObject, new Vector3(x, y, transform.position.z), Quaternion.identity, transform);
                 hexcell.GetComponent<HexagonCell>().SetGridPosition(col, row);
-                hexcell.transform.localPosition = new Vector3(hexcell.transform.localPosition.x, hexcell.transform.localPosition.y, 0f);
                 hexagons.Add(hexcell);
             }
         }

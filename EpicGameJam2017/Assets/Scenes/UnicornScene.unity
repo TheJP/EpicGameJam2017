@@ -315,8 +315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf997d0415854c45be55ca3acc6ab39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Radius: 7
-  HexCellOuterRadius: 1
+  Radius: 15
+  HexCellOuterRadius: 3
   HexagonCell: {fileID: 114030289696725118, guid: 0dc4672bbc8cbd44faf495ab8455f0e0,
     type: 2}
 --- !u!4 &1278576233

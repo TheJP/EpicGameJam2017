@@ -62,7 +62,7 @@ public class HexagonCell : MonoBehaviour
     private void Triangulate()
     {
         //triangulate hexagon
-        var center = transform.localPosition;
+        var center = Vector3.zero;
         for (int i = 0; i < 6; i++)
         {
             AddTriangle(
