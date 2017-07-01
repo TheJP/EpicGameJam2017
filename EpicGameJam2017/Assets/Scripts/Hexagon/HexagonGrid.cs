@@ -80,7 +80,7 @@ public class HexagonGrid : MonoBehaviour
                 var hexcell = Instantiate(hexcellGameObject, transform);
                 hexcell.GetComponent<HexagonCell>().SetPosition(x, y);
                 hexcell.GetComponent<HexagonCell>().SetGridPosition(col, row);
-                hexcell.transform.position = new Vector3(hexcell.transform.position.x, hexcell.transform.position.y, transform.position.z);
+                hexcell.transform.localPosition = new Vector3(hexcell.transform.localPosition.x, hexcell.transform.localPosition.y, 0f);
                 hexagons.Add(hexcell);
             }
         }

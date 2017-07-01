@@ -47,9 +47,11 @@ public class Unicorn : MonoBehaviour
             // Place ingredient
             if(ingredient != null)
             {
-                ingredient.WaitThenActivateColliders(1f);
-                controller.DropIngredientOnPizza(ingredient);
-                ingredient = null;
+                if (controller.DropIngredientOnPizza(ingredient))
+                {
+                    ingredient.WaitThenActivateColliders(1f);
+                    ingredient = null;
+                }
             }
             // TODO: Activate powerup
             else
