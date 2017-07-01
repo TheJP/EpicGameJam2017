@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Radius: 15
+  HexCellOuterRadius: 3
   HexagonCell: {fileID: 114030289696725118, guid: 0dc4672bbc8cbd44faf495ab8455f0e0,
     type: 2}
 --- !u!1 &1428370660
