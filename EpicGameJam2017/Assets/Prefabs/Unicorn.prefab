@@ -120,8 +120,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: 0
   controlsActive: 0
-  turnSpeed: 1
-  speedForce: 5
+  turnSpeed: 360
+  speedForce: 7
+  driftFactor: 0.75
 --- !u!212 &212086122135653754
 SpriteRenderer:
   m_ObjectHideFlags: 1
