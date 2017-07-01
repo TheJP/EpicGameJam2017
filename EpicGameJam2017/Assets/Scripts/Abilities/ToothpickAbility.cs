@@ -8,6 +8,6 @@ public class ToothpickAbility : Ability
 {
     public void Cast(Unicorn caster)
     {
-        Debug.Log("picking tooths");
+        caster.ThrowToothpick();
     }
 }

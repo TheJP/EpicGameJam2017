@@ -275,6 +275,8 @@ MonoBehaviour:
   driftFactor: 0.75
   marker: {fileID: 4762485884303476}
   abilityHolder: {fileID: 114848474334213518}
+  toothpickPrefab: {fileID: 114036630649690112, guid: 3615f38d6d6adee408074f1ed750f500,
+    type: 2}
 --- !u!114 &114848474334213518
 MonoBehaviour:
   m_ObjectHideFlags: 1

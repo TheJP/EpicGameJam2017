@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -25,6 +26,9 @@ public class Unicorn : MonoBehaviour
 
     [Tooltip("Box that stores the unicorn ability until it is used")]
     public AbilityHolder abilityHolder;
+
+    [Tooltip("Prefab of the toothpick which is used in the toothpick ability")]
+    public Toothpick toothpickPrefab;
 
     private Ingredient ingredient = null;
     private Controller controller = null;
@@ -121,5 +125,14 @@ public class Unicorn : MonoBehaviour
     private Vector2 RightVelocity()
     {
         return transform.right * Vector2.Dot(GetComponent<Rigidbody2D>().velocity, transform.right);
+    }
+
+    /// <summary>
+    /// Instantiates a toothpick and throws it in the direction that this unicorn is facing.
+    /// </summary>
+    public void ThrowToothpick()
+    {
+        var toothpick = Instantiate(toothpickPrefab, transform.position, transform.rotation);
+        toothpick.GetComponent<Rigidbody2D>().velocity = transform.up;
     }
 }
