@@ -30,7 +30,7 @@ public class CannonTargeting : MonoBehaviour
         firingDistance = cannon.maxFireDistance;
       }
 
-      transform.position += transform.up * distance;
+      transform.position += -transform.right * distance;
     }
     else if(isFiring)
     {
@@ -38,7 +38,7 @@ public class CannonTargeting : MonoBehaviour
 
       // The button was raised and we are currently in firing modus and thus should fire
       isFiring = false;
-      transform.position -= transform.up * firingDistance;
+      transform.position -= -transform.right * firingDistance;
       firingDistance = 0;
 
       var shellBody = Instantiate(cannon.shell, transform.position, transform.rotation);
