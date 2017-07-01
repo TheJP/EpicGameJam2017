@@ -13,6 +13,7 @@ public class Shell : MonoBehaviour
     private float speed;
     private ParticleSystem ps;
     private GameObject shell3D;
+    private bool shellIsExploding;
 
     void Awake()
     {
@@ -31,11 +32,12 @@ public class Shell : MonoBehaviour
         }
 
         // BOOM!
-        if (!ps.isPlaying)
+        if (!shellIsExploding)
         {
+            shellIsExploding = true;
             shell3D.SetActive(false);
             PlayParticleSystem();
-            Invoke("Cleanup",ps.main.duration+0.01f);
+            Invoke("Cleanup",ps.main.duration+1f);
         }
     }
 
