@@ -13,6 +13,11 @@ public class Controller : MonoBehaviour
     [Tooltip("Prefab of the ingredient countdown")]
     public IngredientCountdown countdownPrefab;
 
+    [Tooltip("Unicorn prefab, which will be used to instantiate unicorns for players")]
+    public Unicorn unicornPrefab;
+
+    private Players[] players;
+
     public bool DropIngredientOnPizza(Ingredient ingredient)
     {
         // Check for nearby hexagon tiles
@@ -41,5 +46,16 @@ public class Controller : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void StartGame(Players[] players)
+    {
+        //Spawn unicorn for each player
+        foreach(var player in players)
+        {
+            var randomPosition = hexagonGrid.transform.GetChild(Random.Range(0, hexagonGrid.transform.childCount)).position;
+            var unicorn = Instantiate(unicornPrefab, randomPosition, Quaternion.identity);
+            unicorn.player = player;
+        }
     }
 }
