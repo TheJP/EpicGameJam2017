@@ -11,7 +11,7 @@ public class HexagonGrid : MonoBehaviour
 
     public float HexCellOuterRadius = 3f; //TODO configurable via editor?
     public const float Outer2inner = 0.866025404f; //srt(3)/2
-    private float hexCellInnerRadius;
+    public float HexCellInnerRadius { get; private set; }
 
     public HexagonCell HexagonCell;
 
@@ -19,10 +19,7 @@ public class HexagonGrid : MonoBehaviour
     private GameObject hexcellGameObject;
     private bool mustRedraw = false;
 
-    public Vector3[] corners
-    {
-        get; private set;
-    }
+    public Vector2[] corners { get; private set; }
 
     void OnValidate()
     {
@@ -57,7 +54,7 @@ public class HexagonGrid : MonoBehaviour
         hexagons.ForEach(Destroy);
         hexagons.Clear();
 
-        var cellwidth = hexCellInnerRadius * 2;
+        var cellwidth = HexCellInnerRadius * 2;
         var cellheight = HexCellOuterRadius * 1.5f;
 
         var y = 0f;
@@ -70,14 +67,14 @@ public class HexagonGrid : MonoBehaviour
             while (x < radius)
             {
 
-                if(x*x + y * y > radius * radius) break;
-                
-                mkHexCell(x,y,row,col);
+                if (x * x + y * y > radius * radius) break;
+
+                mkHexCell(x, y, row, col);
 
                 //floating point compare is fine because var is initialized to 0
-                if (x != 0) mkHexCell(-x,y,row,-col);
-                if (y != 0)mkHexCell(x,-y,-row,col);
-                if(x!=0 && y!=0) mkHexCell(-x,-y,-row,-col);
+                if (x != 0) mkHexCell(-x, y, row, -col);
+                if (y != 0) mkHexCell(x, -y, -row, col);
+                if (x != 0 && y != 0) mkHexCell(-x, -y, -row, -col);
 
                 x += cellwidth;
                 col++;
@@ -91,23 +88,23 @@ public class HexagonGrid : MonoBehaviour
     private void mkHexCell(float x, float y, int row, int col)
     {
         var hexcell = Instantiate(hexcellGameObject, new Vector3(x, y, transform.position.z), Quaternion.identity, transform);
-        hexcell.GetComponent<HexagonCell>().SetGridPosition(col,row);
+        hexcell.GetComponent<HexagonCell>().SetGridPosition(col, row);
         hexagons.Add(hexcell);
     }
 
     private void UpdateHexagonCellSize()
     {
-        hexCellInnerRadius = HexCellOuterRadius * Outer2inner;
+        HexCellInnerRadius = HexCellOuterRadius * Outer2inner;
         corners = new[]
         {
-            new Vector3(0, HexCellOuterRadius),
-            new Vector3(hexCellInnerRadius, HexCellOuterRadius * 0.5f),
-            new Vector3(hexCellInnerRadius, HexCellOuterRadius * -0.5f),
-            new Vector3(0, -HexCellOuterRadius),
-            new Vector3(-hexCellInnerRadius, HexCellOuterRadius * -0.5f),
-            new Vector3(-hexCellInnerRadius, HexCellOuterRadius * 0.5f),
+            new Vector2(0, HexCellOuterRadius),
+            new Vector2(HexCellInnerRadius, HexCellOuterRadius * 0.5f),
+            new Vector2(HexCellInnerRadius, HexCellOuterRadius * -0.5f),
+            new Vector2(0, -HexCellOuterRadius),
+            new Vector2(-HexCellInnerRadius, HexCellOuterRadius * -0.5f),
+            new Vector2(-HexCellInnerRadius, HexCellOuterRadius * 0.5f),
             //repeat first corner for lazy bum drawing
-            new Vector3(0, HexCellOuterRadius),
+            new Vector2(0, HexCellOuterRadius),
         };
     }
 }

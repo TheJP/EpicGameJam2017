@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using NUnit.Framework.Constraints;
 using UnityEngine.Assertions;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(PolygonCollider2D))]
 [RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
 public class HexagonCell : MonoBehaviour
 {
@@ -22,11 +23,15 @@ public class HexagonCell : MonoBehaviour
     private List<Vector3> vertices = new List<Vector3>();
     private List<int> triangles = new List<int>();
     private static readonly Color defaultColor = new Color(0f, 0f, 0f, 0f);
+    private PolygonCollider2D collider2D;
+    private HexagonGrid grid;
 
 
     void Awake()
     {
         mesh = GetComponent<MeshFilter>().mesh = new Mesh();
+        collider2D = GetComponent<PolygonCollider2D>();
+        grid = GetComponentInParent<HexagonGrid>();
     }
 
 
@@ -50,6 +55,8 @@ public class HexagonCell : MonoBehaviour
     {
         vertices.Clear();
         triangles.Clear();
+        collider2D.pathCount = 0;
+        collider2D.CreatePrimitive(6, new Vector2(grid.HexCellOuterRadius, grid.HexCellOuterRadius));
         Triangulate();
     }
 
@@ -67,14 +74,15 @@ public class HexagonCell : MonoBehaviour
     private void Triangulate()
     {
         //triangulate hexagon
-        var center = Vector3.zero;
+        var center = Vector2.zero;
         for (int i = 0; i < 6; i++)
         {
             AddTriangle(
                 center,
-                center + GetComponentInParent<HexagonGrid>().corners[i],
-                center + GetComponentInParent<HexagonGrid>().corners[i + 1]
+                center + grid.corners[i],
+                center + grid.corners[i + 1]
             );
+            //collider2D.SetPath(i,new []{corners[i],corners[i+1]});
         }
         mesh.vertices = vertices.ToArray();
         mesh.triangles = triangles.ToArray();
