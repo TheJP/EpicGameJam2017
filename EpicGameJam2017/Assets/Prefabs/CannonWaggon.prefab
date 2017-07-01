@@ -1060,7 +1060,6 @@ MonoBehaviour:
   rotationSpeed: 60
   maxFireDistance: 15
   fireDistanceSpeed: 10
-  shell: {fileID: 1324623586809008, guid: 364ee3a7158019249a261dca5d3d0718, type: 2}
   tomatoCannon: {fileID: 114430728693529902}
   cheeseCannon: {fileID: 114422329338988596}
 --- !u!114 &114190271278107098
@@ -1085,6 +1084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf52daba041d7b4fa1dced627708fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shell: {fileID: 1324623586809008, guid: 364ee3a7158019249a261dca5d3d0718, type: 2}
 --- !u!114 &114430728693529902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1096,6 +1096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf52daba041d7b4fa1dced627708fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shell: {fileID: 1544962578823730, guid: ec4b21eecad3c894bab41c5c4b2d4360, type: 2}
 --- !u!114 &114564399573678216
 MonoBehaviour:
   m_ObjectHideFlags: 1

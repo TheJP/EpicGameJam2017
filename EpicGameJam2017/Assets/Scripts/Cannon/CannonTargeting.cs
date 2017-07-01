@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CannonTargeting : MonoBehaviour
 {
+  [Tooltip("The shell that will be copied and fired")]
+  public GameObject shell;
+
   private bool isFiringAllowed;
   private bool isFiring;
   private float firingDistance;
@@ -42,7 +45,7 @@ public class CannonTargeting : MonoBehaviour
       transform.position -= -transform.right * firingDistance;
       firingDistance = 0;
 
-      var shellBody = Instantiate(cannon.shell, transform.position, transform.rotation);
+      var shellBody = Instantiate(this.shell, transform.position, transform.rotation);
       var shell = shellBody.GetComponent<Shell>();
       shell.Goto(target, 10.0f);
     }

@@ -19,9 +19,6 @@ public class CannonWaggon : MonoBehaviour
   [Tooltip("How fast it is possible to fire longer distances")]
   public float fireDistanceSpeed = 10;
 
-  [Tooltip("The shell that will be copied and fired")]
-  public GameObject shell;
-
   [Tooltip("The tomato targeting game object")]
   public CannonTargeting tomatoCannon;
 
