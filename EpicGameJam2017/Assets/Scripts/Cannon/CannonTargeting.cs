@@ -34,10 +34,16 @@ public class CannonTargeting : MonoBehaviour
     }
     else if(isFiring)
     {
+      var target = transform.position;
+
       // The button was raised and we are currently in firing modus and thus should fire
       isFiring = false;
       transform.position -= transform.up * firingDistance;
       firingDistance = 0;
+
+      var shellBody = Instantiate(cannon.shell, transform.position, transform.rotation);
+      var shell = shellBody.GetComponent<Shell>();
+      shell.Goto(target, 10.0f);
     }
 	}
 }
