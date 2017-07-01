@@ -13,6 +13,7 @@ public class Unicorn : MonoBehaviour
     [Tooltip("Unicorn turnspeed in degrees per second")]
     public float turnSpeed = 1f;
 
+    /// <summary>Don't change this value at runtime. <see cref="SpeedForce"/> should be used for that.</summary>
     [Tooltip("Force which is added when the action key is pressed")]
     public float speedForce = 10f;
 
@@ -46,8 +47,11 @@ public class Unicorn : MonoBehaviour
         return true;
     }
 
+    public float SpeedForce { get; set; }
+
     public void Awake()
     {
+        SpeedForce = speedForce;
         controller = FindObjectOfType<Controller>();
         if(controller == null) { throw new System.ArgumentException(); }
         abilityHolderPositionDifference = abilityHolder.transform.position - transform.position;
@@ -92,7 +96,7 @@ public class Unicorn : MonoBehaviour
             // Accelerate unicorn
             if (Input.GetButton(Constants.ActionButton + player))
             {
-                body.AddForce(transform.up * speedForce, ForceMode2D.Force);
+                body.AddForce(transform.up * SpeedForce, ForceMode2D.Force);
             }
         }
     }

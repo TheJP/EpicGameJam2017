@@ -30,6 +30,12 @@ public class AbilityHolder : MonoBehaviour
         return SetAbility(new ToothpickAbility(), toothpickSprite);
     }
 
+    /// <summary>Sets the nimbus ability into this slot if it is free.</summary>
+    public bool SetNimbusAbility()
+    {
+        return SetAbility(new NimbusAbility(), nimbbusSprite);
+    }
+
     public bool SetAbility(Ability ability, Sprite abilityIcon)
     {
         if(this.ability != null || ability == null || abilityIcon == null) { return false; }

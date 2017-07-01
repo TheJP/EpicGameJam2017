@@ -17,7 +17,8 @@ public class Ingredient : MonoBehaviour
 
     private static readonly Dictionary<Ingredients, Func<Unicorn, bool>> rewards = new Dictionary<Ingredients, Func<Unicorn, bool>>()
     {
-        { Ingredients.Olive, unicorn => unicorn.abilityHolder.SetToothpickAbility() }
+        { Ingredients.Olive, unicorn => unicorn.abilityHolder.SetToothpickAbility() },
+        { Ingredients.Peperoni, unicorn => unicorn.abilityHolder.SetNimbusAbility() }
     };
 
     public void TimeUp(HexagonCell hexagonCell)
