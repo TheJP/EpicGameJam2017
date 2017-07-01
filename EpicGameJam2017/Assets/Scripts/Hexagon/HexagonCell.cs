@@ -45,7 +45,7 @@ public class HexagonCell : MonoBehaviour
         if (Outline)
         {
 
-            }
+        }
     }
 
     // Update is called once per frame
