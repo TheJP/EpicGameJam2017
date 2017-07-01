@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+
 using UnityEngine;
 
 public class CannonTargeting : MonoBehaviour
@@ -7,11 +9,7 @@ public class CannonTargeting : MonoBehaviour
   [Tooltip("The shell that will be copied and fired")]
   public GameObject shell;
 
-  [Tooltip("The time it takes to repair a turret")]
-  public float repairTime = 5.0f;
-
   private bool isBroken;
-  private float repairTimeLeft;
   private bool isFiringAllowed;
   private bool isFiring;
   private float firingDistance;
@@ -26,11 +24,7 @@ public class CannonTargeting : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
   {
-    if(repairTimeLeft > 0)
-    {
-      repairTimeLeft -= Time.deltaTime;
-    }
-    else if(isFiringAllowed && Input.GetButton(Constants.ActionButton + cannon.player))
+    if(isFiringAllowed && !isBroken && Input.GetButton(Constants.ActionButton + cannon.player))
     {
       // The button is being pressed, increase the distance we will fire
       isFiring = true;
@@ -73,7 +67,15 @@ public class CannonTargeting : MonoBehaviour
 
   public void Break()
   {
-    repairTimeLeft = repairTime;
+    isBroken = true;
     isFiring = false;
+
+    transform.position -= -transform.right * firingDistance;
+    firingDistance = 0;
+  }
+
+  public void Repair()
+  {
+    isBroken = false;
   }
 }
