@@ -19,6 +19,9 @@ public class Unicorn : MonoBehaviour
     [Tooltip("How much the unicorn dirfts")]
     public float driftFactor = 0.25f;
 
+    [Tooltip("Marks the tip of the green horn")]
+    public Transform marker;
+
     private Ingredient ingredient = null;
     private Controller controller = null;
 
@@ -88,7 +91,7 @@ public class Unicorn : MonoBehaviour
     {
         if(ingredient != null)
         {
-            ingredient.transform.position = transform.position;
+            ingredient.transform.position = marker.position;
         }
     }
 
