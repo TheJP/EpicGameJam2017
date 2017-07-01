@@ -7,10 +7,6 @@ using UnityEngine.Assertions;
 [RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
 public class HexagonCell : MonoBehaviour
 {
-    public const float outer2inner = 0.866025404f; //srt(3)/2
-    public const float outerRadius = 3f;
-    public const float innerRadius = outerRadius * outer2inner;
-
     public Players Player = Players.A;
     public bool Outline = true; //TODO
 
@@ -27,18 +23,6 @@ public class HexagonCell : MonoBehaviour
     private int col;
     private int row;
 
-    private static readonly Vector3[] corners =
-    {
-        new Vector3(0, outerRadius),
-        new Vector3(innerRadius, outerRadius * 0.5f),
-        new Vector3(innerRadius, outerRadius * -0.5f),
-        new Vector3(0, -outerRadius),
-        new Vector3(-innerRadius, outerRadius * -0.5f),
-        new Vector3(-innerRadius, outerRadius * 0.5f),
-        //repeat first corner for lazy bum drawing
-        new Vector3(0, outerRadius),
-    };
-
     void Awake()
     {
         mesh = GetComponent<MeshFilter>().mesh = new Mesh();
@@ -48,7 +32,7 @@ public class HexagonCell : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Triangulate();
+        Redraw();
         GetComponent<MeshRenderer>().material.color = PlayerColors[Player];
         //TODO
         if (Outline)
@@ -57,9 +41,11 @@ public class HexagonCell : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Redraw()
     {
+        vertices.Clear();
+        triangles.Clear();
+        Triangulate();
     }
 
     public void SetPosition(float x, float y)
@@ -81,8 +67,8 @@ public class HexagonCell : MonoBehaviour
         {
             AddTriangle(
                 center,
-                center + corners[i],
-                center + corners[i + 1]
+                center + GetComponentInParent<HexagonGrid>().corners[i],
+                center + GetComponentInParent<HexagonGrid>().corners[i + 1]
             );
         }
         mesh.vertices = vertices.ToArray();
