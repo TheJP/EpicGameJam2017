@@ -11,4 +11,6 @@ public class Cannon : MonoBehaviour {
 
   public float maxFireDistance = 6;
   public float fireDistanceSpeed = 2;
+
+  public GameObject shell;
 }
