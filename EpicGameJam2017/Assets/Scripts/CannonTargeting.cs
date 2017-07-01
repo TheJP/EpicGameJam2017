@@ -34,10 +34,29 @@ public class CannonTargeting : MonoBehaviour
     }
     else if(isFiring)
     {
+      var target = transform.position;
+
       // The button was raised and we are currently in firing modus and thus should fire
       isFiring = false;
       transform.position -= transform.up * firingDistance;
       firingDistance = 0;
+
+      StartCoroutine(FireShell(target));
     }
 	}
+
+  IEnumerator FireShell(Vector3 target)
+  {
+    var shell = Instantiate(cannon.shell, transform.position, transform.rotation);
+    yield return null;
+
+    while(!shell.transform.position.Equals(target))
+    {
+      shell.transform.position = Vector3.MoveTowards(shell.transform.position, target, Time.deltaTime * 10f);
+      yield return null;
+    }
+    
+    // BOOM!
+    Destroy(shell);
+  }
 }
