@@ -12,11 +12,14 @@ public class HexagonCell : MonoBehaviour
     public const float innerRadius = outerRadius * outer2inner;
 
     public Color Color = Color.blue;
-    public bool Outline = true;
+    public bool Outline = true; //TODO
 
     private Mesh mesh;
     private List<Vector3> vertices = new List<Vector3>();
     private List<int> triangles = new List<int>();
+
+    private int col;
+    private int row;
 
     private static readonly Vector3[] corners =
     {
@@ -53,9 +56,15 @@ public class HexagonCell : MonoBehaviour
     {
     }
 
-    public void setPosition(float x, float y)
+    public void SetPosition(float x, float y)
     {
         transform.position = new Vector3(x, y);
+    }
+
+    public void SetGridPosition(int col, int row)
+    {
+        this.col = col;
+        this.row = row;
     }
 
     private void Triangulate()
@@ -75,7 +84,7 @@ public class HexagonCell : MonoBehaviour
         mesh.RecalculateNormals();
     }
 
-    void AddTriangle(Vector3 v1, Vector3 v2, Vector3 v3)
+    private void AddTriangle(Vector3 v1, Vector3 v2, Vector3 v3)
     {
         int vertexIndex = vertices.Count;
         vertices.Add(v1);

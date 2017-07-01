@@ -38,16 +38,17 @@ public class HexagonGrid : MonoBehaviour
 
 
         List<GameObject> hexagons = new List<GameObject>(ncols * nrows);
-        for (var i = 0; i < nrows; i++)
+        for (var row = 0; row < nrows; row++)
         {
-            for (var j = 0; j < ncols; j++)
+            for (var col = 0; col < ncols; col++)
             {
-                var x = offsetX + j * cellwidth + (i % 2) * cellwidth / 2f;
-                var y = offsetY + i * cellheight;
+                var x = offsetX + col * cellwidth + (row % 2) * cellwidth / 2f;
+                var y = offsetY + row * cellheight;
 
                 //place hexagon at x,y
                 var hexcell = Instantiate(hexcellGameObject, transform);
                 hexcell.GetComponent<HexagonCell>().setPosition(x, y);
+                hexcell.SetGridPosition(col, row);
                 hexagons.Add(hexcell);
             }
         }
