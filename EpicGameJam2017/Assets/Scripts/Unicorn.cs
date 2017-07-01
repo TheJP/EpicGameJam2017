@@ -13,17 +13,30 @@ public class Unicorn : MonoBehaviour
     [Tooltip("Unicorn turnspeed in degrees per second")]
     public float turnSpeed = 1f;
 
+    /// <summary>Don't change this value at runtime. <see cref="SpeedForce"/> should be used for that.</summary>
     [Tooltip("Force which is added when the action key is pressed")]
     public float speedForce = 10f;
 
     [Tooltip("How much the unicorn dirfts")]
     public float driftFactor = 0.25f;
 
+    [Tooltip("Marks the tip of the green horn")]
+    public Transform marker;
+
+    [Tooltip("Box that stores the unicorn ability until it is used")]
+    public AbilityHolder abilityHolder;
+
     private Ingredient ingredient = null;
     private Controller controller = null;
 
     /// <summary>Ingredient, which this unicorn currently carries.</summary>
     public Ingredient CarryIngredient { get { return ingredient; } }
+
+    /// <summary>
+    /// Stores the difference between unicorn and ability holder position,
+    /// so the position of the ability holder relative to the unicorn can later be restored
+    /// </summary>
+    private Vector3 abilityHolderPositionDifference;
 
     /// <summary>Set the given ingredient to belong to this unicorn.</summary>
     public bool SetIngredient(Ingredient ingredient)
@@ -34,10 +47,14 @@ public class Unicorn : MonoBehaviour
         return true;
     }
 
+    public float SpeedForce { get; set; }
+
     public void Awake()
     {
+        SpeedForce = speedForce;
         controller = FindObjectOfType<Controller>();
         if(controller == null) { throw new System.ArgumentException(); }
+        abilityHolderPositionDifference = abilityHolder.transform.position - transform.position;
     }
 
     public void Update()
@@ -53,10 +70,10 @@ public class Unicorn : MonoBehaviour
                     ingredient = null;
                 }
             }
-            // TODO: Activate powerup
+            // Activate powerup (only works if slot is not empty)
             else
             {
-
+                abilityHolder.CastAbility(this);
             }
         }
         // Switch between unicorn and train
@@ -79,7 +96,7 @@ public class Unicorn : MonoBehaviour
             // Accelerate unicorn
             if (Input.GetButton(Constants.ActionButton + player))
             {
-                body.AddForce(transform.up * speedForce, ForceMode2D.Force);
+                body.AddForce(transform.up * SpeedForce, ForceMode2D.Force);
             }
         }
     }
@@ -88,8 +105,10 @@ public class Unicorn : MonoBehaviour
     {
         if(ingredient != null)
         {
-            ingredient.transform.position = transform.position;
+            ingredient.transform.position = marker.position;
         }
+        abilityHolder.transform.position = transform.position + abilityHolderPositionDifference;
+        abilityHolder.transform.rotation = Quaternion.identity;
     }
 
     /// <summary>Forward part of the velocity</summary>

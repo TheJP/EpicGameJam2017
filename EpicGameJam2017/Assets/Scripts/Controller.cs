@@ -42,7 +42,7 @@ public class Controller : MonoBehaviour
 
             // Setup countdown for ingredient
             var countdown = Instantiate(countdownPrefab, ingredient.transform);
-            countdown.RefreshCountdown(ingredientCountdownTime, ingredient);
+            countdown.RefreshCountdown(ingredientCountdownTime, ingredient, closest.gameObject.GetComponent<HexagonCell>());
             return true;
         }
         return false;

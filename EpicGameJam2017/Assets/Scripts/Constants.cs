@@ -23,12 +23,18 @@ public static class Constants
     /// </summary>
     public const string HorizontalAxis = "Horizontal";
 
+    /// <summary>
+    /// Dictionary that associates players with their color.
+    /// (Warning: This dictionary is potentially mutable, but the values are not intended to be changed at runtime!)
+    /// </summary>
     public static readonly Dictionary<Players, Color> PlayerColors = new Dictionary<Players, Color>()
     {
-        {Players.None, new Color(0,0.5f,0,1)},
         {Players.A, Color.yellow},
         {Players.B, Color.blue}
     };
 
-
+    /// <summary>
+    /// Color to use if no player is available
+    /// </summary>
+    public static readonly Color defaultColor = new Color(0,0,0,0);
 }

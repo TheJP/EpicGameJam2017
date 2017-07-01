@@ -1,4 +1,4 @@
-﻿public enum Indgredients
+﻿public enum Ingredients
 {
     Olive, Salami, Peperoni, Mushroom, Tomato
 }

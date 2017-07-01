@@ -8,7 +8,7 @@ using UnityEngine.Assertions;
 [RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
 public class HexagonCell : MonoBehaviour
 {
-    public Players Player = Players.None;
+    public Players? Player = null;
     public bool Outline = true; //TODO
     public int col;
     public int row;
@@ -32,28 +32,21 @@ public class HexagonCell : MonoBehaviour
     void Start()
     {
         Redraw();
-        //TODO
-        if (Outline)
-        {
-
-        }
     }
 
     private void Update()
     {
-        GetComponent<MeshRenderer>().material.color = Constants.PlayerColors[Player];
+        GetComponent<MeshRenderer>().material.color =
+            Player.HasValue? Constants.PlayerColors[Player.Value] : Constants.defaultColor;
     }
 
     void OnParticleCollision(GameObject other)
     {
-
-        Rigidbody body = other.GetComponent<Rigidbody>();
         ParticleSystem ps = other.GetComponent<ParticleSystem>();
         if (ps)
         {
-            var color = ps.customData.GetColor(ParticleSystemCustomData.Custom1).color;
-            Player = Constants.PlayerColors.FirstOrDefault(c => c.Value.Equals(color)).Key;
-            //print("received color :" + color + " , matches:Player:" + Player);
+            Player = ps.gameObject.GetComponentInParent<Shell>().Player;
+            print("shot by Player" + Player);
         }
     }
 

@@ -11,19 +11,19 @@ public class Locomotive_Script : MonoBehaviour {
 
     private Rigidbody2D rigidBody;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
         this.angle = 0;
         this.rigidBody = GetComponent<Rigidbody2D>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+    
+    // Update is called once per frame
+    void Update () {
 
         Vector2 newPosition = calcCoordinates();
         rigidBody.MovePosition(newPosition);
-	}
+    }
 
     private Vector2 calcCoordinates()
     {
