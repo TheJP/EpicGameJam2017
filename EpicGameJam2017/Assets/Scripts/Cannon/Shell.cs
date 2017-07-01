@@ -40,9 +40,8 @@ public class Shell : MonoBehaviour
             shellIsExploding = true;
             shell3D.SetActive(false);
             PlayParticleSystem();
+            Invoke("Cleanup",ps.main.duration+1f);
         }
-
-        if (shellIsExploding && !ps.IsAlive()) Cleanup();
     }
 
     public void Cleanup()
@@ -58,6 +57,9 @@ public class Shell : MonoBehaviour
 
     public void PlayParticleSystem()
     {
+        GetComponentInParent<Rigidbody2D>().velocity = (target - transform.position).normalized * speed;
+        if (ParticleMaterial) ps.GetComponent<ParticleSystemRenderer>().material = ParticleMaterial;
+        if(ParticleTrailMaterial) ps.GetComponent<ParticleSystemRenderer>().trailMaterial = ParticleMaterial;
         ps.Play();
     }
 }
