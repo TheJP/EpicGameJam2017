@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -30,9 +31,9 @@ public class HexagonGrid : MonoBehaviour
 
     void Awake()
     {
-       hexcellGameObject = HexagonCell.gameObject;
-       UpdateHexagonCellSize();
-       CreateGrid(Radius);
+        hexcellGameObject = HexagonCell.gameObject;
+        UpdateHexagonCellSize();
+        CreateGrid(Radius);
     }
 
     // Use this for initialization
@@ -45,11 +46,16 @@ public class HexagonGrid : MonoBehaviour
     {
         if (mustRedraw)
         {
-            print("redrawing"+hexagons.Count);
+            print("redrawing" + hexagons.Count);
             UpdateHexagonCellSize();
             CreateGrid(Radius);
             mustRedraw = false;
         }
+    }
+
+    void mkHexCell(float x, float y)
+    {
+        
     }
 
     void CreateGrid(int radius)
@@ -58,32 +64,33 @@ public class HexagonGrid : MonoBehaviour
         hexagons.ForEach(Destroy);
         hexagons.Clear();
 
-        var cellwidth = hexCellInnerRadius; //this should be 2*r ?!
-        var cellheight = HexCellOuterRadius * 1.5f / 2;
+        var cellwidth = hexCellInnerRadius * 2;
+        var cellheight = HexCellOuterRadius * 1.5f;
 
         var diam = radius * 2;
 
-        var nrows =  Mathf.RoundToInt(diam / cellheight) ;
+        var nrows = Mathf.RoundToInt(diam / cellheight);
         var ncols = Mathf.RoundToInt(diam / cellwidth);
+        if (nrows % 2 == 0) nrows++;
+        if (ncols % 2 == 0) ncols++;
 
-        var offsetX = -ncols * cellwidth / 2f - (ncols%2);
-        var offsetY = -nrows * cellheight / 2f - (nrows % 2) * cellheight /2f;
+        var offsetX = -ncols * cellwidth / 2f - cellwidth/2;
+        var offsetY = -nrows * cellheight / 2f + cellheight/2;
 
         for (var row = 0; row < nrows; row++)
         {
             for (var col = 0; col < ncols; col++)
             {
-                //offset from center + pos
 
-                    
-                var x =  offsetX + cellwidth/2 + col * cellwidth + (row % 2f) * cellwidth / 2f;
-                var y =  offsetY + row * cellheight;
+                //every second row is additionally offset by half to the right
+                var x = offsetX + col * cellwidth + (row % 2f) * cellwidth / 2f;
+                var y = offsetY + row * cellheight;
 
                 //make sure cell is fully within circle (0,Radius)
                 //var xx = Mathf.Abs(x) + hexCellInnerRadius;
                 //var yy = Mathf.Abs(y) + HexCellOuterRadius;
                 //if (xx*xx+yy*yy >= Radius * Radius) continue;
-                if(x*x +y*y >= Radius*Radius) continue; //center not within circle
+                if (x * x + y * y > Radius * Radius + 2) continue; //center not within circle
 
                 var hexcell = Instantiate(hexcellGameObject, transform);
                 hexcell.GetComponent<HexagonCell>().SetPosition(x, y);
