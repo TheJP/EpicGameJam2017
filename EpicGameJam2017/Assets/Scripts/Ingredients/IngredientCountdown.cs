@@ -7,6 +7,7 @@ public class IngredientCountdown : MonoBehaviour
 {
     private float startTime;
     private Ingredient ingredient;
+    private HexagonCell hexagonCell;
     private int countdownStart = 5;
     public int Countdown
     {
@@ -16,10 +17,11 @@ public class IngredientCountdown : MonoBehaviour
 
     public Text text;
 
-    public void RefreshCountdown(int countdown, Ingredient ingredient)
+    public void RefreshCountdown(int countdown, Ingredient ingredient, HexagonCell hexagonCell)
     {
         countdownStart = countdown;
         this.ingredient = ingredient;
+        this.hexagonCell = hexagonCell;
         startTime = Time.time;
     }
 
@@ -38,7 +40,7 @@ public class IngredientCountdown : MonoBehaviour
         // Update text and remove after countdown finished
         if (Countdown <= 0)
         {
-            if (ingredient != null) { ingredient.TimeUp(); }
+            if (ingredient != null) { ingredient.TimeUp(hexagonCell); }
             Destroy(gameObject);
             return;
         }
