@@ -5,10 +5,7 @@ using UnityEngine;
 public class MuzzleRotation
   : MonoBehaviour
 {
-  public Players player;
-  
-  public float rotationArc = 90.0f;
-  public float rotationSpeed = 60.0f;
+  private Cannon cannon;
 
   private float currentRotation;
   private float maxRotationLeft;
@@ -17,18 +14,20 @@ public class MuzzleRotation
 	// Use this for initialization
 	void Start ()
 	{
+	  cannon = GetComponentInParent<Cannon>();
+
 	  currentRotation = 0;
 
-	  maxRotationLeft = rotationArc / 2;
-	  maxRotationRight = -rotationArc / 2;
+	  maxRotationLeft = cannon.rotationArc / 2;
+	  maxRotationRight = -cannon.rotationArc / 2;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-	  if(Input.GetButton(Constants.LeftButton + player))
+	  if(Input.GetButton(Constants.LeftButton + cannon.player))
 	  {
-	    var rotation = Time.deltaTime * rotationSpeed;
+	    var rotation = Time.deltaTime * cannon.rotationSpeed;
 	    currentRotation += rotation;
 
 	    if(currentRotation > maxRotationLeft)
@@ -37,11 +36,11 @@ public class MuzzleRotation
 	      currentRotation = maxRotationLeft;
 	    }
 
-	    transform.RotateAround(Vector3.zero, Vector3.forward, rotation);
+	    transform.RotateAround(Vector3.zero, transform.forward, rotation);
     }
-    else if(Input.GetButton(Constants.RightButton + player))
+    else if(Input.GetButton(Constants.RightButton + cannon.player))
 	  {
-	    var rotation = Time.deltaTime * -rotationSpeed;
+	    var rotation = Time.deltaTime * -cannon.rotationSpeed;
 	    currentRotation += rotation;
       
 	    if(currentRotation < maxRotationRight)
@@ -50,7 +49,7 @@ public class MuzzleRotation
 	      currentRotation = maxRotationRight;
 	    }
 
-	    transform.RotateAround(Vector3.zero, Vector3.forward, rotation);
+	    transform.RotateAround(Vector3.zero, transform.forward, rotation);
     }
 	}
 }

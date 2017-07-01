@@ -117,6 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 268921545}
   - component: {fileID: 268921546}
+  - component: {fileID: 268921547}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -131,7 +132,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 268921544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 683202241}
@@ -178,6 +179,17 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
+--- !u!114 &268921547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 268921544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf52daba041d7b4fa1dced627708fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &452031884
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +269,6 @@ GameObject:
   m_Component:
   - component: {fileID: 683202241}
   - component: {fileID: 683202243}
-  - component: {fileID: 683202242}
   - component: {fileID: 683202244}
   m_Layer: 0
   m_Name: Muzzle
@@ -272,34 +283,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 683202240}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 268921545}
   m_Father: {fileID: 1645263257}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!50 &683202242
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 683202240}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &683202243
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -352,9 +343,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f42ad9460aead458759095e6c4ae70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 0
-  rotationArc: 90
-  rotationSpeed: 60
 --- !u!1 &1517766495
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,8 +440,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1645263257}
+  - component: {fileID: 1645263258}
   m_Layer: 0
-  m_Name: Canon
+  m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -474,6 +463,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1645263258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1645263256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ee75a199f8f794bafa8113beff1082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: 0
+  rotationArc: 90
+  rotationSpeed: 60
+  maxFireDistance: 6
+  fireDistanceSpeed: 2
 --- !u!1 &1657471233
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +488,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1657471236}
   - component: {fileID: 1657471235}
-  - component: {fileID: 1657471234}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -491,26 +495,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!50 &1657471234
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1657471233}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!212 &1657471235
 SpriteRenderer:
   m_ObjectHideFlags: 0
