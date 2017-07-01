@@ -8,6 +8,8 @@ public class Toothpick : MonoBehaviour
     [Tooltip("Speed in game units per second")]
     public float speed;
 
+    public Unicorn Thrower { get; set; }
+
     public void Update()
     {
         GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity.normalized * speed;
@@ -21,6 +23,14 @@ public class Toothpick : MonoBehaviour
         {
             // Collision with other ingredients or with the bowl kills the toothpick
             Destroy(gameObject);
+        }
+        if (collision.gameObject == Thrower.gameObject) { return; }
+        var unicorn = collision.gameObject.GetComponent<Unicorn>();
+        if(unicorn != null)
+        {
+            unicorn.Stun();
+            Destroy(gameObject);
+
         }
     }
 }

@@ -8,7 +8,7 @@ using UnityEngine.Assertions;
 [RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
 public class HexagonCell : MonoBehaviour
 {
-    public Players? Player = null;
+    public Players? Player = Players.A;
     public bool Outline = true; //TODO
     public int col;
     public int row;

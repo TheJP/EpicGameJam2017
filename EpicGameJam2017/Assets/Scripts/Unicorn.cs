@@ -30,8 +30,14 @@ public class Unicorn : MonoBehaviour
     [Tooltip("Prefab of the toothpick which is used in the toothpick ability")]
     public Toothpick toothpickPrefab;
 
+    [Tooltip("Amount of seconds that this unicorn is stunned (e.g. if it is hit by a toothpick)")]
+    public float stunDuration = 1f;
+
     private Ingredient ingredient = null;
     private Controller controller = null;
+
+    /// <summary>Time, when the unicorn was stunned.</summary>
+    private float stunTime;
 
     /// <summary>Ingredient, which this unicorn currently carries.</summary>
     public Ingredient CarryIngredient { get { return ingredient; } }
@@ -56,6 +62,7 @@ public class Unicorn : MonoBehaviour
     public void Awake()
     {
         SpeedForce = speedForce;
+        stunTime = -2 * stunDuration; // No stun at the beginning
         controller = FindObjectOfType<Controller>();
         if(controller == null) { throw new System.ArgumentException(); }
         abilityHolderPositionDifference = abilityHolder.transform.position - transform.position;
@@ -63,7 +70,7 @@ public class Unicorn : MonoBehaviour
 
     public void Update()
     {
-        if (controlsActive && Input.GetButtonDown(Constants.SpecialButton + player))
+        if (!IsStunned && controlsActive && Input.GetButtonDown(Constants.SpecialButton + player))
         {
             // Place ingredient
             if(ingredient != null)
@@ -95,22 +102,28 @@ public class Unicorn : MonoBehaviour
 
             body.velocity = ForwardVelocity() + driftFactor * RightVelocity();
 
-            // Turn unicorn
-            body.angularVelocity = Input.GetAxis(Constants.HorizontalAxis + player) * turnSpeed;
-            // Accelerate unicorn
-            if (Input.GetButton(Constants.ActionButton + player))
+            if (!IsStunned)
             {
-                body.AddForce(transform.up * SpeedForce, ForceMode2D.Force);
+                // Turn unicorn
+                body.angularVelocity = Input.GetAxis(Constants.HorizontalAxis + player) * turnSpeed;
+                // Accelerate unicorn
+                if (Input.GetButton(Constants.ActionButton + player))
+                {
+                    body.AddForce(transform.up * SpeedForce, ForceMode2D.Force);
+                }
             }
         }
     }
 
     private void LateUpdate()
     {
+        // Hold the ingredient on the horn
         if(ingredient != null)
         {
             ingredient.transform.position = marker.position;
         }
+
+        // Hold the white box (ability holder) in the right position and rotation
         abilityHolder.transform.position = transform.position + abilityHolderPositionDifference;
         abilityHolder.transform.rotation = Quaternion.identity;
     }
@@ -134,5 +147,17 @@ public class Unicorn : MonoBehaviour
     {
         var toothpick = Instantiate(toothpickPrefab, transform.position, transform.rotation);
         toothpick.GetComponent<Rigidbody2D>().velocity = transform.up;
+        toothpick.Thrower = this;
+    }
+
+    public bool IsStunned
+    {
+        get { return Time.time < stunTime + stunDuration; }
+    }
+
+    public void Stun()
+    {
+        // TODO: Visualize stunned!
+        stunTime = Time.time;
     }
 }
