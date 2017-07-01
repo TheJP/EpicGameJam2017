@@ -288,7 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityIcon: {fileID: 212749256488438598}
   toothpickSprite: {fileID: 21300000, guid: 804aef955e0067f408e932ebc4ad1f92, type: 3}
-  nimbbusSprite: {fileID: 0}
+  nimbbusSprite: {fileID: 21300000, guid: 42593c1069525c04c9959aaa9524e882, type: 3}
 --- !u!212 &212178559211231012
 SpriteRenderer:
   m_ObjectHideFlags: 1
