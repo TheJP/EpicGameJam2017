@@ -8,7 +8,7 @@ using UnityEngine.Assertions;
 [RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
 public class HexagonCell : MonoBehaviour
 {
-    public Players? Player = null;
+    public Players Player = Players.None;
     public bool Outline = true; //TODO
     public int col;
     public int row;
@@ -41,8 +41,7 @@ public class HexagonCell : MonoBehaviour
 
     private void Update()
     {
-        GetComponent<MeshRenderer>().material.color = 
-            Player.HasValue ? Constants.PlayerColors[Player.Value] : Constants.defaultColor;
+        GetComponent<MeshRenderer>().material.color = Constants.PlayerColors[Player];
     }
 
     void OnParticleCollision(GameObject other)

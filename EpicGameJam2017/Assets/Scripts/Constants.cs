@@ -25,11 +25,10 @@ public static class Constants
 
     public static readonly Dictionary<Players, Color> PlayerColors = new Dictionary<Players, Color>()
     {
+        {Players.None, new Color(0,0,0,0)},
         {Players.A, Color.yellow},
         {Players.B, Color.blue}
     };
-
-    public static readonly Color defaultColor = new Color(0f, 0f, 0f, 0f);
 
 
 }
