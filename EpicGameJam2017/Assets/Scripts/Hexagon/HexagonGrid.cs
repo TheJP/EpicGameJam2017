@@ -89,6 +89,7 @@ public class HexagonGrid : MonoBehaviour
     {
         var hexcell = Instantiate(hexcellGameObject, new Vector3(x, y, transform.position.z), Quaternion.identity, transform);
         hexcell.GetComponent<HexagonCell>().SetGridPosition(col, row);
+        hexcell.gameObject.layer = gameObject.layer;
         hexagons.Add(hexcell);
     }
 
