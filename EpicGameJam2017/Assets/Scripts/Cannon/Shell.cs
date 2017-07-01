@@ -7,6 +7,9 @@ public class Shell : MonoBehaviour
     [Tooltip("Distance at which the bullet will explode into fragments")]
     public float distanceToExplode = 2;
 
+    public Material ParticleMaterial;
+    public Material ParticleTrailMaterial;
+
     public Players Player;
 
     private Vector3 target;
@@ -54,12 +57,9 @@ public class Shell : MonoBehaviour
 
     public void PlayParticleSystem()
     {
-        var customData = ps.customData;
-        customData.enabled = true;
-        var color = Constants.PlayerColors[Player];
-
-        customData.SetMode(ParticleSystemCustomData.Custom1, UnityEngine.ParticleSystemCustomDataMode.Color);
-        customData.SetColor(ParticleSystemCustomData.Custom1, color);
+        GetComponentInParent<Rigidbody2D>().velocity = (target - transform.position).normalized * speed;
+        if (ParticleMaterial) ps.GetComponent<ParticleSystemRenderer>().material = ParticleMaterial;
+        if(ParticleTrailMaterial) ps.GetComponent<ParticleSystemRenderer>().trailMaterial = ParticleMaterial;
         ps.Play();
     }
 }
