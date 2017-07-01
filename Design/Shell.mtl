@@ -1,0 +1,12 @@
+# Blender MTL File: 'Shell.blend'
+# Material Count: 1
+
+newmtl Material.001
+Ns 29.411765
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.012594 0.018931
+Ks 0.135135 0.135135 0.135135
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2

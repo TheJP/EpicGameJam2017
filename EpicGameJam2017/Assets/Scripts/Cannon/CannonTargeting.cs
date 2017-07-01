@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class CannonTargeting : MonoBehaviour
 {
+  [Tooltip("The shell that will be copied and fired")]
+  public GameObject shell;
+
+  private bool isFiringAllowed;
   private bool isFiring;
   private float firingDistance;
-  private Cannon cannon;
+  private CannonWaggon cannon;
 
 	// Use this for initialization
 	void Start()
 	{
-	  cannon = GetComponentInParent<Cannon>();
+	  cannon = GetComponentInParent<CannonWaggon>();
 	}
 	
 	// Update is called once per frame
 	void Update ()
   {
-    if(Input.GetButton(Constants.ActionButton + cannon.player))
+    if(isFiringAllowed && Input.GetButton(Constants.ActionButton + cannon.player))
     {
       // The button is being pressed, increase the distance we will fire
       isFiring = true;
@@ -30,7 +34,7 @@ public class CannonTargeting : MonoBehaviour
         firingDistance = cannon.maxFireDistance;
       }
 
-      transform.position += transform.up * distance;
+      transform.position += -transform.right * distance;
     }
     else if(isFiring)
     {
@@ -38,12 +42,23 @@ public class CannonTargeting : MonoBehaviour
 
       // The button was raised and we are currently in firing modus and thus should fire
       isFiring = false;
-      transform.position -= transform.up * firingDistance;
+      transform.position -= -transform.right * firingDistance;
       firingDistance = 0;
 
-      var shellBody = Instantiate(cannon.shell, transform.position, transform.rotation);
+      var shellBody = Instantiate(this.shell, transform.position, transform.rotation);
       var shell = shellBody.GetComponent<Shell>();
       shell.Goto(target, 10.0f);
     }
 	}
+
+  public void EnableFiring()
+  {
+    isFiringAllowed = true;
+  }
+
+  public void DisableFiring()
+  {
+    isFiringAllowed = false;
+    isFiring = false;
+  }
 }
