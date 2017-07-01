@@ -66,10 +66,10 @@ public class Unicorn : MonoBehaviour
                     ingredient = null;
                 }
             }
-            // TODO: Activate powerup
+            // Activate powerup (only works if slot is not empty)
             else
             {
-
+                abilityHolder.CastAbility(this);
             }
         }
         // Switch between unicorn and train

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 public static class Constants
 {
@@ -21,4 +22,14 @@ public static class Constants
     /// Horizontal Axis. Train: Move turret head left / right, Unicorn: Turn left / right
     /// </summary>
     public const string HorizontalAxis = "Horizontal";
+
+    /// <summary>
+    /// Dictionary that associates players with their color.
+    /// (Warning: This dictionary is potentially mutable, but the values are not intended to be changed at runtime!)
+    /// </summary>
+    public static readonly Dictionary<Players, Color> PlayerColors = new Dictionary<Players, Color>()
+    {
+        {Players.A, Color.yellow},
+        {Players.B, Color.blue}
+    };
 }
