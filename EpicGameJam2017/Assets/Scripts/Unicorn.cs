@@ -23,7 +23,7 @@ public class Unicorn : MonoBehaviour
     public Transform marker;
 
     [Tooltip("Box that stores the unicorn ability until it is used")]
-    public GameObject abilityHolder;
+    public AbilityHolder abilityHolder;
 
     private Ingredient ingredient = null;
     private Controller controller = null;
