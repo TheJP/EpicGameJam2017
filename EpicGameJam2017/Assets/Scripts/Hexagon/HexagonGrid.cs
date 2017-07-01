@@ -47,8 +47,8 @@ public class HexagonGrid : MonoBehaviour
 
                 //place hexagon at x,y
                 var hexcell = Instantiate(hexcellGameObject, transform);
-                hexcell.GetComponent<HexagonCell>().setPosition(x, y);
-                hexcell.SetGridPosition(col, row);
+                hexcell.GetComponent<HexagonCell>().SetPosition(x, y);
+                hexcell.GetComponent<HexagonCell>().SetGridPosition(col, row);
                 hexagons.Add(hexcell);
             }
         }
