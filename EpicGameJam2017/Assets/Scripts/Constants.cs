@@ -18,11 +18,7 @@ public static class Constants
     /// </summary>
     public const string SpecialButton = "Special";
     /// <summary>
-    /// Left Button. Train: Move turret head left, Unicorn: Turn left
+    /// Horizontal Axis. Train: Move turret head left / right, Unicorn: Turn left / right
     /// </summary>
-    public const string LeftButton = "Left";
-    /// <summary>
-    /// Right Button. Train: Move turret head right, Unicorn: Turn right
-    /// </summary>
-    public const string RightButton = "Right";
+    public const string HorizontalAxis = "Horizontal";
 }
