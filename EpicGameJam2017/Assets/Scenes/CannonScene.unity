@@ -302,6 +302,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: 0
+  rotationArc: 90
+  rotationSpeed: 60
+  maxFireDistance: 15
+  fireDistanceSpeed: 10
+  shell: {fileID: 1324623586809008, guid: 364ee3a7158019249a261dca5d3d0718, type: 2}
   tomatoCannon: {fileID: 2076677344}
   cheeseCannon: {fileID: 1129470928}
 --- !u!1 &1129470926
@@ -572,7 +577,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 426761086}
-  - component: {fileID: 1550761457}
   m_Layer: 0
   m_Name: CheeseCannon
   m_TagString: Untagged
@@ -580,24 +584,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1550761457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114673461762870644, guid: 6f4b27302227c314681d2f9eb48184ba,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1550761456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ee75a199f8f794bafa8113beff1082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: 0
-  rotationArc: 90
-  rotationSpeed: 60
-  maxFireDistance: 6
-  fireDistanceSpeed: 10
-  shell: {fileID: 1324623586809008, guid: 364ee3a7158019249a261dca5d3d0718, type: 2}
 --- !u!1001 &1561074700
 Prefab:
   m_ObjectHideFlags: 0
@@ -696,7 +682,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1131053718}
-  - component: {fileID: 1876959971}
   m_Layer: 0
   m_Name: TomatoCannon
   m_TagString: Untagged
@@ -704,24 +689,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1876959971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114673461762870644, guid: 6f4b27302227c314681d2f9eb48184ba,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1876959970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ee75a199f8f794bafa8113beff1082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: 0
-  rotationArc: 90
-  rotationSpeed: 60
-  maxFireDistance: 6
-  fireDistanceSpeed: 10
-  shell: {fileID: 1324623586809008, guid: 364ee3a7158019249a261dca5d3d0718, type: 2}
 --- !u!1 &2076677342
 GameObject:
   m_ObjectHideFlags: 0

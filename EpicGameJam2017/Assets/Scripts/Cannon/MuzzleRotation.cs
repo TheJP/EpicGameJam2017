@@ -5,7 +5,7 @@ using UnityEngine;
 public class MuzzleRotation
   : MonoBehaviour
 {
-  private Cannon cannon;
+  private CannonWaggon cannon;
 
   private float currentRotation;
   private float maxRotationLeft;
@@ -14,7 +14,7 @@ public class MuzzleRotation
 	// Use this for initialization
 	void Start ()
 	{
-	  cannon = GetComponentInParent<Cannon>();
+	  cannon = GetComponentInParent<CannonWaggon>();
 
 	  currentRotation = 0;
 

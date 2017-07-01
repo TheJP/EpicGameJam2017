@@ -7,12 +7,12 @@ public class CannonTargeting : MonoBehaviour
   private bool isFiringAllowed;
   private bool isFiring;
   private float firingDistance;
-  private Cannon cannon;
+  private CannonWaggon cannon;
 
 	// Use this for initialization
 	void Start()
 	{
-	  cannon = GetComponentInParent<Cannon>();
+	  cannon = GetComponentInParent<CannonWaggon>();
 	}
 	
 	// Update is called once per frame
