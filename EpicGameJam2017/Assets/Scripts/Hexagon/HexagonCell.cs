@@ -13,16 +13,9 @@ public class HexagonCell : MonoBehaviour
     public int col;
     public int row;
 
-    private static readonly Dictionary<Players, Color> PlayerColors = new Dictionary<Players, Color>()
-    {
-        {Players.A, Color.yellow},
-        {Players.B, Color.blue}
-    };
-
     private Mesh mesh;
     private List<Vector3> vertices = new List<Vector3>();
     private List<int> triangles = new List<int>();
-    private static readonly Color defaultColor = new Color(0f, 0f, 0f, 0f);
     private PolygonCollider2D collider2D;
     private HexagonGrid grid;
 
@@ -48,7 +41,19 @@ public class HexagonCell : MonoBehaviour
 
     private void Update()
     {
-        GetComponent<MeshRenderer>().material.color = Player.HasValue ? PlayerColors[Player.Value] : defaultColor;
+        GetComponent<MeshRenderer>().material.color = 
+            Player.HasValue ? Constants.PlayerColors[Player.Value] : Constants.defaultColor;
+    }
+
+    void OnParticleCollision(GameObject other)
+    {
+        Rigidbody body = other.GetComponent<Rigidbody>();
+        ParticleSystem ps = other.GetComponent<ParticleSystem>();
+        if (body)
+        {
+           print("particle collision! particleSystem="+ps);
+
+        }
     }
 
     public void Redraw()
