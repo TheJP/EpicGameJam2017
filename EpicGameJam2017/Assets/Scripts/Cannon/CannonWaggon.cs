@@ -5,13 +5,19 @@ using UnityEngine;
 public class CannonWaggon : MonoBehaviour
 {
   public Players player;
+  
+  public CannonTargeting tomatoCannon;
+  public CannonTargeting cheeseCannon;
 
-  public Cannon tomatoCannon;
-  public Cannon cheeseCannon;
+  private bool isTomatoFiring;
 
 	// Use this for initialization
 	void Start ()
-  {
+	{
+	  tomatoCannon.EnableFiring();
+	  cheeseCannon.DisableFiring();
+
+	  isTomatoFiring = true;
 	}
 	
 	// Update is called once per frame
@@ -19,6 +25,18 @@ public class CannonWaggon : MonoBehaviour
   {
     if(Input.GetButtonDown(Constants.SpecialButton + player))
     {
+      if(isTomatoFiring)
+      {
+        tomatoCannon.DisableFiring();
+        cheeseCannon.EnableFiring();
+      }
+      else
+      {
+        tomatoCannon.EnableFiring();
+        cheeseCannon.DisableFiring();
+      }
+
+      isTomatoFiring = !isTomatoFiring;
     }
 	}
 }

@@ -266,6 +266,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 811206054}
+  - component: {fileID: 811206055}
   m_Layer: 0
   m_Name: CannonWagon
   m_TagString: Untagged
@@ -289,6 +290,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &811206055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 811206053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1235c85a01b98744b179bc0c04f1146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: 0
+  tomatoCannon: {fileID: 2076677344}
+  cheeseCannon: {fileID: 1129470928}
 --- !u!1 &1129470926
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CannonTargeting : MonoBehaviour
 {
+  private bool isFiringAllowed;
   private bool isFiring;
   private float firingDistance;
   private Cannon cannon;
@@ -17,7 +18,7 @@ public class CannonTargeting : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
   {
-    if(Input.GetButton(Constants.ActionButton + cannon.player))
+    if(isFiringAllowed && Input.GetButton(Constants.ActionButton + cannon.player))
     {
       // The button is being pressed, increase the distance we will fire
       isFiring = true;
@@ -46,4 +47,15 @@ public class CannonTargeting : MonoBehaviour
       shell.Goto(target, 10.0f);
     }
 	}
+
+  public void EnableFiring()
+  {
+    isFiringAllowed = true;
+  }
+
+  public void DisableFiring()
+  {
+    isFiringAllowed = false;
+    isFiring = false;
+  }
 }
