@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
     [Tooltip("Type of this ingredient")]
-    public Indgredients type;
+    public Ingredients type;
 
     [Tooltip("GameObject that will be activated before destroying this object")]
     public GameObject splash;
@@ -14,9 +15,25 @@ public class Ingredient : MonoBehaviour
     [Tooltip("Time to wait until ingredient is destroyed")]
     public float splashDuration = 1.5f;
 
+    private static readonly Dictionary<Ingredients, Func<Unicorn, bool>> rewards = new Dictionary<Ingredients, Func<Unicorn, bool>>()
+    {
+        { Ingredients.Olive, unicorn => unicorn.abilityHolder.SetToothpickAbility() }
+    };
+
     public void TimeUp(HexagonCell hexagonCell)
     {
-        // TODO: Give player score and init animation
+        // Give player the reward specified by the ingredient
+        if (hexagonCell.Player.HasValue)
+        {
+            if (!rewards.ContainsKey(type)) { Debug.LogWarning("Ingredient '" + type + "' does not have a reward defined"); }
+            else
+            {
+                var unicorn = FindObjectsOfType<Unicorn>().FirstOrDefault(u => u.player == hexagonCell.Player.Value);
+                if (unicorn != null && !rewards[type](unicorn)) { Debug.LogWarning("Reward could not be provided successfully for '" + type + "'"); }
+            }
+        }
+
+        // Destroy ingredient
         if (splash == null)
         {
             Destroy(gameObject);

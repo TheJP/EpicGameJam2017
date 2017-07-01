@@ -22,11 +22,20 @@ public class Unicorn : MonoBehaviour
     [Tooltip("Marks the tip of the green horn")]
     public Transform marker;
 
+    [Tooltip("Box that stores the unicorn ability until it is used")]
+    public AbilityHolder abilityHolder;
+
     private Ingredient ingredient = null;
     private Controller controller = null;
 
     /// <summary>Ingredient, which this unicorn currently carries.</summary>
     public Ingredient CarryIngredient { get { return ingredient; } }
+
+    /// <summary>
+    /// Stores the difference between unicorn and ability holder position,
+    /// so the position of the ability holder relative to the unicorn can later be restored
+    /// </summary>
+    private Vector3 abilityHolderPositionDifference;
 
     /// <summary>Set the given ingredient to belong to this unicorn.</summary>
     public bool SetIngredient(Ingredient ingredient)
@@ -41,6 +50,7 @@ public class Unicorn : MonoBehaviour
     {
         controller = FindObjectOfType<Controller>();
         if(controller == null) { throw new System.ArgumentException(); }
+        abilityHolderPositionDifference = abilityHolder.transform.position - transform.position;
     }
 
     public void Update()
@@ -93,6 +103,8 @@ public class Unicorn : MonoBehaviour
         {
             ingredient.transform.position = marker.position;
         }
+        abilityHolder.transform.position = transform.position + abilityHolderPositionDifference;
+        abilityHolder.transform.rotation = Quaternion.identity;
     }
 
     /// <summary>Forward part of the velocity</summary>
