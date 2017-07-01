@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 public class ToothpickAbility : Ability
 {
     public void Cast(Unicorn caster)
     {
-        throw new NotImplementedException();
+        Debug.Log("picking tooths");
     }
 }

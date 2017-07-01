@@ -21,6 +21,7 @@ public class AbilityHolder : MonoBehaviour
         if(ability == null) { return; }
         ability.Cast(caster);
         ability = null;
+        abilityIcon.sprite = null;
     }
 
     /// <summary>Sets the toothpick ability into this slot if it is free.</summary>

@@ -8,16 +8,10 @@ using UnityEngine.Assertions;
 [RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
 public class HexagonCell : MonoBehaviour
 {
-    public Players? Player = null;
+    public Players? Player = Players.A;
     public bool Outline = true; //TODO
     public int col;
     public int row;
-
-    private static readonly Dictionary<Players, Color> PlayerColors = new Dictionary<Players, Color>()
-    {
-        {Players.A, Color.yellow},
-        {Players.B, Color.blue}
-    };
 
     private Mesh mesh;
     private List<Vector3> vertices = new List<Vector3>();
@@ -48,7 +42,7 @@ public class HexagonCell : MonoBehaviour
 
     private void Update()
     {
-        GetComponent<MeshRenderer>().material.color = Player.HasValue ? PlayerColors[Player.Value] : defaultColor;
+        GetComponent<MeshRenderer>().material.color = Player.HasValue ? Constants.PlayerColors[Player.Value] : defaultColor;
     }
 
     public void Redraw()
