@@ -30,10 +30,7 @@ public class Unicorn : MonoBehaviour
     {
         if(this.ingredient != null) { return false; }
         this.ingredient = ingredient;
-        foreach (var collider in ingredient.GetComponentsInChildren<Collider2D>())
-        {
-            collider.enabled = false;
-        }
+        ingredient.SetCollidersActive(false);
         return true;
     }
 
@@ -50,10 +47,7 @@ public class Unicorn : MonoBehaviour
             // Place ingredient
             if(ingredient != null)
             {
-                foreach(var collider in ingredient.GetComponentsInChildren<Collider2D>())
-                {
-                    collider.enabled = true;
-                }
+                ingredient.WaitThenActivateColliders(1f);
                 controller.DropIngredientOnPizza(ingredient);
                 ingredient = null;
             }
