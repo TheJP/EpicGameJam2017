@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework.Constraints;
 using UnityEngine.Assertions;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(PolygonCollider2D))]
 [RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
 public class HexagonCell : MonoBehaviour
 {
@@ -47,14 +47,32 @@ public class HexagonCell : MonoBehaviour
 
     void OnParticleCollision(GameObject other)
     {
+
         Rigidbody body = other.GetComponent<Rigidbody>();
         ParticleSystem ps = other.GetComponent<ParticleSystem>();
-        if (body)
+        if (ps)
         {
-           print("particle collision! particleSystem="+ps);
+            var color = ps.customData.GetColor(ParticleSystemCustomData.Custom1);
+            Player = Constants.PlayerColors.FirstOrDefault(c => c.Value.Equals(color)).Key;
 
+            print(Player);
         }
     }
+
+    void OnParticleTrigger()
+    {
+
+        ParticleSystem ps = GetComponent<ParticleSystem>();
+
+      
+        if (ps)
+        {
+            Debug.Log("particle trigger! particleSystem");
+
+
+        } else print("null");
+    }
+
 
     public void Redraw()
     {
