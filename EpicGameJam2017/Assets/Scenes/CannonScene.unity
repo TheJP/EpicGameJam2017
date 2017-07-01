@@ -478,4 +478,4 @@ MonoBehaviour:
   rotationArc: 90
   rotationSpeed: 60
   maxFireDistance: 6
-  fireDistanceSpeed: 2
+  fireDistanceSpeed: 10
