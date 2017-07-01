@@ -52,11 +52,6 @@ public class HexagonGrid : MonoBehaviour
         }
     }
 
-    void mkHexCell(float x, float y)
-    {
-        
-    }
-
     void CreateGrid(int radius)
     {
 
@@ -68,34 +63,78 @@ public class HexagonGrid : MonoBehaviour
 
         var diam = radius * 2;
 
-        var nrows = Mathf.RoundToInt(diam / cellheight);
-        var ncols = Mathf.RoundToInt(diam / cellwidth);
-        if (nrows % 2 == 0) nrows++;
-        if (ncols % 2 == 0) ncols++;
+        var nrows = Mathf.RoundToInt((diam + cellheight / 2) / cellheight);
+        var ncols = Mathf.RoundToInt((diam + cellwidth / 2) / cellwidth);
 
-        var offsetX = -ncols * cellwidth / 2f - cellwidth/2;
-        var offsetY = -nrows * cellheight / 2f + cellheight/2;
 
-        for (var row = 0; row < nrows; row++)
+
+        if ((ncols / 2) * cellwidth > Radius) ncols -= 2;
+        if ((nrows / 2) * cellheight > Radius) nrows -= 2;
+
+
+
+        var offsetX = -ncols * cellwidth / 2f - (1 - ncols % 2) * cellwidth / 2;
+        var offsetY = -nrows * cellheight / 2f + cellheight / 2;
+
+        print("col,rows = (" + ncols + "," + nrows + ")");
+
+        //for (var row = 0; row < nrows; row++)
+        //{
+        //    for (var col = 0; col < ncols; col++)
+        //    {
+
+        //        //every second row is additionally offset by half to the right
+        //        var x = offsetX + col * cellwidth + (row % 2) * cellwidth / 2f;
+        //        var y = offsetY + row * cellheight;
+
+
+        //        //make sure cell is fully within circle (0,Radius)
+        //        //var xx = Mathf.Abs(x) + hexCellInnerRadius;
+        //        //var yy = Mathf.Abs(y) + HexCellOuterRadius;
+        //        //if (xx*xx+yy*yy >= Radius * Radius) continue;
+        //        if (x * x + y * y > Radius * Radius) continue; //center not within circle
+
+        //        var hexcell = Instantiate(hexcellGameObject, new Vector3(x, y, transform.position.z), Quaternion.identity, transform);
+        //        hexagons.Add(hexcell);
+
+        //    }
+        //}
+
+        var dist = 0;
+        var y = 0f;
+        var row = 0;
+        while (y < radius)
         {
-            for (var col = 0; col < ncols; col++)
+
+            var col = row % 2 == 1 ? 1 : 0;
+            var x = row % 2 == 1 ? cellwidth / 2 : 0f;
+            while (x < radius)
             {
 
-                //every second row is additionally offset by half to the right
-                var x = offsetX + col * cellwidth + (row % 2f) * cellwidth / 2f;
-                var y = offsetY + row * cellheight;
+                if(x*x + y * y > radius * radius) break;
+                
+                mkHexCell(x,y,row,col);
 
-                //make sure cell is fully within circle (0,Radius)
-                //var xx = Mathf.Abs(x) + hexCellInnerRadius;
-                //var yy = Mathf.Abs(y) + HexCellOuterRadius;
-                //if (xx*xx+yy*yy >= Radius * Radius) continue;
-                if (x * x + y * y > Radius * Radius + 2) continue; //center not within circle
-                var hexcell = Instantiate(hexcellGameObject, new Vector3(x, y, transform.position.z), Quaternion.identity, transform);
-                hexcell.GetComponent<HexagonCell>().SetGridPosition(col, row);
-                hexagons.Add(hexcell);
+                //floating point compare is fine because var is initialized to 0
+                if (x != 0) mkHexCell(-x,y,row,-col);
+                if (y != 0)mkHexCell(x,-y,-row,col);
+                if(x!=0 && y!=0) mkHexCell(-x,-y,-row,-col);
+
+                x += cellwidth;
+                col++;
             }
+            y += cellheight;
+            row++;
+
         }
         Assert.IsTrue(hexagons.Exists(g => g.transform.localPosition == Vector3.zero));
+    }
+
+    private void mkHexCell(float x, float y, int row, int col)
+    {
+        var hexcell = Instantiate(hexcellGameObject, new Vector3(x, y, transform.position.z), Quaternion.identity, transform);
+        hexcell.GetComponent<HexagonCell>().SetGridPosition(col,row);
+        hexagons.Add(hexcell);
     }
 
     private void UpdateHexagonCellSize()

@@ -9,6 +9,8 @@ public class HexagonCell : MonoBehaviour
 {
     public Players Player = Players.A;
     public bool Outline = true; //TODO
+    public int col;
+    public int row;
 
     private static readonly Dictionary<Players, Color> PlayerColors = new Dictionary<Players, Color>()
     {
@@ -20,8 +22,6 @@ public class HexagonCell : MonoBehaviour
     private List<Vector3> vertices = new List<Vector3>();
     private List<int> triangles = new List<int>();
 
-    private int col;
-    private int row;
 
     void Awake()
     {
