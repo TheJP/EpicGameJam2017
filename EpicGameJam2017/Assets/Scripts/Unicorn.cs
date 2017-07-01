@@ -20,6 +20,7 @@ public class Unicorn : MonoBehaviour
     public float driftFactor = 0.25f;
 
     private Ingredient ingredient = null;
+    private Controller controller = null;
 
     /// <summary>Ingredient, which this unicorn currently carries.</summary>
     public Ingredient CarryIngredient { get { return ingredient; } }
@@ -29,11 +30,14 @@ public class Unicorn : MonoBehaviour
     {
         if(this.ingredient != null) { return false; }
         this.ingredient = ingredient;
-        foreach (var collider in ingredient.GetComponentsInChildren<Collider2D>())
-        {
-            collider.enabled = false;
-        }
+        ingredient.SetCollidersActive(false);
         return true;
+    }
+
+    public void Awake()
+    {
+        controller = FindObjectOfType<Controller>();
+        if(controller == null) { throw new System.ArgumentException(); }
     }
 
     public void Update()
@@ -43,10 +47,8 @@ public class Unicorn : MonoBehaviour
             // Place ingredient
             if(ingredient != null)
             {
-                foreach(var collider in ingredient.GetComponentsInChildren<Collider2D>())
-                {
-                    collider.enabled = true;
-                }
+                ingredient.WaitThenActivateColliders(1f);
+                controller.DropIngredientOnPizza(ingredient);
                 ingredient = null;
             }
             // TODO: Activate powerup
