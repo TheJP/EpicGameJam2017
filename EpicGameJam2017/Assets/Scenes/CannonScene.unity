@@ -1067,7 +1067,7 @@ Prefab:
         type: 2}
       propertyPath: shell
       value: 
-      objectReference: {fileID: 1324623586809008, guid: 364ee3a7158019249a261dca5d3d0718,
+      objectReference: {fileID: 1846508553761976, guid: a06f80d57c4080541a05d036f2ef056b,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31799ae299c2b2941b9948c6e12a5183, type: 2}
