@@ -7,7 +7,7 @@ using UnityEngine.Assertions;
 
 public class HexagonGrid : MonoBehaviour
 {
-    public int Radius;
+    public float Radius;
 
     public float HexCellOuterRadius = 3f; //TODO configurable via editor?
     public const float Outer2inner = 0.866025404f; //srt(3)/2
@@ -52,7 +52,7 @@ public class HexagonGrid : MonoBehaviour
         }
     }
 
-    void CreateGrid(int radius)
+    void CreateGrid(float radius)
     {
         hexagons.ForEach(Destroy);
         hexagons.Clear();
