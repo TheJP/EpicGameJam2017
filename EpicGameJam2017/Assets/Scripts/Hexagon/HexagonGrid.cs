@@ -63,19 +63,27 @@ public class HexagonGrid : MonoBehaviour
 
         var diam = radius * 2;
 
-        for (var row = 0; row < diam; row++)
+        var nrows =  Mathf.RoundToInt(diam / cellheight) ;
+        var ncols = Mathf.RoundToInt(diam / cellwidth);
+
+        var offsetX = -ncols * cellwidth / 2f - (ncols%2);
+        var offsetY = -nrows * cellheight / 2f - (nrows % 2) * cellheight /2f;
+
+        for (var row = 0; row < nrows; row++)
         {
-            for (var col = 0; col < diam; col++)
+            for (var col = 0; col < ncols; col++)
             {
                 //offset from center + pos
-                var x = -Radius * cellwidth + cellwidth/2 + col * cellwidth + (row % 2) * cellwidth / 2f;
-                var y = -Radius * cellheight  + row * cellheight;
+
+                    
+                var x =  offsetX + cellwidth/2 + col * cellwidth + (row % 2f) * cellwidth / 2f;
+                var y =  offsetY + row * cellheight;
 
                 //make sure cell is fully within circle (0,Radius)
-                //var xx = Mathf.Abs(x) + HexagonCell.innerRadius;
-                //var yy = Mathf.Abs(y) + HexagonCell.outerRadius;
-                //if (xx*xx+yy*yy > Radius * Radius) continue;
-                if(x*x +y*y > Radius*Radius) continue; //center not within circle
+                //var xx = Mathf.Abs(x) + hexCellInnerRadius;
+                //var yy = Mathf.Abs(y) + HexCellOuterRadius;
+                //if (xx*xx+yy*yy >= Radius * Radius) continue;
+                if(x*x +y*y >= Radius*Radius) continue; //center not within circle
 
                 var hexcell = Instantiate(hexcellGameObject, transform);
                 hexcell.GetComponent<HexagonCell>().SetPosition(x, y);
