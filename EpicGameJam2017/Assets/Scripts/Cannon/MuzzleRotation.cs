@@ -5,7 +5,7 @@ using UnityEngine;
 public class MuzzleRotation
   : MonoBehaviour
 {
-  private Cannon cannon;
+  private CannonWaggon cannon;
 
   private float currentRotation;
   private float maxRotationLeft;
@@ -14,7 +14,7 @@ public class MuzzleRotation
 	// Use this for initialization
 	void Start ()
 	{
-	  cannon = GetComponentInParent<Cannon>();
+	  cannon = GetComponentInParent<CannonWaggon>();
 
 	  currentRotation = 0;
 
@@ -27,7 +27,7 @@ public class MuzzleRotation
 	{
 	  var direction = Input.GetAxis(Constants.HorizontalAxis + cannon.player);
     
-	  var rotation = Time.deltaTime * cannon.rotationSpeed * direction;
+	  var rotation = Time.deltaTime * cannon.rotationSpeed * -direction;
 	  currentRotation += rotation;
       
 	  if(currentRotation < maxRotationRight)
@@ -42,6 +42,6 @@ public class MuzzleRotation
 	    currentRotation = maxRotationLeft;
 	  }
 
-    transform.RotateAround(Vector3.zero, transform.forward, rotation);
+    transform.RotateAround(new Vector3(transform.position.x, transform.parent.position.y), transform.forward, rotation);
 	}
 }
