@@ -20,6 +20,7 @@ public class Unicorn : MonoBehaviour
     public float driftFactor = 0.25f;
 
     private Ingredient ingredient = null;
+    private Controller controller = null;
 
     /// <summary>Ingredient, which this unicorn currently carries.</summary>
     public Ingredient CarryIngredient { get { return ingredient; } }
@@ -36,6 +37,12 @@ public class Unicorn : MonoBehaviour
         return true;
     }
 
+    public void Awake()
+    {
+        controller = FindObjectOfType<Controller>();
+        if(controller == null) { throw new System.ArgumentException(); }
+    }
+
     public void Update()
     {
         if (controlsActive && Input.GetButtonDown(Constants.SpecialButton + player))
@@ -47,6 +54,7 @@ public class Unicorn : MonoBehaviour
                 {
                     collider.enabled = true;
                 }
+                controller.DropIngredientOnPizza(ingredient);
                 ingredient = null;
             }
             // TODO: Activate powerup
