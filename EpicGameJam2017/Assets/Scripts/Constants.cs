@@ -32,4 +32,9 @@ public static class Constants
         {Players.A, Color.yellow},
         {Players.B, Color.blue}
     };
+
+    /// <summary>
+    /// Color to use if no player is available
+    /// </summary>
+    public static readonly Color defaultColor = new Color(0,0,0,0);
 }

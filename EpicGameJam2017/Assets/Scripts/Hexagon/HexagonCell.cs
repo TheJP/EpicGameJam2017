@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using NUnit.Framework.Constraints;
 using UnityEngine.Assertions;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(PolygonCollider2D))]
 [RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
 public class HexagonCell : MonoBehaviour
 {
@@ -16,7 +16,6 @@ public class HexagonCell : MonoBehaviour
     private Mesh mesh;
     private List<Vector3> vertices = new List<Vector3>();
     private List<int> triangles = new List<int>();
-    private static readonly Color defaultColor = new Color(0f, 0f, 0f, 0f);
     private PolygonCollider2D collider2D;
     private HexagonGrid grid;
 
@@ -33,17 +32,24 @@ public class HexagonCell : MonoBehaviour
     void Start()
     {
         Redraw();
-        //TODO
-        if (Outline)
-        {
-
-        }
     }
 
     private void Update()
     {
-        GetComponent<MeshRenderer>().material.color = Player.HasValue ? Constants.PlayerColors[Player.Value] : defaultColor;
+        GetComponent<MeshRenderer>().material.color =
+            Player.HasValue? Constants.PlayerColors[Player.Value] : Constants.defaultColor;
     }
+
+    void OnParticleCollision(GameObject other)
+    {
+        ParticleSystem ps = other.GetComponent<ParticleSystem>();
+        if (ps)
+        {
+            Player = ps.gameObject.GetComponentInParent<Shell>().Player;
+            print("shot by Player" + Player);
+        }
+    }
+
 
     public void Redraw()
     {

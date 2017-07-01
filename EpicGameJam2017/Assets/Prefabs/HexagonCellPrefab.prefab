@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 114030289696725118}
   - component: {fileID: 23737862313039768}
   - component: {fileID: 33151859371212040}
-  - component: {fileID: 50070895116415896}
-  - component: {fileID: 60924647816471202}
+  - component: {fileID: 50486624959181498}
+  - component: {fileID: 60184142513065242}
   m_Layer: 0
   m_Name: HexagonCellPrefab
   m_TagString: Untagged
@@ -83,7 +83,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1729454595760106}
   m_Mesh: {fileID: 0}
---- !u!50 &50070895116415896
+--- !u!50 &50486624959181498
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -103,7 +103,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &60924647816471202
+--- !u!60 &60184142513065242
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
