@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf997d0415854c45be55ca3acc6ab39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Radius: 4
+  Radius: 3.5
   HexCellOuterRadius: 0.1
   HexagonCell: {fileID: 114030289696725118, guid: 0dc4672bbc8cbd44faf495ab8455f0e0,
     type: 2}
@@ -373,7 +373,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 533ca3c6fc33d0f45a7da3807877981c, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 533ca3c6fc33d0f45a7da3807877981c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -381,16 +381,69 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 533ca3c6fc33d0f45a7da3807877981c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.136542
+      value: 0.97865903
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 533ca3c6fc33d0f45a7da3807877981c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.1184492
+      value: 0.96307963
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 533ca3c6fc33d0f45a7da3807877981c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.0544639
+      value: 0.9079828
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 533ca3c6fc33d0f45a7da3807877981c, type: 3}
+      propertyPath: m_Name
+      value: PizzaEmpty
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 533ca3c6fc33d0f45a7da3807877981c, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &2125405592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2125405594}
+  - component: {fileID: 2125405593}
+  m_Layer: 0
+  m_Name: WorldBorder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!68 &2125405593
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2125405592}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 8.002852, y: 5.0074697}
+  - {x: -7.982092, y: 5.0025373}
+  - {x: -8.006143, y: -4.9986577}
+  - {x: 7.9883313, y: -5.0057216}
+  - {x: 7.997667, y: 4.9998827}
+--- !u!4 &2125405594
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2125405592}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
