@@ -41,22 +41,9 @@ public class CannonTargeting : MonoBehaviour
       transform.position -= transform.up * firingDistance;
       firingDistance = 0;
 
-      StartCoroutine(FireShell(target));
+      var shellBody = Instantiate(cannon.shell, transform.position, transform.rotation);
+      var shell = shellBody.GetComponent<Shell>();
+      shell.Goto(target, 10.0f);
     }
 	}
-
-  IEnumerator FireShell(Vector3 target)
-  {
-    var shell = Instantiate(cannon.shell, transform.position, transform.rotation);
-    yield return null;
-
-    while(!shell.transform.position.Equals(target))
-    {
-      shell.transform.position = Vector3.MoveTowards(shell.transform.position, target, Time.deltaTime * 10f);
-      yield return null;
-    }
-    
-    // BOOM!
-    Destroy(shell);
-  }
 }
