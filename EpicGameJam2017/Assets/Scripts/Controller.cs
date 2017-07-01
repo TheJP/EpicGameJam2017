@@ -51,7 +51,7 @@ public class Controller : MonoBehaviour
     public void StartGame(Players[] players)
     {
         //Spawn unicorn for each player
-        foreach(var player in players)
+        foreach(var player in GlobalData.Players)
         {
             var randomPosition = hexagonGrid.transform.GetChild(Random.Range(0, hexagonGrid.transform.childCount)).position;
             var unicorn = Instantiate(unicornPrefab, randomPosition, Quaternion.identity);

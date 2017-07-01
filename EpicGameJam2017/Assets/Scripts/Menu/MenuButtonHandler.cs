@@ -5,14 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class MenuButtonHandler : MonoBehaviour {
 
-    public void loadSceneByIndex(int sceneIndex)
+    public MenuController menuController;
+
+    public void startGame()
     {
-        SceneManager.LoadScene(sceneIndex);
+        menuController.StartNewGame();
     }
 
-    public void loadSceneByName(string sceneName)
+
+    public void quitOnClick()
     {
-        SceneManager.LoadScene(sceneName);
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 	
 }
