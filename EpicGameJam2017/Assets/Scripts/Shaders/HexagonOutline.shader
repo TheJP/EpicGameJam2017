@@ -2,11 +2,11 @@
 
  Shader "Outline/HexagonOutline" 
  {
-	/*
-	basically this post from unity forums
-	http://answers.unity3d.com/questions/60155/is-there-a-shader-to-only-add-an-outline.html
-	with some minor adaptions
-	*/
+    /*
+    basically this post from unity forums
+    http://answers.unity3d.com/questions/60155/is-there-a-shader-to-only-add-an-outline.html
+    with some minor adaptions
+    */
      Properties 
      {
          _Color("Color", Color) = (1,0,0,1)
@@ -21,6 +21,12 @@
          ZTest always
          Pass
          {
+			  Stencil {
+                 Ref 1
+                 Comp always
+                 Pass replace
+             }
+
              CGPROGRAM
              #pragma vertex vert
              #pragma fragment frag
@@ -28,7 +34,7 @@
              
              #include "UnityCG.cginc"
 
-			 half4 _Color;
+             half4 _Color;
              float _Thickness;
              
              struct v2f 
@@ -37,7 +43,8 @@
                  float2  uv : TEXCOORD0;
                  float3 viewT : TANGENT;
                  float3 normals : NORMAL;
-				 float3 localPos : TEXCOORD1;
+                 float3 localPos : TEXCOORD1;
+                 float3 localPosOutline : TEXCOORD2;
 
              };
           
@@ -45,7 +52,8 @@
              v2f vert(appdata_base v)
              {
                  v2f OUT;
-				 OUT.localPos = v.vertex;
+                 OUT.localPos = v.vertex;
+                 OUT.localPosOutline = v.vertex * (1-_Thickness/100);
                  OUT.pos = UnityObjectToClipPos(v.vertex);
                  OUT.uv = v.texcoord; 
                  OUT.normals = v.normal;
@@ -56,8 +64,8 @@
              
              half4 frag(v2f IN) : COLOR
              {              
-
-				
+                if()
+                
                  return _Color;
              }
              ENDCG
