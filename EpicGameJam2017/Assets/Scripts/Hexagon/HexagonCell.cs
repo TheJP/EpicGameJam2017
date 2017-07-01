@@ -7,7 +7,7 @@ using UnityEngine.Assertions;
 [RequireComponent(typeof(MeshRenderer), typeof(MeshFilter))]
 public class HexagonCell : MonoBehaviour
 {
-    public Players Player = Players.A;
+    public Players? Player = null;
     public bool Outline = true; //TODO
     public int col;
     public int row;
@@ -21,6 +21,7 @@ public class HexagonCell : MonoBehaviour
     private Mesh mesh;
     private List<Vector3> vertices = new List<Vector3>();
     private List<int> triangles = new List<int>();
+    private static readonly Color defaultColor = new Color(0f, 0f, 0f, 0f);
 
 
     void Awake()
@@ -33,12 +34,16 @@ public class HexagonCell : MonoBehaviour
     void Start()
     {
         Redraw();
-        GetComponent<MeshRenderer>().material.color = PlayerColors[Player];
         //TODO
         if (Outline)
         {
 
         }
+    }
+
+    private void Update()
+    {
+        GetComponent<MeshRenderer>().material.color = Player.HasValue ? PlayerColors[Player.Value] : defaultColor;
     }
 
     public void Redraw()
