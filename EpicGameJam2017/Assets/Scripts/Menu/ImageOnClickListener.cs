@@ -4,35 +4,28 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ImageOnClickListener : MonoBehaviour {
+public class ImageOnClickListener : MonoBehaviour
+{
 
     public Sprite OffSprite;
     public Sprite OnSprite;
 
-    private bool musicOn;
     private Image yourImage;
 
-    void Start()
+    public void Start()
     {
-        musicOn = true;
         yourImage = gameObject.GetComponent<Image>();
         yourImage.GetComponent<Image>().sprite = OnSprite;
     }
 
+    public void Update()
+    {
+        yourImage.GetComponent<Image>().sprite = AudioListener.pause ? OffSprite : OnSprite;
+    }
+
     public void toggleSound()
     {
-        //TODO: Toggle sound
-        if (musicOn)
-        {
-            musicOn = false;
-            yourImage.GetComponent<Image>().sprite = OffSprite;
-        }
-
-        else
-        {
-            musicOn = true;
-            yourImage.GetComponent<Image>().sprite = OnSprite;
-        }
+        AudioListener.pause = !AudioListener.pause;
     }
 
 }
