@@ -30,7 +30,12 @@ public static class Constants
     public static readonly Dictionary<Players, Color> PlayerColors = new Dictionary<Players, Color>()
     {
         {Players.A, Color.green},
-        {Players.B, Color.blue}
+        {Players.B, new Color(1f, 0.078431f, 0.57647f)},
+        {Players.C, Color.blue},
+        {Players.D, Color.red},
+        {Players.E, Color.black},
+        {Players.F, new Color(1f, 0.549f, 0f)},
+        {Players.G, Color.cyan},
     };
 
     /// <summary>
