@@ -137,7 +137,7 @@ Transform:
   m_GameObject: {fileID: 1542434667566272}
   m_LocalRotation: {x: 0.9957247, y: -0, z: 0.092370614, w: 0}
   m_LocalPosition: {x: 0, y: -0.148, z: 0}
-  m_LocalScale: {x: 0.17881481, y: 0.17881481, z: 0.20904018}
+  m_LocalScale: {x: 0.24968085, y: 0.24968085, z: 0.2918848}
   m_Children: []
   m_Father: {fileID: 4221808663462044}
   m_RootOrder: 0
@@ -149,8 +149,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1235460965164518}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: -1}
-  m_LocalScale: {x: 0.20480303, y: 0.20480303, z: 0.20480303}
+  m_LocalPosition: {x: 0.056, y: 0.417, z: -1}
+  m_LocalScale: {x: 0.37626886, y: 0.37626886, z: 0.37626886}
   m_Children: []
   m_Father: {fileID: 4221808663462044}
   m_RootOrder: 3
@@ -162,8 +162,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1371928638873600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.588, y: 0.454, z: -2}
-  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
+  m_LocalPosition: {x: 0.97, y: 0.85, z: -2}
+  m_LocalScale: {x: 0.07205855, y: 0.07205855, z: 0.07205855}
   m_Children:
   - {fileID: 4769315858106828}
   m_Father: {fileID: 4221808663462044}
@@ -176,7 +176,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1594228415913656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.107, y: 0.642, z: -0.5642}
+  m_LocalPosition: {x: 0.146, y: 0.9499, z: -0.7675}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4221808663462044}
@@ -247,7 +247,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.53304905
+  m_Mass: 0.71493655
   m_LinearDrag: 2
   m_AngularDrag: 7
   m_GravityScale: 0
@@ -268,8 +268,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0025219917}
-  m_Size: {x: 0.5878688, y: 1.032906}
+  m_Offset: {x: 0, y: 0.053528905}
+  m_Size: {x: 0.5878688, y: 1.3423076}
   m_Direction: 0
 --- !u!82 &82476630622118284
 AudioSource:
@@ -383,7 +383,7 @@ MonoBehaviour:
   player: 0
   controlsActive: 0
   turnSpeed: 270
-  speedForce: 4
+  speedForce: 6
   driftFactor: 0.75
   marker: {fileID: 4762485884303476}
   abilityHolder: {fileID: 114848474334213518}

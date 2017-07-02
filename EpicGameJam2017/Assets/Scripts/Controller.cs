@@ -88,6 +88,7 @@ public class Controller : MonoBehaviour
         foreach (var player in players)
         {
             var randomPosition = hexagonGrid.transform.GetChild(Random.Range(0, hexagonGrid.transform.childCount)).position;
+            randomPosition.z = 0;
             var unicorn = Instantiate(unicornPrefab, randomPosition, Quaternion.identity);
             unicorn.player = player;
             unicorns.Add(unicorn);

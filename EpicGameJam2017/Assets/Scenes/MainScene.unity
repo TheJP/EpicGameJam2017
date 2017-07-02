@@ -1147,8 +1147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf997d0415854c45be55ca3acc6ab39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Radius: 3.5
-  HexCellOuterRadius: 0.1
+  Radius: 5
+  HexCellOuterRadius: 0.2
   HexagonCell: {fileID: 114030289696725118, guid: 0dc4672bbc8cbd44faf495ab8455f0e0,
     type: 2}
 --- !u!4 &1571372488
@@ -1648,11 +1648,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 533ca3c6fc33d0f45a7da3807877981c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 533ca3c6fc33d0f45a7da3807877981c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 533ca3c6fc33d0f45a7da3807877981c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1684,15 +1684,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 533ca3c6fc33d0f45a7da3807877981c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.97865903
+      value: 1.3225455
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 533ca3c6fc33d0f45a7da3807877981c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.96307963
+      value: 1.3014917
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 533ca3c6fc33d0f45a7da3807877981c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.9079828
+      value: 1.2270348
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 533ca3c6fc33d0f45a7da3807877981c, type: 3}
       propertyPath: m_Name

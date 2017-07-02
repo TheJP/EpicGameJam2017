@@ -59,7 +59,7 @@ public class HexagonGrid : MonoBehaviour
         hexagons.Clear();
 
         var cellwidth = HexCellInnerRadius * 2;
-        var cellheight = HexCellOuterRadius * 1.5f;
+        var cellheight = Mathf.Max(0.001f, HexCellOuterRadius * 1.5f);
 
         var y = 0f;
         var row = 0;
