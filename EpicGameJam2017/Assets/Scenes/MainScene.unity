@@ -615,7 +615,7 @@ MonoBehaviour:
     type: 2}
   CannonWaggonStartLocations: {fileID: 2094637525}
   PlayerScoreView: {fileID: 2108741170}
-  WinningScore: 2
+  WinningScore: 20
   WinningView: {fileID: 1895371388}
 --- !u!82 &480189414
 AudioSource:

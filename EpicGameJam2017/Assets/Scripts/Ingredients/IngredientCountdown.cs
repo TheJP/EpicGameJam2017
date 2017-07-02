@@ -8,7 +8,7 @@ public class IngredientCountdown : MonoBehaviour
     private float startTime;
     private Ingredient ingredient;
     private HexagonCell hexagonCell;
-    private int countdownStart = 5;
+    public int countdownStart = 5;
     public int Countdown
     {
         get { return countdownStart - (int)(Time.time - startTime); }

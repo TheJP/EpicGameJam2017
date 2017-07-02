@@ -88,6 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d065e1f4b9dc341a23915c2e5bf51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countdownStart: 10
   text: {fileID: 114688648145231202}
 --- !u!114 &114688648145231202
 MonoBehaviour:
