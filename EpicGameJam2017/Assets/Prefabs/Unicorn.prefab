@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 50542983252762068}
   - component: {fileID: 70055851433761850}
   - component: {fileID: 114262620751051784}
+  - component: {fileID: 82476630622118284}
   m_Layer: 0
   m_Name: Unicorn
   m_TagString: Untagged
@@ -240,6 +241,87 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.0025219917}
   m_Size: {x: 0.5878688, y: 1.032906}
   m_Direction: 0
+--- !u!82 &82476630622118284
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1213301985921744}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243459915782861288, guid: 7f1e620fca990784da6e38cc268055bd,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95390810544090376
 Animator:
   serializedVersion: 3
@@ -281,6 +363,9 @@ MonoBehaviour:
     type: 2}
   stunDuration: 1
   unicornRenderer: {fileID: 23964635584078776}
+  hurtSounds:
+  - {fileID: 8300000, guid: 35cb2e494a729ea4bb54a91316fc9722, type: 3}
+  - {fileID: 8300000, guid: a1f8618360f89d1459fd109c0629bbb5, type: 3}
 --- !u!114 &114848474334213518
 MonoBehaviour:
   m_ObjectHideFlags: 1

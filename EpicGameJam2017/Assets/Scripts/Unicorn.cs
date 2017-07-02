@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(AudioSource))]
 public class Unicorn : MonoBehaviour
 {
     [Tooltip("Player which controls this unicorn")]
@@ -40,6 +39,9 @@ public class Unicorn : MonoBehaviour
     [Tooltip("MeshRenderer that renders the unicorn")]
     public MeshRenderer unicornRenderer;
 
+    [Tooltip("One of these sounds is played if the unicorn is hurt")]
+    public AudioClip[] hurtSounds;
+
     private Ingredient ingredient = null;
     private Controller controller = null;
 
@@ -61,7 +63,7 @@ public class Unicorn : MonoBehaviour
     /// <summary>Set the given ingredient to belong to this unicorn.</summary>
     public bool SetIngredient(Ingredient ingredient)
     {
-        if(this.ingredient != null) { return false; }
+        if (this.ingredient != null) { return false; }
         this.ingredient = ingredient;
         ingredient.SetCollidersActive(false);
         return true;
@@ -74,7 +76,7 @@ public class Unicorn : MonoBehaviour
         SpeedForce = speedForce;
         stunTime = -2 * stunDuration; // No stun at the beginning
         controller = FindObjectOfType<Controller>();
-        if(controller == null) { throw new ArgumentException(); }
+        if (controller == null) { throw new System.ArgumentException(); }
         abilityHolderPositionDifference = abilityHolder.transform.position - transform.position;
     }
 
@@ -91,7 +93,7 @@ public class Unicorn : MonoBehaviour
         if (!IsStunned && controlsActive && Input.GetButtonDown(Constants.SpecialButton + player))
         {
             // Place ingredient
-            if(ingredient != null)
+            if (ingredient != null)
             {
                 if (controller.DropIngredientOnPizza(player, ingredient))
                 {
@@ -106,7 +108,7 @@ public class Unicorn : MonoBehaviour
             }
         }
         // Switch between unicorn and train
-        if(Input.GetButtonDown(Constants.SwitchButton + player))
+        if (Input.GetButtonDown(Constants.SwitchButton + player))
         {
             controlsActive = !controlsActive;
         }
@@ -136,7 +138,7 @@ public class Unicorn : MonoBehaviour
     private void LateUpdate()
     {
         // Hold the ingredient on the horn
-        if(ingredient != null)
+        if (ingredient != null)
         {
             ingredient.transform.position = marker.position;
         }
@@ -177,16 +179,14 @@ public class Unicorn : MonoBehaviour
     {
         // TODO: Visualize stunned!
         stunTime = Time.time;
+        PlayHurtSound();
     }
 
     public void SetCheesed()
     {
-        if(this.isCheesed)
-        {
-            return;
-        }
-
+        if (isCheesed) { return; }
         StartCoroutine(SlowBecauseOfCheese());
+        PlayHurtSound();
     }
 
     private IEnumerator SlowBecauseOfCheese()
@@ -202,5 +202,10 @@ public class Unicorn : MonoBehaviour
     public Nimbus3000Decoration SpawnNimbus()
     {
         return Instantiate(nimbus3000Prefab, transform);
+    }
+
+    public void PlayHurtSound()
+    {
+        GetComponent<AudioSource>().PlayOneShot(hurtSounds[Random.Range(0, hurtSounds.Length)]);
     }
 }
