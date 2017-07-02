@@ -49,8 +49,8 @@ public class MuzzleRotation
 	    currentRotation = maxRotationLeft;
 	  }
 
-    transform.RotateAround(new Vector3(transform.position.x, transform.parent.position.y), transform.forward, rotation);
-	}
+	  transform.Rotate(transform.forward, rotation);
+  }
 
   public void SetEnabled(bool enabled)
   {
