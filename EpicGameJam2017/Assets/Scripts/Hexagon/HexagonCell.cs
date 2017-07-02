@@ -37,7 +37,7 @@ public class HexagonCell : MonoBehaviour
     private void Update()
     {
         GetComponent<MeshRenderer>().material.color =
-            Player.HasValue? Constants.PlayerColors[Player.Value] : Constants.defaultColor;
+            Player.HasValue? Constants.PlayerColors[Player.Value] : Constants.DefaultHexagonColor;
     }
 
     void OnParticleCollision(GameObject other)

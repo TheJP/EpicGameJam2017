@@ -33,6 +33,9 @@ public class Unicorn : MonoBehaviour
     [Tooltip("Amount of seconds that this unicorn is stunned (e.g. if it is hit by a toothpick)")]
     public float stunDuration = 1f;
 
+    [Tooltip("MeshRenderer that renders the unicorn")]
+    public MeshRenderer unicornRenderer;
+
     private Ingredient ingredient = null;
     private Controller controller = null;
 
@@ -64,8 +67,17 @@ public class Unicorn : MonoBehaviour
         SpeedForce = speedForce;
         stunTime = -2 * stunDuration; // No stun at the beginning
         controller = FindObjectOfType<Controller>();
-        if(controller == null) { throw new System.ArgumentException(); }
+        if(controller == null) { throw new ArgumentException(); }
         abilityHolderPositionDifference = abilityHolder.transform.position - transform.position;
+    }
+
+    private void Start()
+    {
+        // Set unicorn color
+        Debug.Log(player);
+        var materials = unicornRenderer.materials;
+        materials[0] = new Material(materials[0]) { color = Constants.PlayerColors[player] };
+        unicornRenderer.materials = materials;
     }
 
     public void Update()

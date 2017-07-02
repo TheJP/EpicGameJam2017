@@ -277,6 +277,8 @@ MonoBehaviour:
   abilityHolder: {fileID: 114848474334213518}
   toothpickPrefab: {fileID: 114036630649690112, guid: 3615f38d6d6adee408074f1ed750f500,
     type: 2}
+  stunDuration: 1
+  unicornRenderer: {fileID: 23964635584078776}
 --- !u!114 &114848474334213518
 MonoBehaviour:
   m_ObjectHideFlags: 1
