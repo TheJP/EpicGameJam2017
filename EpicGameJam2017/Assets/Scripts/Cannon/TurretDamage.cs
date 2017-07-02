@@ -31,13 +31,11 @@ public class TurretDamage : MonoBehaviour
     }
   }
 	
-  void OnTriggerEnter2D(Collider2D other)
+  public void Damage()
   {
     damageParticles.Play();
     cannonTargeting.Break();
-
-    Destroy(other.gameObject);
-
+    
     repairTimeLeft = repairTime;
   }
 }

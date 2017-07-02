@@ -191,7 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ef1b783ab1426f4fa331914d62bf556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToExplode: 1
+  distanceToExplode: 0
+  ShellType: 1
   ParticleMaterial: {fileID: 2100000, guid: b610f83f252eb38428aab66e41a7070c, type: 2}
   ParticleTrailMaterial: {fileID: 2100000, guid: b610f83f252eb38428aab66e41a7070c,
     type: 2}
@@ -253,14 +254,14 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 718427934
+  randomSeed: 729445667
   InitialModule:
     serializedVersion: 3
     enabled: 1
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -696,12 +697,12 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 4
     enabled: 1
-    type: 7
+    type: 5
     angle: 20
     length: 5
-    boxX: 1
-    boxY: 1
-    boxZ: 1
+    boxX: 0.25
+    boxY: 0.25
+    boxZ: 1.2
     radius:
       value: 0.44221458
       mode: 0

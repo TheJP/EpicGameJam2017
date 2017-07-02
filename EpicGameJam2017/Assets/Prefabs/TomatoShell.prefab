@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ef1b783ab1426f4fa331914d62bf556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToExplode: 1
+  distanceToExplode: 0
   ParticleMaterial: {fileID: 2100000, guid: 623a0c0e17d1ee24b9ce26d44108be03, type: 2}
   ParticleTrailMaterial: {fileID: 2100000, guid: 623a0c0e17d1ee24b9ce26d44108be03,
     type: 2}
@@ -696,7 +696,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 4
     enabled: 1
-    type: 7
+    type: 1
     angle: 20
     length: 5
     boxX: 1
