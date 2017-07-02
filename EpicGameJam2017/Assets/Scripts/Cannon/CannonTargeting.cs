@@ -14,20 +14,26 @@ public class CannonTargeting : MonoBehaviour
   private bool isFiring;
   private float firingDistance;
   private CannonWaggon cannon;
+  private SpriteRenderer crossHairRenderer;
 
     // Use this for initialization
     void Start()
     {
       cannon = GetComponentInParent<CannonWaggon>();
+      crossHairRenderer = GetComponent<SpriteRenderer>();
     }
     
     // Update is called once per frame
     void Update ()
   {
-    if(isFiringAllowed && !isBroken && Input.GetButton(Constants.ActionButton + cannon.player))
+      crossHairRenderer.enabled = false;
+
+    if (isFiringAllowed && !isBroken && Input.GetButton(Constants.ActionButton + cannon.player))
     {
+
       // The button is being pressed, increase the distance we will fire
       isFiring = true;
+      crossHairRenderer.enabled = true;
       var distance = cannon.fireDistanceSpeed * Time.deltaTime;
 
       firingDistance += distance;
