@@ -3,6 +3,8 @@ using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 
+using UnityEngine.UI;
+
 
 public static class GlobalData
 {
@@ -21,6 +23,29 @@ public static class GlobalData
     }
 
     private static readonly Dictionary<Players, int> playerScores = new Dictionary<Players, int>();
+    private static Text playerScoreView;
+
+    public static void SetPlayerScoreView(Text view)
+    {
+        playerScoreView = view;
+        UpdatePlayerScoreView();
+    }
+
+    private static void UpdatePlayerScoreView()
+    {
+        if(playerScoreView == null)
+        {
+            return;
+        }
+
+        var text = "";
+        foreach(var playerScore in playerScores)
+        {
+            text += "Player " + playerScore.Key + ": " + playerScore.Value + "\r\n";
+        }
+
+        playerScoreView.text = text;
+    }
 
     public static int GetScore(Players player)
     {
@@ -43,5 +68,13 @@ public static class GlobalData
         {
             playerScores.Add(player, score);
         }
+
+        UpdatePlayerScoreView();
+    }
+
+    public static void ClearScores()
+    {
+        playerScores.Clear();
+        UpdatePlayerScoreView();
     }
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UI;
+
 
 public class Controller : MonoBehaviour
 {
@@ -22,6 +24,9 @@ public class Controller : MonoBehaviour
 
     [Tooltip("Container with whose children's transforms serve as potential Startlocations and orientations for CannonWaggons")]
     public Transform CannonWaggonStartLocations;
+
+    [Tooltip("The UI text where the player score should be kept track of")]
+    public Text PlayerScoreView;
   
     private Players[] players;
 
@@ -57,6 +62,15 @@ public class Controller : MonoBehaviour
 
     public void StartGame(Players[] players)
     {
+        GlobalData.ClearScores();
+
+        foreach(var player in players)
+        {
+          GlobalData.AddToScore(player, 0);
+        }
+
+        GlobalData.SetPlayerScoreView(PlayerScoreView);
+        
         this.players = players;
         ShuffleCannonWagonStartPositions();
 
