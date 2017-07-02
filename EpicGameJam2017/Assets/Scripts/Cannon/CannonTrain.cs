@@ -25,6 +25,15 @@ public class CannonTrain : MonoBehaviour
         transform.RotateAround(rotationCenter, transform.forward, Time.deltaTime * rotationSpeed);
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        var unicorn = other.GetComponent<Unicorn>();
+        if(unicorn != null)
+        {
+            unicorn.Stun();
+        }
+    }
+
     public void SetColor(Color color)
     {
         trainColor.SetColor(color);
