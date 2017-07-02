@@ -66,7 +66,7 @@ public class CannonWaggon : MonoBehaviour
                     muzzlesRotation.SetEnabled(true);
                 }
 
-                SwitchFiringCannons();
+                SetupFiringCannons();
             }
 
             isUsedByPlayer = !isUsedByPlayer;
@@ -74,23 +74,22 @@ public class CannonWaggon : MonoBehaviour
 
         if(isUsedByPlayer && Input.GetButtonDown(Constants.SpecialButton + player))
         {
-            SwitchFiringCannons();
-
             isTomatoFiring = !isTomatoFiring;
+            SetupFiringCannons();
         }
     }
 
-    private void SwitchFiringCannons()
+    private void SetupFiringCannons()
     {
         if(isTomatoFiring)
         {
-            tomatoCannon.DisableFiring();
-            cheeseCannon.EnableFiring();
+            tomatoCannon.EnableFiring();
+            cheeseCannon.DisableFiring();
         }
         else
         {
-            tomatoCannon.EnableFiring();
-            cheeseCannon.DisableFiring();
+            tomatoCannon.DisableFiring();
+            cheeseCannon.EnableFiring();
         }
     }
 }
