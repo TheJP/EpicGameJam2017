@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shell : MonoBehaviour
 {
     [Tooltip("Distance at which the bullet will explode into fragments")]
-    public float distanceToExplode = 2;
+    public float distanceToExplode = 0.5f;
 
     public Material ParticleMaterial;
     public Material ParticleTrailMaterial;
