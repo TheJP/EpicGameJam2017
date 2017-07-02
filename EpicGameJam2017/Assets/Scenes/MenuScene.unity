@@ -275,9 +275,9 @@ RectTransform:
   m_Father: {fileID: 1531997067}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 110, y: -71.532}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &52947039
@@ -439,8 +439,8 @@ RectTransform:
   m_Father: {fileID: 2037747362}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.28848347}
-  m_AnchorMax: {x: 1, y: 0.7115165}
+  m_AnchorMin: {x: 0, y: 0.2762022}
+  m_AnchorMax: {x: 1, y: 0.7237978}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -657,9 +657,9 @@ RectTransform:
   m_Father: {fileID: 1531997067}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 110, y: -119.22}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &164328739
@@ -824,8 +824,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.65, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -5}
+  m_SizeDelta: {x: 0, y: -10}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &195019939
 CanvasRenderer:
@@ -895,7 +895,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1136,9 +1136,9 @@ RectTransform:
   m_Father: {fileID: 1767212191}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 110, y: -395.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 100, y: 30}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &350025659
@@ -1554,11 +1554,11 @@ RectTransform:
   m_Father: {fileID: 1529886353}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 110, y: -398.25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &610161161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1827,9 +1827,9 @@ RectTransform:
   m_Father: {fileID: 1531997067}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 279.5, y: -227.09601}
   m_SizeDelta: {x: 499, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &745549461
@@ -1901,11 +1901,11 @@ RectTransform:
   m_Father: {fileID: 22085739}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: 1}
-  m_AnchorMax: {x: 0.9, y: 1}
-  m_AnchoredPosition: {x: -26, y: 0}
-  m_SizeDelta: {x: 82, y: 159.16}
-  m_Pivot: {x: 0, y: 1}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -10}
+  m_SizeDelta: {x: 806, y: 159.16}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &785770837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2011,8 +2011,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -438.5}
-  m_SizeDelta: {x: 459.19995, y: 877}
+  m_AnchoredPosition: {x: 10, y: -405.5}
+  m_SizeDelta: {x: 561.8999, y: 811}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1064671651
 MonoBehaviour:
@@ -2098,8 +2098,8 @@ RectTransform:
   m_Father: {fileID: 740400937}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.41333336}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2508,7 +2508,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 506}
+  m_SizeDelta: {x: 0, y: 448}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1277361227
 MonoBehaviour:
@@ -2619,8 +2619,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.65, y: 1}
-  m_AnchoredPosition: {x: 0, y: 25}
-  m_SizeDelta: {x: -0.000030518, y: -50}
+  m_AnchoredPosition: {x: 0, y: 20}
+  m_SizeDelta: {x: -0.000030518, y: -60}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &1298860698
 CanvasRenderer:
@@ -2692,9 +2692,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -17, y: -17}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1467342821
 MonoBehaviour:
@@ -2752,7 +2752,7 @@ GameObject:
   - component: {fileID: 1501047037}
   - component: {fileID: 1501047036}
   m_Layer: 5
-  m_Name: StartButton
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2849,8 +2849,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 25}
-  m_SizeDelta: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 0, y: 5.75}
+  m_SizeDelta: {x: 0, y: -11.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1529886355
 MonoBehaviour:
@@ -2902,7 +2902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1531997067
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3014,9 +3014,9 @@ RectTransform:
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 0}
+  m_SizeDelta: {x: 20, y: -17}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1561353501
 MonoBehaviour:
@@ -3115,7 +3115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1571846172
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3291,7 +3291,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 123363913}
   m_Direction: 2
   m_Value: 0.5
-  m_Size: 0.42303306
+  m_Size: 0.44759557
   m_NumberOfSteps: 11
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3427,7 +3427,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1740068012
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3790,9 +3790,9 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 20}
+  m_SizeDelta: {x: -17, y: 20}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1822481546
 MonoBehaviour:
@@ -3987,8 +3987,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -757.5}
-  m_SizeDelta: {x: 251.80002, y: 1515}
+  m_AnchoredPosition: {x: 10, y: -511.5}
+  m_SizeDelta: {x: 307.10004, y: 1023}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2013729871
 MonoBehaviour:
@@ -4022,23 +4022,23 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: "<h1>Keyboard</h1>\nPlayer A\n  Train\n    A/D: Move Cannon\n    W: Fire
-    Cannon (Hold to Load)\n    E: Switch Cannons (Suace / Chees)\n    Q: Switch to
-    Unicorn\n  Unicorn\n    A/D: Turn Left/Right\n    W: Move Forward\n    E: Use
-    Ability (If available)\n    Q: Switch to Train\nPlayer B\n  Train\n    Left Arrow/Right
-    Arrow: Move Cannon\n    Up Arrow: Fire Cannon (Hold to Load)\n    Right Ctrl:
-    Switch Cannons (Suace / Chees)\n    Right Shift: Switch to Unicorn\n  Unicorn\n
-    \   Left Arrow/Right Arrow: Turn Left/Right\n    Up Arrow: Move Forward\n    Left
-    Ctrl: Use Ability (If available)\n    Left Shift: Switch to Train\nPlayer C\n
-    \ Train\n    J/L: Move Cannon\n    I: Fire Cannon (Hold to Load)\n    O: Switch
-    Cannons (Suace / Chees)\n    U: Switch to Unicorn\n  Unicorn\n    J/L: Turn Left/Right\n
-    \   I: Move Forward\n    O: Use Ability (If available)\n    U: Switch to Train\nController\nPlayer
-    4-7 (D-F) \n    Train\n    Joystick Left/Right: Move Cannon\n    Button 0: Fire
-    Cannon (Hold to Load)\n    Button 2: Switch Cannons (Suace / Chees)\n    Button
-    3: Switch to Unicorn\n  Unicorn\n    Joystick Left/Right: Turn Left/Right\n    Button
-    0: Move Forward\n    Button 2: Use Ability (If available)\n    Button 3: Switch
-    to Train\n\nButton Mapping:\nButton 0: XBOX=A, Playstation = X\nButton 2: XBOX=X,
-    Playstaion = Square\nButton 3: XBOX=Y, Playstaion = Triangle"
+  m_Text: "Keyboard\nPlayer A\n  Train\n    A/D: Move Cannon\n    W: Fire Cannon /
+    Register\n    E: Switch Cannons (Suace / Chees)\n    Q: Switch to Unicorn\n  Unicorn\n
+    \   A/D: Turn Left/Right\n    W: Move Forward\n    E: Use Ability (If available)\n
+    \   Q: Switch to Train\nPlayer B\n  Train\n    Left Arrow/Right Arrow: Move Cannon\n
+    \   Up Arrow: Fire Cannon / Register\n    Right Ctrl: Switch Cannons (Suace /
+    Chees)\n    Right Shift: Switch to Unicorn\n  Unicorn\n    Left Arrow/Right Arrow:
+    Turn Left/Right\n    Up Arrow: Move Forward\n    Left Ctrl: Use Ability (If available)\n
+    \   Left Shift: Switch to Train\nPlayer C\n  Train\n    J/L: Move Cannon\n    I:
+    Fire Cannon / Register\n    O: Switch Cannons (Suace / Chees)\n    U: Switch to
+    Unicorn\n  Unicorn\n    J/L: Turn Left/Right\n    I: Move Forward\n    O: Use
+    Ability (If available)\n    U: Switch to Train\nController\nPlayer D-F \n    Train\n
+    \   Joystick Left/Right: Move Cannon\n    Button 0: Fire Cannon / Register\n    Button
+    2: Switch Cannons (Suace / Chees)\n    Button 3: Switch to Unicorn\n  Unicorn\n
+    \   Joystick Left/Right: Turn Left/Right\n    Button 0: Move Forward\n    Button
+    2: Use Ability (If available)\n    Button 3: Switch to Train\n\nButton Mapping:\nButton
+    0: XBOX=A, Playstation = X\nButton 2: XBOX=X, Playstaion = Square\nButton 3: XBOX=Y,
+    Playstaion = Triangle"
 --- !u!222 &2013729872
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4078,9 +4078,9 @@ RectTransform:
   m_Father: {fileID: 1531997067}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 110, y: -23.844002}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2037670908
@@ -4250,7 +4250,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 1094.5}
+  m_SizeDelta: {x: 0, y: 610.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2055205371
 MonoBehaviour:
@@ -4445,9 +4445,9 @@ RectTransform:
   m_Father: {fileID: 1531997067}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 110, y: -166.90799}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2111247241
