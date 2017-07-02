@@ -131,7 +131,7 @@ public class Unicorn : MonoBehaviour
         // Spin ducks while stunned
         if (IsStunned)
         {
-            confusedDucks.transform.Rotate(confusedDucks.transform.forward, 20);
+            confusedDucks.transform.Rotate(confusedDucks.transform.forward, 10f);
         }
     }
 
