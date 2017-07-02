@@ -185,6 +185,7 @@ public class Unicorn : MonoBehaviour
     public void SetCheesed()
     {
         if (isCheesed) { return; }
+        isCheesed = true;
         StartCoroutine(SlowBecauseOfCheese());
         PlayHurtSound();
     }
@@ -194,6 +195,7 @@ public class Unicorn : MonoBehaviour
         SpeedForce = speedForce / 10;
         yield return new WaitForSeconds(2.0f);
         SpeedForce = speedForce;
+        isCheesed = false;
     }
 
     /// <summary>

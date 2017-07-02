@@ -1,94 +1,95 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
+
 
 public class CannonWaggon : MonoBehaviour
 {
-  [Tooltip("The player controlling this waggon")]
-  public Players player;
-  
-  [Tooltip("The rotation arc the turrets are able to turn (left & right)")]
-  public float rotationArc = 90.0f;
+    [Tooltip("The player controlling this waggon")]
+    public Players player;
 
-  [Tooltip("The speed at which the turrets turn")]
-  public float rotationSpeed = 60.0f;
+    [Tooltip("The rotation arc the turrets are able to turn (left & right)")]
+    public float rotationArc = 90.0f;
 
-  [Tooltip("The maximum distance the turrets are able to fire")]
-  public float maxFireDistance = 15;
+    [Tooltip("The speed at which the turrets turn")]
+    public float rotationSpeed = 60.0f;
 
-  [Tooltip("How fast it is possible to fire longer distances")]
-  public float fireDistanceSpeed = 10;
+    [Tooltip("The maximum distance the turrets are able to fire")]
+    public float maxFireDistance = 15;
 
-  [Tooltip("The tomato targeting game object")]
-  public CannonTargeting tomatoCannon;
+    [Tooltip("How fast it is possible to fire longer distances")]
+    public float fireDistanceSpeed = 10;
 
-  [Tooltip("The cheese targeting game object")]
-  public CannonTargeting cheeseCannon;
+    [Tooltip("The tomato targeting game object")]
+    public CannonTargeting tomatoCannon;
 
-  private bool isTomatoFiring;
-  private bool isUsedByPlayer;
+    [Tooltip("The cheese targeting game object")]
+    public CannonTargeting cheeseCannon;
 
-  private MuzzleRotation[] muzzlesRotations;
+    private bool isTomatoFiring;
+    private bool isUsedByPlayer;
 
-	// Use this for initialization
-	void Start ()
-	{
-	  tomatoCannon.EnableFiring();
-	  cheeseCannon.DisableFiring();
+    private MuzzleRotation[] muzzlesRotations;
 
-	  muzzlesRotations = GetComponentsInChildren<MuzzleRotation>();
-
-	  isTomatoFiring = true;
-	  isUsedByPlayer = true;
-  }
-	
-	// Update is called once per frame
-	void Update ()
-  {
-    if(Input.GetButtonDown(Constants.SwitchButton + player))
+    // Use this for initialization
+    void Start()
     {
-      if(isUsedByPlayer)
-      {
-        tomatoCannon.DisableFiring();
+        tomatoCannon.EnableFiring();
         cheeseCannon.DisableFiring();
 
-        foreach(var muzzlesRotation in muzzlesRotations)
+        muzzlesRotations = GetComponentsInChildren<MuzzleRotation>();
+
+        isTomatoFiring = true;
+        isUsedByPlayer = true;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(Input.GetButtonDown(Constants.SwitchButton + player))
         {
-          muzzlesRotation.SetEnabled(false);
+            if(isUsedByPlayer)
+            {
+                tomatoCannon.DisableFiring();
+                cheeseCannon.DisableFiring();
+
+                foreach(var muzzlesRotation in muzzlesRotations)
+                {
+                    muzzlesRotation.SetEnabled(false);
+                }
+            }
+            else
+            {
+                foreach(var muzzlesRotation in muzzlesRotations)
+                {
+                    muzzlesRotation.SetEnabled(true);
+                }
+
+                SetupFiringCannons();
+            }
+
+            isUsedByPlayer = !isUsedByPlayer;
         }
-      }
-      else
-      {
-        foreach(var muzzlesRotation in muzzlesRotations)
+
+        if(isUsedByPlayer && Input.GetButtonDown(Constants.SpecialButton + player))
         {
-          muzzlesRotation.SetEnabled(true);
+            isTomatoFiring = !isTomatoFiring;
+            SetupFiringCannons();
         }
-
-        SwitchFiringCannons();
-      }
-
-      isUsedByPlayer = !isUsedByPlayer;
     }
-    
-    if(isUsedByPlayer && Input.GetButtonDown(Constants.SpecialButton + player))
+
+    private void SetupFiringCannons()
     {
-      SwitchFiringCannons();
-
-      isTomatoFiring = !isTomatoFiring;
+        if(isTomatoFiring)
+        {
+            tomatoCannon.EnableFiring();
+            cheeseCannon.DisableFiring();
+        }
+        else
+        {
+            tomatoCannon.DisableFiring();
+            cheeseCannon.EnableFiring();
+        }
     }
-	}
-
-  private void SwitchFiringCannons()
-  {
-    if(isTomatoFiring)
-    {
-      tomatoCannon.DisableFiring();
-      cheeseCannon.EnableFiring();
-    }
-    else
-    {
-      tomatoCannon.EnableFiring();
-      cheeseCannon.DisableFiring();
-    }
-  }
 }
