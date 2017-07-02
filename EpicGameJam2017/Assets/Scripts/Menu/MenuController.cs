@@ -49,4 +49,13 @@ public class MenuController : MonoBehaviour {
             //PlayerPrefs
         }
     }
+
+    void Update()
+    {
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            Debug.Log("Escape was pressed! Quitting game!");
+            Application.Quit();
+        }
+    }
 }

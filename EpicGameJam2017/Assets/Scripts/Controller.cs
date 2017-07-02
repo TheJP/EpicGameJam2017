@@ -104,5 +104,14 @@ public class Controller : MonoBehaviour
             CannonWaggonStartLocations.GetChild(i).SetSiblingIndex(r);
             t.SetSiblingIndex(i);
         }
+  }
+
+    void Update()
+    {
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            Debug.Log("Escape was pressed! Quitting game!");
+            Application.Quit();
+        }
     }
 }
