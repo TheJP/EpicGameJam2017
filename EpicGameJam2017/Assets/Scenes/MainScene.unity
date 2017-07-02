@@ -342,7 +342,6 @@ GameObject:
   - component: {fileID: 480189409}
   - component: {fileID: 480189408}
   - component: {fileID: 480189413}
-  - component: {fileID: 480189414}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -443,17 +442,6 @@ MonoBehaviour:
   PlayerScoreView: {fileID: 2108741170}
   WinningScore: 2
   WinningView: {fileID: 1895371388}
---- !u!114 &480189414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 480189407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f970b8c4028834f4ca558f6fa3ba1e42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &765151421 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4216074398907352, guid: ad6068777f11a694097ee53defe88eaf,

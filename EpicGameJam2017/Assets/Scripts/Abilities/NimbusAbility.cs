@@ -26,5 +26,6 @@ public class NimbusAbility : Ability
         caster.SpeedForce = caster.speedForce * SpeedBonus; // 100% faster, whueeeee!
         yield return new WaitForSeconds(AbilityDuration);
         caster.SpeedForce = caster.speedForce;
+        yield return nimbus.FlyAway();
     }
 }
