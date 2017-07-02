@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ef1b783ab1426f4fa331914d62bf556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToExplode: 1
+  distanceToExplode: 0
   ShellType: 1
   ParticleMaterial: {fileID: 2100000, guid: b610f83f252eb38428aab66e41a7070c, type: 2}
   ParticleTrailMaterial: {fileID: 2100000, guid: b610f83f252eb38428aab66e41a7070c,
