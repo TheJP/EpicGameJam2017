@@ -9,6 +9,7 @@ using UnityEngine.Assertions;
 public class HexagonCell : MonoBehaviour
 {
     public Players? Player = null;
+    public bool IsCheesed = false;
     public bool Outline = true; //TODO
     public int col;
     public int row;
@@ -36,8 +37,18 @@ public class HexagonCell : MonoBehaviour
 
     private void Update()
     {
-        GetComponent<MeshRenderer>().material.color =
-            Player.HasValue? Constants.PlayerColors[Player.Value] : Constants.DefaultHexagonColor;
+        var color = Constants.DefaultHexagonColor;
+
+        if(IsCheesed)
+        {
+            color = Constants.CheeseColor;
+        }
+        else if(Player.HasValue)
+        {
+            color = Constants.PlayerColors[Player.Value];
+        }
+
+        GetComponent<MeshRenderer>().material.color = color;
     }
 
     void OnParticleCollision(GameObject other)
@@ -45,7 +56,18 @@ public class HexagonCell : MonoBehaviour
         ParticleSystem ps = other.GetComponent<ParticleSystem>();
         if (ps)
         {
-            Player = ps.gameObject.GetComponentInParent<Shell>().Player;
+            var shell = ps.gameObject.GetComponentInParent<Shell>();
+
+            if(shell.ShellType == ShellType.Tomato)
+            {
+                Player = ps.gameObject.GetComponentInParent<Shell>().Player;
+                IsCheesed = false;
+            }
+            else if(shell.ShellType == ShellType.Cheese)
+            {
+                Player = null;
+                IsCheesed = true;
+            }
             //print("shot by Player" + Player);
         }
     }

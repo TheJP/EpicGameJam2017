@@ -37,4 +37,9 @@ public static class Constants
     /// Color to use if no player is available
     /// </summary>
     public static readonly Color DefaultHexagonColor = new Color(0f, 0f, 0f, 0f);
+
+    /// <summary>
+    /// Color of the cheese on the grid
+    /// </summary>
+    public static readonly Color CheeseColor = new Color(242 / 255.0f, 236 / 255.0f, 189 / 255.0f);
 }
