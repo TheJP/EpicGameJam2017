@@ -87,7 +87,7 @@ public class Unicorn : MonoBehaviour
             // Place ingredient
             if(ingredient != null)
             {
-                if (controller.DropIngredientOnPizza(ingredient))
+                if (controller.DropIngredientOnPizza(player, ingredient))
                 {
                     ingredient.WaitThenActivateColliders(1f);
                     ingredient = null;

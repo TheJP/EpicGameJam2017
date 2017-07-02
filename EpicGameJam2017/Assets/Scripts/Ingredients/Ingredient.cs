@@ -32,6 +32,8 @@ public class Ingredient : MonoBehaviour
                 var unicorn = FindObjectsOfType<Unicorn>().FirstOrDefault(u => u.player == hexagonCell.Player.Value);
                 if (unicorn != null && !rewards[type](unicorn)) { Debug.LogWarning("Reward could not be provided successfully for '" + type + "'"); }
             }
+
+            GlobalData.AddToScore(hexagonCell.Player.Value, 1);
         }
 
         // Destroy ingredient

@@ -12,9 +12,11 @@ public class ColliderTester : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
   {
+    /*
     var h = 2 * Input.GetAxis("Mouse X");
     var v = 2 * Input.GetAxis("Mouse Y");
     
     transform.Translate(h, v, 0, Space.Self);
+    */
   }
 }
