@@ -57,6 +57,7 @@ public class Controller : MonoBehaviour
 
     public void StartGame(Players[] players)
     {
+        this.players = players;
         ShuffleCannonWagonStartPositions();
 
         var nplayers = 0;
