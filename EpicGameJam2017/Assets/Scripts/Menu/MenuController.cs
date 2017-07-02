@@ -53,7 +53,7 @@ public class MenuController : MonoBehaviour {
             Debug.Log("Start new Game!");
             //Give the List with Players to the MainScene to and start the Game.
             GlobalData.Players = this.players;
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("MainScene");
             //PlayerPrefs
         }
     }

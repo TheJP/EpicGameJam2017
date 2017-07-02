@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 57e6b2a6f69b489458273311de0de85e
+timeCreated: 1499001850
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: PC Keys
+  fontNames:
+  - PC Keys
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

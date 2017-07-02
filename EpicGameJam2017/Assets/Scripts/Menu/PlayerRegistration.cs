@@ -16,11 +16,6 @@ public class PlayerRegistration : MonoBehaviour {
  
     void Awake()
     {
-        if (!menuController)
-        {
-            Debug.LogWarning("no MenuController attached. Attempting to Find() it");
-            menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
-        }
         scrollRect = GetComponent<ScrollRect>();
         if (!scrollRect) Debug.LogWarning("no scroll rect found!!");
 
@@ -59,17 +54,6 @@ public class PlayerRegistration : MonoBehaviour {
 
                 }
             }
-
-
         }
-
-
-
-        int nextPlayer = menuController.getHighestPlayer();
-        Players test = (Players)nextPlayer;
-        
-
-
-        
     }
 }
