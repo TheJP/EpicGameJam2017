@@ -7,6 +7,15 @@ public class PlayerRegistration : MonoBehaviour {
 
     public MenuController menuController;
 
+    void Awake()
+    {
+        if (!menuController)
+        {
+            Debug.LogWarning("no MenuController attached. Attempting to Find() it");
+            menuController = GameObject.Find("MenuController").GetComponent<MenuController>();
+        }
+    }
+
     private List<Players> registeredPlayers = new List<Players>();
 	
 	// Update is called once per frame
