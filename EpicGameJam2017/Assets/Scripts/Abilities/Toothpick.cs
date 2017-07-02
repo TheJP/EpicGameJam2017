@@ -33,8 +33,7 @@ public class Toothpick : MonoBehaviour
         if (unicorn != null)
         {
             unicorn.Stun();
-            Destroy(gameObject);
-
+            HitTarget();
         }
 
         // Damage turret if hit
@@ -42,7 +41,7 @@ public class Toothpick : MonoBehaviour
         if (turret != null)
         {
             turret.Damage();
-            Destroy(gameObject);
+            HitTarget();
         }
 
         // Remove toothpick if border was reached
@@ -50,5 +49,11 @@ public class Toothpick : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void HitTarget()
+    {
+        Thrower.GetComponent<AudioSource>().PlayOneShot(Thrower.laughingSounds[Random.Range(0, Thrower.laughingSounds.Length)]);
+        Destroy(gameObject);
     }
 }

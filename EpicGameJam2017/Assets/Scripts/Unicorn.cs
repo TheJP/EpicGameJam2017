@@ -42,6 +42,9 @@ public class Unicorn : MonoBehaviour
     [Tooltip("One of these sounds is played if the unicorn is hurt")]
     public AudioClip[] hurtSounds;
 
+    [Tooltip("One of these sounds is played if the unicorn is laughing")]
+    public AudioClip[] laughingSounds;
+
     private Ingredient ingredient = null;
     private Controller controller = null;
 

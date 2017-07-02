@@ -366,6 +366,9 @@ MonoBehaviour:
   hurtSounds:
   - {fileID: 8300000, guid: 35cb2e494a729ea4bb54a91316fc9722, type: 3}
   - {fileID: 8300000, guid: a1f8618360f89d1459fd109c0629bbb5, type: 3}
+  laughingSounds:
+  - {fileID: 8300000, guid: cf8943b562feb5442bed247bd11e43f2, type: 3}
+  - {fileID: 8300000, guid: df92e17fb6469ae46946f7180dc242fd, type: 3}
 --- !u!114 &114848474334213518
 MonoBehaviour:
   m_ObjectHideFlags: 1
