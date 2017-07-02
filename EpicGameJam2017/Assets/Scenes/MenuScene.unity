@@ -4026,12 +4026,12 @@ MonoBehaviour:
     Cannon (Hold to Load)\n    E: Switch Cannons (Suace / Chees)\n    Q: Switch to
     Unicorn\n  Unicorn\n    A/D: Turn Left/Right\n    W: Move Forward\n    E: Use
     Ability (If available)\n    Q: Switch to Train\nPlayer B\n  Train\n    Left Arrow/Right
-    Arrow: Move Cannon\n    Up Arrow: Fire Cannon (Hold to Load)\n    Left Ctrl: Switch
-    Cannons (Suace / Chees)\n    Left Shift: Switch to Unicorn\n  Unicorn\n    Left
-    Arrow/Right Arrow: Turn Left/Right\n    Up Arrow: Move Forward\n    Left Ctrl:
-    Use Ability (If available)\n    Left Shift: Switch to Train\nPlayer C\n  Train\n
-    \   J/L: Move Cannon\n    I: Fire Cannon (Hold to Load)\n    O: Switch Cannons
-    (Suace / Chees)\n    U: Switch to Unicorn\n  Unicorn\n    J/L: Turn Left/Right\n
+    Arrow: Move Cannon\n    Up Arrow: Fire Cannon (Hold to Load)\n    Right Ctrl:
+    Switch Cannons (Suace / Chees)\n    Right Shift: Switch to Unicorn\n  Unicorn\n
+    \   Left Arrow/Right Arrow: Turn Left/Right\n    Up Arrow: Move Forward\n    Left
+    Ctrl: Use Ability (If available)\n    Left Shift: Switch to Train\nPlayer C\n
+    \ Train\n    J/L: Move Cannon\n    I: Fire Cannon (Hold to Load)\n    O: Switch
+    Cannons (Suace / Chees)\n    U: Switch to Unicorn\n  Unicorn\n    J/L: Turn Left/Right\n
     \   I: Move Forward\n    O: Use Ability (If available)\n    U: Switch to Train\nController\nPlayer
     4-7 (D-F) \n    Train\n    Joystick Left/Right: Move Cannon\n    Button 0: Fire
     Cannon (Hold to Load)\n    Button 2: Switch Cannons (Suace / Chees)\n    Button
