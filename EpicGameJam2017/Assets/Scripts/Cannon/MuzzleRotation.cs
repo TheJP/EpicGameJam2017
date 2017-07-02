@@ -34,7 +34,7 @@ public class MuzzleRotation
 
 	  var direction = Input.GetAxis(Constants.HorizontalAxis + cannon.player);
     
-	  var rotation = Time.deltaTime * cannon.rotationSpeed * -direction;
+	  var rotation = Time.deltaTime * cannon.rotationSpeed * direction;
 	  currentRotation += rotation;
       
 	  if(currentRotation < maxRotationRight)
