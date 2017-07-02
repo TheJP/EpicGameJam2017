@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -27,11 +28,22 @@ public class Controller : MonoBehaviour
 
     [Tooltip("The UI text where the player score should be kept track of")]
     public Text PlayerScoreView;
+
+    [Tooltip("How many points a player needs to collect to win the game")]
+    public int WinningScore = 100;
+
+    [Tooltip("The UI text the winner is announced in")]
+    public Text WinningView;
   
     private Players[] players;
 
     public bool DropIngredientOnPizza(Players player, Ingredient ingredient)
     {
+        if(IsGameFinished())
+        {
+          return false;
+        }
+
         // Check for nearby hexagon tiles
         var minimalDistance = float.PositiveInfinity;
         Transform closest = null;
@@ -62,6 +74,7 @@ public class Controller : MonoBehaviour
 
     public void StartGame(Players[] players)
     {
+        WinningView.text = "";
         GlobalData.ClearScores();
 
         foreach(var player in players)
@@ -104,14 +117,41 @@ public class Controller : MonoBehaviour
             CannonWaggonStartLocations.GetChild(i).SetSiblingIndex(r);
             t.SetSiblingIndex(i);
         }
-  }
+    }
 
     void Update()
     {
         if(Input.GetKey(KeyCode.Escape))
         {
-            Debug.Log("Escape was pressed! Quitting game!");
-            Application.Quit();
+            WinningView.text = "Returning to the menu...";
+            StartCoroutine(ReturnToMainMenu());
         }
+
+        if(IsGameFinished())
+        {
+          return;
+        }
+
+        foreach(var player in players)
+        {
+           if(GlobalData.GetScore(player) >= WinningScore)
+           {
+               WinningView.text = "Player " + player + " is the most loved Unicorn!";
+               StartCoroutine(ReturnToMainMenu());
+               break;
+           }
+        }
+    }
+
+    private IEnumerator ReturnToMainMenu()
+    {
+      yield return new WaitForSeconds(5.0f);
+
+      SceneManager.LoadScene("MenuScene");
+    }
+
+    private bool IsGameFinished()
+    {
+        return WinningView.text.Length > 0;
     }
 }
