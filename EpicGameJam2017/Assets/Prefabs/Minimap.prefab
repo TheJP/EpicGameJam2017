@@ -122,8 +122,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1272080927447116}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.17921029, y: -0.8546788, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -11.84017, y: -5.6964164, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4637789232004360}
@@ -184,8 +184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinTimeAlive: 120
   MaxTimeAlive: 240
-  MinTimeDestroyed: 120
-  MaxTimeDestroyed: 240
+  MinTimeDestroyed: 10
+  MaxTimeDestroyed: 30
 --- !u!198 &198272485308163882
 ParticleSystem:
   m_ObjectHideFlags: 1
