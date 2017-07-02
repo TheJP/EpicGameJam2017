@@ -25,7 +25,7 @@ public class Controller : MonoBehaviour
   
     private Players[] players;
 
-    public bool DropIngredientOnPizza(Ingredient ingredient)
+    public bool DropIngredientOnPizza(Players player, Ingredient ingredient)
     {
         // Check for nearby hexagon tiles
         var minimalDistance = float.PositiveInfinity;
@@ -42,7 +42,7 @@ public class Controller : MonoBehaviour
         }
 
         // Does a closest hexagon tile exist?
-        if (closest != null && Mathf.Sqrt(minimalDistance) < 2 * hexagonGrid.HexCellOuterRadius)
+        if (closest != null && closest.GetComponent<HexagonCell>().Player == player && Mathf.Sqrt(minimalDistance) < 2 * hexagonGrid.HexCellOuterRadius)
         {
             // Set ingredient position to the middle of the hexcell
             ingredient.transform.position = new Vector3(closest.position.x, closest.position.y, ingredient.transform.position.z);
