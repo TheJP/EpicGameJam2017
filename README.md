@@ -2,7 +2,7 @@
 The game is a local multiplayer game, where you can control a train and a unicorn. You can switch between your unicorn and your train by key press.
 
 [Game Jam Release (exe)](https://github.com/TheJP/EpicGameJam2017/releases/tag/version1.0.2)  
-[Play online (no download required)](https://thejp.itch.io/we-get-our-epic-priorities-straight-green-slimy-glibery-falling-generated-naked-cheesy-designers-without-skirts-are-overrated)
+[Play online (no download required)](https://thejp.itch.io/we-get-our-epic-priorities-straight-green-slimy-glibery-falling-generated-naked-cheesy-designers-without-skirts-are-overrated)  
 [Wiki](https://github.com/TheJP/EpicGameJam2017/wiki)
 
 ## Included Subthemes:
