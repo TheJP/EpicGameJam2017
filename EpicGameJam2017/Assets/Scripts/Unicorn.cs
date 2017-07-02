@@ -45,6 +45,9 @@ public class Unicorn : MonoBehaviour
     [Tooltip("One of these sounds is played if the unicorn is laughing")]
     public AudioClip[] laughingSounds;
 
+    [Tooltip("Sound with sentence that the unicorn may say")]
+    public AudioClip iLikeTrainsSound;
+
     private Ingredient ingredient = null;
     private Controller controller = null;
 
@@ -114,6 +117,12 @@ public class Unicorn : MonoBehaviour
         if (Input.GetButtonDown(Constants.SwitchButton + player))
         {
             controlsActive = !controlsActive;
+
+            // Play "I like trains" with 20% probability when switching control
+            if (!controlsActive && Random.Range(0f, 100f) <= 20f)
+            {
+                GetComponent<AudioSource>().PlayOneShot(iLikeTrainsSound);
+            }
         }
     }
 

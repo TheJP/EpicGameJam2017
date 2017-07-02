@@ -53,7 +53,6 @@ public static class GlobalData
                 (int)(playerColor.b * 255));
         }
 
-        Debug.Log(text);
         playerScoreView.text = text;
     }
 

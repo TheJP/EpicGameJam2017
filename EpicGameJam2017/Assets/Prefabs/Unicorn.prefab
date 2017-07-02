@@ -369,6 +369,7 @@ MonoBehaviour:
   laughingSounds:
   - {fileID: 8300000, guid: cf8943b562feb5442bed247bd11e43f2, type: 3}
   - {fileID: 8300000, guid: df92e17fb6469ae46946f7180dc242fd, type: 3}
+  iLikeTrainsSound: {fileID: 8300000, guid: 4a19d66a86765bc459ee30c9cb5d7efd, type: 3}
 --- !u!114 &114848474334213518
 MonoBehaviour:
   m_ObjectHideFlags: 1
