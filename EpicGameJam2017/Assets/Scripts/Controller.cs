@@ -18,7 +18,7 @@ public class Controller : MonoBehaviour
     public Unicorn unicornPrefab;
 
     [Tooltip("CannonWaggon (train) prefab, which will be used to instantiate CannonWaggons for players")]
-    public CannonWaggon CannonWaggonPrefab;
+    public GameObject TrainPrefab;
 
     [Tooltip("Container with whose children's transforms serve as potential Startlocations and orientations for CannonWaggons")]
     public Transform CannonWaggonStartLocations;
@@ -69,8 +69,8 @@ public class Controller : MonoBehaviour
             unicorn.player = player;
 
             var trainTransform = CannonWaggonStartLocations.GetChild(nplayers);
-            var cannonWaggon = Instantiate(CannonWaggonPrefab,trainTransform.position,trainTransform.rotation);
-            cannonWaggon.player = player;
+            var train = Instantiate(TrainPrefab,trainTransform.position,trainTransform.rotation);
+            train.GetComponentInChildren<CannonWaggon>().player = player;
 
             nplayers++;
         }

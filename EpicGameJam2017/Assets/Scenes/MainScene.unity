@@ -379,9 +379,10 @@ MonoBehaviour:
     type: 2}
   unicornPrefab: {fileID: 114262620751051784, guid: 270e46013d17e0947a5edbf5b48c6229,
     type: 2}
-  CannonWaggonPrefab: {fileID: 114050258111190782, guid: acde9886f18da5741aeecf098ace5951,
+  TrainPrefab: {fileID: 1476112342345180, guid: a174693140f2f4249aaf6c56f5127db5,
     type: 2}
-  CannonWaggonStartLocations: {fileID: 2094637525}
+  CannonWaggonStartLocations: {fileID: 4777465188614096, guid: a174693140f2f4249aaf6c56f5127db5,
+    type: 2}
 --- !u!114 &480189414
 MonoBehaviour:
   m_ObjectHideFlags: 0
