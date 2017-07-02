@@ -107,7 +107,7 @@ AudioMixerGroupController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: NimbusEffect
+  m_Name: LouderEffect
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 3277dd09c3381f041826a53a5b1f5d6b
   m_Children: []

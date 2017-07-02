@@ -2,40 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class TurretDamage : MonoBehaviour
 {
-  [Tooltip("The time it takes to repair a turret")]
-  public float repairTime = 5.0f;
+    [Tooltip("The time it takes to repair a turret")]
+    public float repairTime = 5.0f;
 
-  private float repairTimeLeft;
-  private CannonTargeting cannonTargeting;
-  private ParticleSystem damageParticles;
+    [Tooltip("Sound effect that is played, when turret is damaged")]
+    public AudioClip turretDamageSound;
 
-	// Use this for initialization
-	void Start()
-	{
-	  cannonTargeting = GetComponentInChildren<CannonTargeting>();
-	  damageParticles = GetComponentInChildren<ParticleSystem>();
-    damageParticles.Stop();
-	}
+    private float repairTimeLeft;
+    private CannonTargeting cannonTargeting;
+    private ParticleSystem damageParticles;
 
-  void Update()
-  {
-    repairTimeLeft -= Time.deltaTime;
-
-    if(repairTimeLeft <= 0)
+    // Use this for initialization
+    void Start()
     {
-      repairTimeLeft = 0;
-      cannonTargeting.Repair();
-      damageParticles.Stop();
+        cannonTargeting = GetComponentInChildren<CannonTargeting>();
+        damageParticles = GetComponentInChildren<ParticleSystem>();
+        damageParticles.Stop();
     }
-  }
-	
-  public void Damage()
-  {
-    damageParticles.Play();
-    cannonTargeting.Break();
-    
-    repairTimeLeft = repairTime;
-  }
+
+    void Update()
+    {
+        repairTimeLeft -= Time.deltaTime;
+
+        if (repairTimeLeft <= 0)
+        {
+            repairTimeLeft = 0;
+            cannonTargeting.Repair();
+            damageParticles.Stop();
+        }
+    }
+
+    public void Damage()
+    {
+        damageParticles.Play();
+        cannonTargeting.Break();
+        GetComponent<AudioSource>().PlayOneShot(turretDamageSound);
+
+        repairTimeLeft = repairTime;
+    }
 }
