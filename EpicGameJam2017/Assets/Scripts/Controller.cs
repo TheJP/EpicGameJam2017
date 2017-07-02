@@ -34,14 +34,14 @@ public class Controller : MonoBehaviour
 
     [Tooltip("The UI text the winner is announced in")]
     public Text WinningView;
-  
+
     private Players[] players;
 
     public bool DropIngredientOnPizza(Players player, Ingredient ingredient)
     {
-        if(IsGameFinished())
+        if (IsGameFinished())
         {
-          return false;
+            return false;
         }
 
         // Check for nearby hexagon tiles
@@ -72,33 +72,34 @@ public class Controller : MonoBehaviour
         return false;
     }
 
-    public void StartGame(Players[] players)
+    public void StartGame()
     {
+        players = GlobalData.Players.ToArray();
+
         WinningView.text = "";
         GlobalData.ClearScores();
 
-        foreach(var player in players)
+        foreach (var player in players)
         {
-          GlobalData.AddToScore(player, 0);
+            GlobalData.AddToScore(player, 0);
         }
 
         GlobalData.SetPlayerScoreView(PlayerScoreView);
-        
-        this.players = players;
+
         ShuffleCannonWagonStartPositions();
 
         var nplayers = 0;
         //Spawn unicorn and train for each player
-        foreach(var player in GlobalData.Players)
+        foreach (var player in players)
         {
             var randomPosition = hexagonGrid.transform.GetChild(Random.Range(0, hexagonGrid.transform.childCount)).position;
             var unicorn = Instantiate(unicornPrefab, randomPosition, Quaternion.identity);
             unicorn.player = player;
 
             var trainTransform = CannonWaggonStartLocations.GetChild(nplayers);
-            var train = Instantiate(TrainPrefab,trainTransform.position,trainTransform.rotation);
+            var train = Instantiate(TrainPrefab, trainTransform.position, trainTransform.rotation);
             train.GetComponentInChildren<CannonWaggon>().player = player;
-      
+
             train.GetComponentInChildren<TrainColor>().SetColor(Constants.PlayerColors[player]);
 
             nplayers++;
@@ -119,35 +120,41 @@ public class Controller : MonoBehaviour
         }
     }
 
-    void Update()
+    public void Start()
     {
-        if(Input.GetKey(KeyCode.Escape))
+        StartGame();
+    }
+
+    public void Update()
+    {
+        // End the game
+        if (Input.GetButtonDown("Cancel"))
         {
             WinningView.text = "Returning to the menu...";
             StartCoroutine(ReturnToMainMenu());
         }
 
-        if(IsGameFinished())
+        if (IsGameFinished())
         {
-          return;
+            return;
         }
 
-        foreach(var player in players)
+        foreach (var player in players)
         {
-           if(GlobalData.GetScore(player) >= WinningScore)
-           {
-               WinningView.text = "Player " + player + " is the most loved Unicorn!";
-               StartCoroutine(ReturnToMainMenu());
-               break;
-           }
+            if (GlobalData.GetScore(player) >= WinningScore)
+            {
+                WinningView.text = "Player " + player + " is the most loved Unicorn!";
+                StartCoroutine(ReturnToMainMenu());
+                break;
+            }
         }
     }
 
     private IEnumerator ReturnToMainMenu()
     {
-      yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(5.0f);
 
-      SceneManager.LoadScene("MenuScene");
+        SceneManager.LoadScene("MenuScene");
     }
 
     private bool IsGameFinished()
