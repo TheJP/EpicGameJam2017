@@ -192,6 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceToExplode: 1
+  ShellType: 1
   ParticleMaterial: {fileID: 2100000, guid: b610f83f252eb38428aab66e41a7070c, type: 2}
   ParticleTrailMaterial: {fileID: 2100000, guid: b610f83f252eb38428aab66e41a7070c,
     type: 2}
@@ -253,7 +254,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 718427934
+  randomSeed: 729445667
   InitialModule:
     serializedVersion: 3
     enabled: 1
