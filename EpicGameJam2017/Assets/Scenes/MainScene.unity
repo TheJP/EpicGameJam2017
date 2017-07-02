@@ -1195,6 +1195,7 @@ GameObject:
   - component: {fileID: 1895371387}
   - component: {fileID: 1895371389}
   - component: {fileID: 1895371388}
+  - component: {fileID: 1895371390}
   m_Layer: 5
   m_Name: WinningText
   m_TagString: Untagged
@@ -1259,6 +1260,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1895371386}
+--- !u!114 &1895371390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1895371386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: -2, y: -1.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1906022250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,6 +1645,7 @@ GameObject:
   - component: {fileID: 2108741169}
   - component: {fileID: 2108741171}
   - component: {fileID: 2108741170}
+  - component: {fileID: 2108741172}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
@@ -1652,9 +1668,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -15}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 15, y: -15}
+  m_SizeDelta: {x: 153, y: 31}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &2108741170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1676,10 +1692,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -1696,6 +1712,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2108741168}
+--- !u!114 &2108741172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2108741168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2125405592
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+using Random = UnityEngine.Random;
 
 
 public class Controller : MonoBehaviour
@@ -123,7 +126,7 @@ public class Controller : MonoBehaviour
         // End the game
         if (Input.GetButtonDown("BackToMenu"))
         {
-            StartCoroutine(ReturnToMainMenu());
+            StartCoroutine(ReturnToMainMenu("Returning to the menu in {0}...", Color.white));
         }
 
         if (IsGameFinished())
@@ -135,8 +138,8 @@ public class Controller : MonoBehaviour
         {
             if (GlobalData.GetScore(player) >= WinningScore)
             {
-                WinningView.text = "Player " + player + " is the most loved Unicorn!";
-                StartCoroutine(ReturnToMainMenu());
+                var playerColor = Constants.PlayerColors[player];
+                StartCoroutine(ReturnToMainMenu("Player " + player + " is the most loved Unicorn!", playerColor));
                 break;
             }
         }
@@ -155,11 +158,16 @@ public class Controller : MonoBehaviour
         }
     }
 
-    private IEnumerator ReturnToMainMenu()
+    private IEnumerator ReturnToMainMenu(string message, Color? color)
     {
+        if(color.HasValue)
+        {
+            WinningView.color = color.Value;
+        }
+
         for(var i = 0; i < 5; ++i)
         {
-            WinningView.text = "Returning to the menu in " + (5 - i);
+            WinningView.text = String.Format(message, (5 - 1));
             yield return new WaitForSeconds(1.0f);
         }
 

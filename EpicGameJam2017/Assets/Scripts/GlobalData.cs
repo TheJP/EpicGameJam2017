@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+
+using UnityEngine;
 using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
@@ -41,9 +43,17 @@ public static class GlobalData
         var text = "";
         foreach(var playerScore in playerScores)
         {
-            text += "Player " + playerScore.Key + ": " + playerScore.Value + "\r\n";
+            var playerColor = Constants.PlayerColors[playerScore.Key];
+            text += String.Format(
+                "<color=#{2:xx}{3:xx}{4:xx}ff>Player {0}: {1}</color>\r\n",
+                playerScore.Key,
+                playerScore.Value,
+                (int)(playerColor.r * 255),
+                (int)(playerColor.g * 255),
+                (int)(playerColor.b * 255));
         }
 
+        Debug.Log(text);
         playerScoreView.text = text;
     }
 
