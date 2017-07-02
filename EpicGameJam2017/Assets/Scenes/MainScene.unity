@@ -382,6 +382,11 @@ MonoBehaviour:
   TrainPrefab: {fileID: 1476112342345180, guid: a174693140f2f4249aaf6c56f5127db5,
     type: 2}
   CannonWaggonStartLocations: {fileID: 2094637525}
+  playerColors:
+  - {r: 0.19333991, g: 0.78676474, b: 0.14462587, a: 0}
+  - {r: 0.8235294, g: 0.11505192, b: 0.11505192, a: 0}
+  - {r: 0.1884191, g: 0.20949537, b: 0.625, a: 0}
+  - {r: 1, g: 0.029411793, b: 0.53144026, a: 0}
 --- !u!114 &480189414
 MonoBehaviour:
   m_ObjectHideFlags: 0
