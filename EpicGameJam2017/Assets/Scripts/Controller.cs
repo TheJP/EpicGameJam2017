@@ -22,10 +22,7 @@ public class Controller : MonoBehaviour
 
     [Tooltip("Container with whose children's transforms serve as potential Startlocations and orientations for CannonWaggons")]
     public Transform CannonWaggonStartLocations;
-
-    [Tooltip("The colors used by the players")]
-    public Color[] playerColors;
-
+  
     private Players[] players;
 
     public bool DropIngredientOnPizza(Ingredient ingredient)
@@ -74,12 +71,8 @@ public class Controller : MonoBehaviour
             var trainTransform = CannonWaggonStartLocations.GetChild(nplayers);
             var train = Instantiate(TrainPrefab,trainTransform.position,trainTransform.rotation);
             train.GetComponentInChildren<CannonWaggon>().player = player;
-
-            var playerIndex = (int)player;
-            if(playerIndex >= 0 && playerIndex < playerColors.Length)
-            {
-              train.GetComponentInChildren<TrainColor>().SetColor(playerColors[playerIndex]);
-            }
+      
+            train.GetComponentInChildren<TrainColor>().SetColor(Constants.PlayerColors[player]);
 
             nplayers++;
         }
