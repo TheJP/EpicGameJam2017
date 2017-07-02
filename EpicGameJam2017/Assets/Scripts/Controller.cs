@@ -123,7 +123,6 @@ public class Controller : MonoBehaviour
         // End the game
         if (Input.GetButtonDown("BackToMenu"))
         {
-            WinningView.text = "Returning to the menu...";
             StartCoroutine(ReturnToMainMenu());
         }
 
@@ -158,7 +157,11 @@ public class Controller : MonoBehaviour
 
     private IEnumerator ReturnToMainMenu()
     {
-        yield return new WaitForSeconds(5.0f);
+        for(var i = 0; i < 5; ++i)
+        {
+            WinningView.text = "Returning to the menu in " + (5 - i);
+            yield return new WaitForSeconds(1.0f);
+        }
 
         SceneManager.LoadScene("MenuScene");
     }
