@@ -14,18 +14,15 @@ public class NimbusAbility : Ability
     public const float AbilityDuration = 5f;
     public const float SpeedBonus = 2f;
 
-    private Unicorn caster;
-
     public void Cast(Unicorn caster)
     {
-        // TODO: Visualize nimbus broom!
-        this.caster = caster;
-        caster.SpeedForce = caster.speedForce * SpeedBonus; // 100% faster, whueeeee!
-        caster.StartCoroutine(End().GetEnumerator());
+        caster.StartCoroutine(RunAbility(caster));
     }
 
-    private IEnumerable End()
+    private IEnumerator RunAbility(Unicorn caster)
     {
+        // Animation
+        caster.SpeedForce = caster.speedForce * SpeedBonus; // 100% faster, whueeeee!
         yield return new WaitForSeconds(AbilityDuration);
         caster.SpeedForce = caster.speedForce;
     }

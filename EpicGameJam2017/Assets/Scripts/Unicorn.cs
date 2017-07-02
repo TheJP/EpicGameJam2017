@@ -31,6 +31,9 @@ public class Unicorn : MonoBehaviour
     [Tooltip("Prefab of the toothpick which is used in the toothpick ability")]
     public Toothpick toothpickPrefab;
 
+    [Tooltip("Prefab for the nimbus 3000 broom stick")]
+    public Nimbus3000Decoration nimbus3000Prefab;
+
     [Tooltip("Amount of seconds that this unicorn is stunned (e.g. if it is hit by a toothpick)")]
     public float stunDuration = 1f;
 
