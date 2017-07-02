@@ -16,7 +16,7 @@ public class TurretDamage : MonoBehaviour
 	{
 	  cannonTargeting = GetComponentInChildren<CannonTargeting>();
 	  damageParticles = GetComponentInChildren<ParticleSystem>();
-    damageParticles.gameObject.SetActive(false);
+    damageParticles.Stop();
 	}
 
   void Update()
@@ -27,13 +27,13 @@ public class TurretDamage : MonoBehaviour
     {
       repairTimeLeft = 0;
       cannonTargeting.Repair();
-      damageParticles.gameObject.SetActive(false);
+      damageParticles.Stop();
     }
   }
 	
   void OnTriggerEnter2D(Collider2D other)
   {
-    damageParticles.gameObject.SetActive(true);
+    damageParticles.Play();
     cannonTargeting.Break();
 
     Destroy(other.gameObject);
