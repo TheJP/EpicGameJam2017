@@ -167,7 +167,7 @@ public class Controller : MonoBehaviour
 
         for(var i = 0; i < 5; ++i)
         {
-            WinningView.text = String.Format(message, (5 - 1));
+            WinningView.text = String.Format(message, 5 - i);
             yield return new WaitForSeconds(1.0f);
         }
 
