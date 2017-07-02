@@ -1065,7 +1065,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Credits
 
-    Team iHomeLab and Freinds'
+    Team iHomeLab and Friends'
 --- !u!222 &745549462
 CanvasRenderer:
   m_ObjectHideFlags: 0
