@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class Controller : MonoBehaviour
 {
@@ -15,6 +16,12 @@ public class Controller : MonoBehaviour
 
     [Tooltip("Unicorn prefab, which will be used to instantiate unicorns for players")]
     public Unicorn unicornPrefab;
+
+    [Tooltip("CannonWaggon (train) prefab, which will be used to instantiate CannonWaggons for players")]
+    public CannonWaggon CannonWaggonPrefab;
+
+    [Tooltip("Container with whose children's transforms serve as potential Startlocations and orientations for CannonWaggons")]
+    public Transform CannonWaggonStartLocations;
 
     private Players[] players;
 
@@ -50,12 +57,35 @@ public class Controller : MonoBehaviour
 
     public void StartGame(Players[] players)
     {
-        //Spawn unicorn for each player
+        ShuffleCannonWagonStartPositions();
+
+        var nplayers = 0;
+        //Spawn unicorn and train for each player
         foreach(var player in GlobalData.Players)
         {
             var randomPosition = hexagonGrid.transform.GetChild(Random.Range(0, hexagonGrid.transform.childCount)).position;
             var unicorn = Instantiate(unicornPrefab, randomPosition, Quaternion.identity);
             unicorn.player = player;
+
+            var trainTransform = CannonWaggonStartLocations.GetChild(nplayers);
+            var cannonWaggon = Instantiate(CannonWaggonPrefab,trainTransform.position,trainTransform.rotation);
+            cannonWaggon.player = player;
+
+            nplayers++;
+        }
+    }
+
+    private void ShuffleCannonWagonStartPositions()
+    {
+        Assert.IsTrue(CannonWaggonStartLocations.childCount >= players.Length);
+
+        int n = CannonWaggonStartLocations.childCount;
+        for (int i = 0; i < n; i++)
+        {
+            int r = i + (int)(Random.value * (n - i));
+            Transform t = CannonWaggonStartLocations.GetChild(r);
+            CannonWaggonStartLocations.GetChild(i).SetSiblingIndex(r);
+            t.SetSiblingIndex(i);
         }
     }
 }
