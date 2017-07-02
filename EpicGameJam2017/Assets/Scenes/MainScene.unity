@@ -1707,7 +1707,7 @@ GameObject:
   - component: {fileID: 2125405593}
   m_Layer: 0
   m_Name: WorldBorder
-  m_TagString: Untagged
+  m_TagString: WorldBorder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
