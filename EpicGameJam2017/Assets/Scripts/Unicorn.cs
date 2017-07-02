@@ -231,6 +231,11 @@ public class Unicorn : MonoBehaviour
         isCheesed = false;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Knife") { Stun(); }
+    }
+
     /// <summary>
     /// Spawns nimbus for speed ability and returns spawned GameObject.
     /// </summary>

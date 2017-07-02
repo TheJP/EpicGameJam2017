@@ -136,6 +136,25 @@ Transform:
   m_Father: {fileID: 2094637525}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!1 &38568920 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 2cc086227cdfca74b8a1cc62f8430799, type: 3}
+  m_PrefabInternal: {fileID: 909173731}
+--- !u!70 &38568921
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 38568920}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.6379889, y: 11.99531}
+  m_Size: {x: 8.114738, y: 47.14159}
+  m_Direction: 0
 --- !u!4 &107325842 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4044222176108228, guid: 7610a10b7fd8e2c41bbd7d1ed80d79f3,
@@ -878,7 +897,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2cc086227cdfca74b8a1cc62f8430799, type: 3}
       propertyPath: m_Name
-      value: Messer
+      value: Knife
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2cc086227cdfca74b8a1cc62f8430799, type: 3}
       propertyPath: m_LocalScale.x
@@ -895,6 +914,10 @@ Prefab:
     - target: {fileID: 400000, guid: 2cc086227cdfca74b8a1cc62f8430799, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 28.778002
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2cc086227cdfca74b8a1cc62f8430799, type: 3}
+      propertyPath: m_TagString
+      value: Knife
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2cc086227cdfca74b8a1cc62f8430799, type: 3}
