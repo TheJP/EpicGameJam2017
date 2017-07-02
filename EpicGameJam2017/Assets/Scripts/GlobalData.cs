@@ -43,17 +43,21 @@ public static class GlobalData
         var text = "";
         foreach(var playerScore in playerScores)
         {
+            if(text.Length > 0)
+            {
+                text += "\r\n";
+            }
+
             var playerColor = Constants.PlayerColors[playerScore.Key];
             text += String.Format(
-                "<color=#{2:xx}{3:xx}{4:xx}ff>Player {0}: {1}</color>\r\n",
+                "<color=#{2:x2}{3:x2}{4:x2}ff>Player {0}: {1}</color>",
                 playerScore.Key,
                 playerScore.Value,
                 (int)(playerColor.r * 255),
                 (int)(playerColor.g * 255),
                 (int)(playerColor.b * 255));
         }
-
-        Debug.Log(text);
+        
         playerScoreView.text = text;
     }
 
