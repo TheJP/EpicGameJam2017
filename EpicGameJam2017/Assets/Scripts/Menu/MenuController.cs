@@ -34,6 +34,14 @@ public class MenuController : MonoBehaviour {
         return highestPlayer;
     }
 
+    public void Update()
+    {
+        if (Input.GetButtonDown("Submit"))
+        {
+            StartNewGame();
+        }
+    }
+
     public void StartNewGame()
     {
         if(players.Count == 0)

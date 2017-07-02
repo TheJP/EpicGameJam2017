@@ -46,12 +46,12 @@ public class Controller : MonoBehaviour
 
         // Check for nearby hexagon tiles
         var minimalDistance = float.PositiveInfinity;
-        Transform closest = null;
+        HexagonCell closest = null;
         for (int i = hexagonGrid.transform.childCount - 1; i >= 0; --i)
         {
-            var child = hexagonGrid.transform.GetChild(i);
-            var distance = Vector2.SqrMagnitude(child.position - ingredient.transform.position);
-            if (distance < minimalDistance)
+            var child = hexagonGrid.transform.GetChild(i).gameObject.GetComponent<HexagonCell>();
+            var distance = Vector2.SqrMagnitude(child.transform.position - ingredient.transform.position);
+            if (distance < minimalDistance && child.Player.HasValue && child.Player == player)
             {
                 minimalDistance = distance;
                 closest = child;
@@ -59,14 +59,14 @@ public class Controller : MonoBehaviour
         }
 
         // Does a closest hexagon tile exist?
-        if (closest != null && closest.GetComponent<HexagonCell>().Player == player && Mathf.Sqrt(minimalDistance) < 2 * hexagonGrid.HexCellOuterRadius)
+        if (closest != null && Mathf.Sqrt(minimalDistance) < 2 * hexagonGrid.HexCellOuterRadius)
         {
             // Set ingredient position to the middle of the hexcell
-            ingredient.transform.position = new Vector3(closest.position.x, closest.position.y, ingredient.transform.position.z);
+            ingredient.transform.position = new Vector3(closest.transform.position.x, closest.transform.position.y, ingredient.transform.position.z);
 
             // Setup countdown for ingredient
             var countdown = Instantiate(countdownPrefab, ingredient.transform);
-            countdown.RefreshCountdown(ingredientCountdownTime, ingredient, closest.gameObject.GetComponent<HexagonCell>());
+            countdown.RefreshCountdown(ingredientCountdownTime, ingredient, closest);
             return true;
         }
         return false;
