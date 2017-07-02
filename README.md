@@ -1,6 +1,7 @@
 # Epic Game Jam 2017: We get our epic priorities straight, green slimy glibery falling generated naked cheesy designers without skirts are overrated
 The game is a local multiplayer game, where you can control a train and a unicorn. You can switch between your unicorn and your train by key press.
 
+[Game Jam Release (exe)](https://github.com/TheJP/EpicGameJam2017/releases/tag/version1.0.2)
 [Wiki](https://github.com/TheJP/EpicGameJam2017/wiki)
 
 ## Included Subthemes:
