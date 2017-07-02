@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,6 +42,9 @@ public class Unicorn : MonoBehaviour
 
     /// <summary>Time, when the unicorn was stunned.</summary>
     private float stunTime;
+
+    /// <summary>If the unicorn is currently cheesed.</summary>
+    private bool isCheesed;
 
     /// <summary>Ingredient, which this unicorn currently carries.</summary>
     public Ingredient CarryIngredient { get { return ingredient; } }
@@ -170,5 +174,22 @@ public class Unicorn : MonoBehaviour
     {
         // TODO: Visualize stunned!
         stunTime = Time.time;
+    }
+
+    public void SetCheesed()
+    {
+        if(this.isCheesed)
+        {
+            return;
+        }
+
+        StartCoroutine(SlowBecauseOfCheese());
+    }
+
+    private IEnumerator SlowBecauseOfCheese()
+    {
+        SpeedForce = speedForce / 10;
+        yield return new WaitForSeconds(2.0f);
+        SpeedForce = speedForce;
     }
 }
