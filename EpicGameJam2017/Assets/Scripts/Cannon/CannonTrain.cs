@@ -8,6 +8,10 @@ public class CannonTrain : MonoBehaviour
   public float distanceFromCenter = 5;
   public float rotationSpeed = 60.0f;
 
+  public Color color;
+
+  private TrainColor trainColor;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -18,6 +22,9 @@ public class CannonTrain : MonoBehaviour
 	  transform.Translate(toCenter * scale, Space.World);
 
 	  LookAt2D(rotationCenter);
+
+    trainColor = GetComponentInChildren<TrainColor>();
+    trainColor.SetColor(color);
 	}
 	
 	// Update is called once per frame
@@ -25,6 +32,12 @@ public class CannonTrain : MonoBehaviour
 	{
 	  transform.RotateAround(rotationCenter, transform.forward, Time.deltaTime * rotationSpeed);
 	}
+
+  public void SetColor(Color newColor)
+  {
+    color = newColor;
+    trainColor.SetColor(color);
+  }
 
   private void LookAt2D(Vector3 point)
   {
