@@ -205,6 +205,13 @@ public class Unicorn : MonoBehaviour
         PlayHurtSound();
         confusedDucks.SetActive(true);
         Invoke("FinishStun", stunDuration);
+
+        // Loose ingredient when stunned
+        if (ingredient != null)
+        {
+            Destroy(ingredient.gameObject);
+            ingredient = null;
+        }
     }
 
     private void FinishStun()
