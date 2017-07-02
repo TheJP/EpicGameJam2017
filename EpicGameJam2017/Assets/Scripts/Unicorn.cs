@@ -195,4 +195,12 @@ public class Unicorn : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         SpeedForce = speedForce;
     }
+
+    /// <summary>
+    /// Spawns nimbus for speed ability and returns spawned GameObject.
+    /// </summary>
+    public Nimbus3000Decoration SpawnNimbus()
+    {
+        return Instantiate(nimbus3000Prefab, transform);
+    }
 }
