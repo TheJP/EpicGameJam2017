@@ -26,7 +26,7 @@ public class TrainColor : MonoBehaviour
     }
 
     var material = new Material(meshRenderer.material);
-    material.SetColor("_Color", color.Value);
+    material.color = color.Value;
     meshRenderer.material = material;
   }
 }
