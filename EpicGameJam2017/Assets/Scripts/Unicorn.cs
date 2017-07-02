@@ -48,6 +48,9 @@ public class Unicorn : MonoBehaviour
     [Tooltip("Sound with sentence that the unicorn may say")]
     public AudioClip iLikeTrainsSound;
 
+    [Tooltip("Confused ducks game object that spins around the unicorns head while it is stunned")]
+    public GameObject confusedDucks;
+
     private Ingredient ingredient = null;
     private Controller controller = null;
 
@@ -124,6 +127,12 @@ public class Unicorn : MonoBehaviour
                 GetComponent<AudioSource>().PlayOneShot(iLikeTrainsSound);
             }
         }
+
+        // Spin ducks while stunned
+        if (IsStunned)
+        {
+            confusedDucks.transform.Rotate(confusedDucks.transform.forward, 20);
+        }
     }
 
     public void FixedUpdate()
@@ -187,13 +196,25 @@ public class Unicorn : MonoBehaviour
         get { return Time.time < stunTime + stunDuration; }
     }
 
+    /// <summary>
+    /// Render unicorn immobilized for <see cref="stunDuration"/> seconds.
+    /// </summary>
     public void Stun()
     {
-        // TODO: Visualize stunned!
         stunTime = Time.time;
         PlayHurtSound();
+        confusedDucks.SetActive(true);
+        Invoke("FinishStun", stunDuration);
     }
 
+    private void FinishStun()
+    {
+        confusedDucks.SetActive(false);
+    }
+
+    /// <summary>
+    /// Slow down unicorn for 2 seconds.
+    /// </summary>
     public void SetCheesed()
     {
         if (isCheesed) { return; }
