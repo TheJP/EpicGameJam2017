@@ -20,13 +20,13 @@
 		Zwrite Off
 
 		//Blend SrcFactor DstFactor
-		Blend OneMinusDstAlpha One
+		Blend OneMinusDstAlpha One //DstAlpha is 1 on the inside
 
 		 //Blend Off
          Cull Back
 		 //AlphaToMask On
 
-		 //#2 render full size
+		 //#1 render only inside
 		  Pass
          {
              CGPROGRAM
@@ -63,7 +63,7 @@
              ENDCG
          }
 
-		//#1 render full size
+		//#2 render full size
          Pass
          {
              CGPROGRAM
@@ -74,6 +74,8 @@
              #include "UnityCG.cginc"
 
 			 half4 _Color;
+			 float _Thickness;
+
 
              struct v2f 
              {
@@ -86,7 +88,7 @@
              v2f vert(appdata_base v)
              {
                  v2f OUT;
-                 OUT.pos = UnityObjectToClipPos(v.vertex);
+                 OUT.pos = UnityObjectToClipPos(v.vertex*(1 + _Thickness/100));
                  OUT.uv = v.texcoord; 
                  OUT.normals = v.normal;
                  return OUT;
