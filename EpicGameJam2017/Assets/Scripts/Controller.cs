@@ -128,7 +128,7 @@ public class Controller : MonoBehaviour
     public void Update()
     {
         // End the game
-        if (Input.GetButtonDown("Cancel"))
+        if (Input.GetButtonDown("BackToMenu"))
         {
             WinningView.text = "Returning to the menu...";
             StartCoroutine(ReturnToMainMenu());

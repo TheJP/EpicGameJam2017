@@ -74,7 +74,6 @@ public class Unicorn : MonoBehaviour
     private void Start()
     {
         // Set unicorn color
-        Debug.Log(player);
         var materials = unicornRenderer.materials;
         materials[0] = new Material(materials[0]) { color = Constants.PlayerColors[player] };
         unicornRenderer.materials = materials;
