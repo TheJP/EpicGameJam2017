@@ -36,6 +36,7 @@ public class Controller : MonoBehaviour
     public Text WinningView;
 
     private Players[] players;
+    private List<Unicorn> unicorns = new List<Unicorn>();
 
     public bool DropIngredientOnPizza(Players player, Ingredient ingredient)
     {
@@ -45,21 +46,10 @@ public class Controller : MonoBehaviour
         }
 
         // Check for nearby hexagon tiles
-        var minimalDistance = float.PositiveInfinity;
-        HexagonCell closest = null;
-        for (int i = hexagonGrid.transform.childCount - 1; i >= 0; --i)
-        {
-            var child = hexagonGrid.transform.GetChild(i).gameObject.GetComponent<HexagonCell>();
-            var distance = Vector2.SqrMagnitude(child.transform.position - ingredient.transform.position);
-            if (distance < minimalDistance && child.Player.HasValue && child.Player == player)
-            {
-                minimalDistance = distance;
-                closest = child;
-            }
-        }
+        var closest = FindClosestHexagonCell(player, ingredient.transform.position);
 
         // Does a closest hexagon tile exist?
-        if (closest != null && Mathf.Sqrt(minimalDistance) < 2 * hexagonGrid.HexCellOuterRadius)
+        if (closest != null)
         {
             // Set ingredient position to the middle of the hexcell
             ingredient.transform.position = new Vector3(closest.transform.position.x, closest.transform.position.y, ingredient.transform.position.z);
@@ -69,11 +59,13 @@ public class Controller : MonoBehaviour
             countdown.RefreshCountdown(ingredientCountdownTime, ingredient, closest);
             return true;
         }
+
         return false;
     }
 
     public void StartGame()
     {
+        unicorns.Clear();
         players = GlobalData.Players.ToArray();
 
         WinningView.text = "";
@@ -95,6 +87,7 @@ public class Controller : MonoBehaviour
             var randomPosition = hexagonGrid.transform.GetChild(Random.Range(0, hexagonGrid.transform.childCount)).position;
             var unicorn = Instantiate(unicornPrefab, randomPosition, Quaternion.identity);
             unicorn.player = player;
+            unicorns.Add(unicorn);
 
             var trainTransform = CannonWaggonStartLocations.GetChild(nplayers);
             var train = Instantiate(TrainPrefab, trainTransform.position, trainTransform.rotation);
@@ -150,6 +143,19 @@ public class Controller : MonoBehaviour
         }
     }
 
+    public void FixedUpdate()
+    {
+        foreach(var unicorn in unicorns)
+        {
+            var hexagonCell = FindClosestHexagonCell(null, unicorn.transform.position);
+
+            if(hexagonCell != null && hexagonCell.IsCheesed)
+            {
+                unicorn.SetCheesed();
+            }
+        }
+    }
+
     private IEnumerator ReturnToMainMenu()
     {
         yield return new WaitForSeconds(5.0f);
@@ -160,5 +166,28 @@ public class Controller : MonoBehaviour
     private bool IsGameFinished()
     {
         return WinningView.text.Length > 0;
+    }
+
+    private HexagonCell FindClosestHexagonCell(Players? player, Vector3 position)
+    {
+        var minimalDistance = float.PositiveInfinity;
+        HexagonCell closest = null;
+        for(int i = hexagonGrid.transform.childCount - 1; i >= 0; --i)
+        {
+            var child = hexagonGrid.transform.GetChild(i).gameObject.GetComponent<HexagonCell>();
+            var distance = Vector2.SqrMagnitude(child.transform.position - position);
+            if(distance < minimalDistance && (!player.HasValue || child.Player.HasValue && child.Player == player))
+            {
+                minimalDistance = distance;
+                closest = child;
+            }
+        }
+
+        if(closest != null && Mathf.Sqrt(minimalDistance) < 2 * hexagonGrid.HexCellOuterRadius)
+        {
+            return closest;
+        }
+
+        return null;
     }
 }
