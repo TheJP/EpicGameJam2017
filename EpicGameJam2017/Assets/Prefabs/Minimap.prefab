@@ -184,8 +184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinTimeAlive: 120
   MaxTimeAlive: 240
-  MinTimeDestroyed: 10
-  MaxTimeDestroyed: 30
+  MinTimeDestroyed: 5
+  MaxTimeDestroyed: 10
 --- !u!198 &198272485308163882
 ParticleSystem:
   m_ObjectHideFlags: 1
