@@ -22,7 +22,7 @@ public class NimbusAbility : Ability
     private IEnumerator RunAbility(Unicorn caster)
     {
         var nimbus = caster.SpawnNimbus();
-        yield return new WaitForSeconds(nimbus.animationDuration);
+        yield return new WaitForSeconds(nimbus.animationDuration + nimbus.waitDuration);
         caster.SpeedForce = caster.speedForce * SpeedBonus; // 100% faster, whueeeee!
         yield return new WaitForSeconds(AbilityDuration);
         caster.SpeedForce = caster.speedForce;

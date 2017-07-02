@@ -10,12 +10,17 @@ public class Nimbus3000Decoration : MonoBehaviour
     private bool flyAway = false;
 
     public float animationDuration = 1f;
+    public float waitDuration = 1f;
+    public AudioSource audioSourceFlying;
 
     public void Start()
     {
-        startTime = Time.time;
+        startTime = Time.time + waitDuration;
         startPosition = transform.localPosition;
         despawnPosition = -transform.localPosition;
+
+        // Play flying audio
+        audioSourceFlying.PlayDelayed(waitDuration + animationDuration);
     }
 
     public void Update()
@@ -31,6 +36,7 @@ public class Nimbus3000Decoration : MonoBehaviour
     {
         flyAway = true;
         startTime = Time.time;
+        audioSourceFlying.Stop();
         yield return new WaitForSeconds(animationDuration);
         Destroy(gameObject);
     }
