@@ -5,7 +5,6 @@ using UnityEngine;
 public class CannonTrain : MonoBehaviour
 {
   public Vector3 rotationCenter = Vector3.zero;
-  public float distanceFromCenter = 5;
   public float rotationSpeed = 60.0f;
   
   private TrainColor trainColor;
@@ -13,12 +12,6 @@ public class CannonTrain : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-	  var toCenter = transform.position - rotationCenter;
-	  var currentDistance = toCenter.magnitude;
-	  float scale = distanceFromCenter / currentDistance;
-    
-	  transform.Translate(toCenter * scale, Space.World);
-
 	  LookAt2D(rotationCenter);
 
     trainColor = GetComponentInChildren<TrainColor>();
