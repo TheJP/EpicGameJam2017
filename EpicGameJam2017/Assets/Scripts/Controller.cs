@@ -14,9 +14,6 @@ public class Controller : MonoBehaviour
     [Tooltip("Play field that is managed by this controller")]
     public HexagonGrid hexagonGrid;
 
-    [Tooltip("Amount of seconds a ingredient takes to respawn after a refresh")]
-    public int ingredientCountdownTime = 5;
-
     [Tooltip("Prefab of the ingredient countdown")]
     public IngredientCountdown countdownPrefab;
 
@@ -59,7 +56,7 @@ public class Controller : MonoBehaviour
 
             // Setup countdown for ingredient
             var countdown = Instantiate(countdownPrefab, ingredient.transform);
-            countdown.RefreshCountdown(ingredientCountdownTime, ingredient, closest);
+            countdown.RefreshCountdown(countdown.countdownStart, ingredient, closest);
             return true;
         }
 
