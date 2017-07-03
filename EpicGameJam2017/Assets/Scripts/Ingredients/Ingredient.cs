@@ -17,8 +17,26 @@ public class Ingredient : MonoBehaviour
 
     private static readonly Dictionary<Ingredients, Func<Unicorn, bool>> rewards = new Dictionary<Ingredients, Func<Unicorn, bool>>()
     {
-        { Ingredients.Olive, unicorn => unicorn.abilityHolder.SetToothpickAbility() },
-        { Ingredients.Peperoni, unicorn => unicorn.abilityHolder.SetNimbusAbility() }
+        { Ingredients.Olive, unicorn => {
+            GlobalData.AddToScore(unicorn.player, 1);
+            return unicorn.abilityHolder.SetToothpickAbility();
+        } },
+        { Ingredients.Peperoni, unicorn => {
+            GlobalData.AddToScore(unicorn.player, 1);
+            return unicorn.abilityHolder.SetNimbusAbility();
+        } },
+        { Ingredients.Mushroom, unicorn => {
+            GlobalData.AddToScore(unicorn.player, 1);
+            return true;
+        } },
+        { Ingredients.Salami, unicorn => {
+            GlobalData.AddToScore(unicorn.player, 1);
+            return true;
+        } },
+        { Ingredients.Tomato, unicorn => {
+            GlobalData.AddToScore(unicorn.player, 1);
+            return true;
+        } }
     };
 
     public void TimeUp(HexagonCell hexagonCell)
@@ -32,8 +50,6 @@ public class Ingredient : MonoBehaviour
                 var unicorn = FindObjectsOfType<Unicorn>().FirstOrDefault(u => u.player == hexagonCell.Player.Value);
                 if (unicorn != null && !rewards[type](unicorn)) { Debug.LogWarning("Reward could not be provided successfully for '" + type + "'"); }
             }
-
-            GlobalData.AddToScore(hexagonCell.Player.Value, 1);
         }
 
         // Destroy ingredient
@@ -46,7 +62,7 @@ public class Ingredient : MonoBehaviour
             // Deactivate colliders (the ingredient is no longer technically there)
             foreach (var collider in GetComponents<Collider2D>()) { collider.enabled = false; }
             // Only let the splash effect active
-            for(int i = 0; i < transform.childCount; i++) { transform.GetChild(i).gameObject.SetActive(false); }
+            for (int i = 0; i < transform.childCount; i++) { transform.GetChild(i).gameObject.SetActive(false); }
             splash.SetActive(true);
             // Destroy after specified amount of time
             Destroy(gameObject, splashDuration);

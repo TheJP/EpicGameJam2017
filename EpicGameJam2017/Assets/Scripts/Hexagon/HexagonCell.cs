@@ -16,14 +16,12 @@ public class HexagonCell : MonoBehaviour
     private Mesh mesh;
     private List<Vector3> vertices = new List<Vector3>();
     private List<int> triangles = new List<int>();
-    private PolygonCollider2D collider2D;
     private HexagonGrid grid;
 
 
     void Awake()
     {
         mesh = GetComponent<MeshFilter>().mesh = new Mesh();
-        collider2D = GetComponent<PolygonCollider2D>();
         grid = GetComponentInParent<HexagonGrid>();
     }
 
@@ -76,6 +74,7 @@ public class HexagonCell : MonoBehaviour
     {
         vertices.Clear();
         triangles.Clear();
+        var collider2D = GetComponent<PolygonCollider2D>();
         collider2D.pathCount = 0;
         collider2D.CreatePrimitive(6, new Vector2(grid.HexCellOuterRadius, grid.HexCellOuterRadius));
         Triangulate();
