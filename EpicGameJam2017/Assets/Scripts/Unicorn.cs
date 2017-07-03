@@ -69,6 +69,11 @@ public class Unicorn : MonoBehaviour
     /// </summary>
     private Vector3 abilityHolderPositionDifference;
 
+    public float SpeedForce { get; set; }
+
+    /// <summary>Flag indicating, if the unicorn is flying. (Flying unicorns can avoid trains and cheese)</summary>
+    public bool IsFlying { get; private set; }
+
     /// <summary>Set the given ingredient to belong to this unicorn.</summary>
     public bool SetIngredient(Ingredient ingredient)
     {
@@ -77,8 +82,6 @@ public class Unicorn : MonoBehaviour
         ingredient.SetCollidersActive(false);
         return true;
     }
-
-    public float SpeedForce { get; set; }
 
     public void Awake()
     {
@@ -203,8 +206,7 @@ public class Unicorn : MonoBehaviour
     {
         stunTime = Time.time;
         PlayHurtSound();
-        confusedDucks.SetActive(true);
-        Invoke("FinishStun", stunDuration);
+        StartCoroutine(AnimateConfusedDucks());
 
         // Loose ingredient when stunned
         if (ingredient != null)
@@ -214,8 +216,10 @@ public class Unicorn : MonoBehaviour
         }
     }
 
-    private void FinishStun()
+    private IEnumerator AnimateConfusedDucks()
     {
+        confusedDucks.SetActive(true);
+        yield return new WaitForSeconds(stunDuration);
         confusedDucks.SetActive(false);
     }
 
@@ -224,23 +228,33 @@ public class Unicorn : MonoBehaviour
     /// </summary>
     public void SetCheesed()
     {
-        if (isCheesed) { return; }
+        if (isCheesed || IsFlying) { return; }
         isCheesed = true;
         StartCoroutine(SlowBecauseOfCheese());
         PlayHurtSound();
     }
 
+    public void SetFlying(bool isFlying)
+    {
+        IsFlying = isFlying;
+        if (isFlying) { isCheesed = false; }
+    }
+
     private IEnumerator SlowBecauseOfCheese()
     {
-        SpeedForce = speedForce / 10;
+        SpeedForce = speedForce * 0.1f; // 10% of normal speed
         yield return new WaitForSeconds(2.0f);
-        SpeedForce = speedForce;
-        isCheesed = false;
+        // Cheesed could be overwritten by flying
+        if (isCheesed)
+        {
+            SpeedForce = speedForce;
+            isCheesed = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Knife") { Stun(); }
+        if (collision.gameObject.tag == Constants.KnifeTag) { Stun(); }
     }
 
     /// <summary>

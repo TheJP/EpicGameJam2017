@@ -47,4 +47,14 @@ public static class Constants
     /// Color of the cheese on the grid
     /// </summary>
     public static readonly Color CheeseColor = new Color(242 / 255.0f, 236 / 255.0f, 189 / 255.0f);
+
+    /// <summary>
+    /// Tag of the knife decoration.
+    /// </summary>
+    public const string KnifeTag = "Knife";
+
+    /// <summary>
+    /// Tag of the world border.
+    /// </summary>
+    public const string WorldBorderTag = "WorldBorder";
 }

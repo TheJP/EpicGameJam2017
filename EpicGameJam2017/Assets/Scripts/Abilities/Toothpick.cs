@@ -45,7 +45,7 @@ public class Toothpick : MonoBehaviour
         }
 
         // Remove toothpick if border was reached
-        if (collision.gameObject.tag == "WorldBorder" || collision.gameObject.tag == "Knife")
+        if (collision.gameObject.tag == Constants.WorldBorderTag || collision.gameObject.tag == Constants.KnifeTag)
         {
             Destroy(gameObject);
         }

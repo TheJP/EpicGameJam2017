@@ -28,7 +28,7 @@ public class CannonTrain : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         var unicorn = other.GetComponent<Unicorn>();
-        if(unicorn != null)
+        if(unicorn != null && !unicorn.IsFlying)
         {
             unicorn.Stun();
         }
