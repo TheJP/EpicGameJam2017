@@ -5,8 +5,7 @@ The game is a local multiplayer game, where you can control a train and a unicor
 [Play online (no download required)](https://thejp.itch.io/we-get-our-epic-priorities-straight-green-slimy-glibery-falling-generated-naked-cheesy-designers-without-skirts-are-overrated)  
 [Wiki](https://github.com/TheJP/EpicGameJam2017/wiki)
 
-## Included Subthemes:
-
+## Included Subthemes
 * confusing ducks
 * nimbus 3000
 * exploding minimap
@@ -17,7 +16,7 @@ The game is a local multiplayer game, where you can control a train and a unicor
 * the world is made of cheese
 * diy
 
-## Earned Badges:
+## Earned Badges
 ![](https://epicgamejam.com/sites/default/files/badges/SubthemesCount_5.svg) 5+ Subthemes  
 ![](https://epicgamejam.com/sites/default/files/badges/cuteness.svg) Game of the Internet  
 ![](https://epicgamejam.com/sites/default/files/badges/broken.svg) Not a bug but a feature  
