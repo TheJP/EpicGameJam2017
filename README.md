@@ -18,14 +18,14 @@ The game is a local multiplayer game, where you can control a train and a unicor
 * diy
 
 ## Earned Badges:
-* 5+ Subthemes
-* Game of the Internet
-* Not a bug but a feature
-* Friendship ruined
-* Google won't like it
-* Honorable Mentions
-* EPIC Yellow supporter
-* WTF !!!!!!
-* E-Sporty
-* You got the flow babe
-* Healthy
+![](https://epicgamejam.com/sites/default/files/badges/SubthemesCount_5.svg) 5+ Subthemes  
+![](https://epicgamejam.com/sites/default/files/badges/cuteness.svg) Game of the Internet  
+![](https://epicgamejam.com/sites/default/files/badges/broken.svg) Not a bug but a feature  
+![](https://epicgamejam.com/sites/default/files/badges/multiplayer.svg) Friendship ruined  
+![](https://epicgamejam.com/sites/default/files/badges/long_title.svg) Google won't like it  
+![](https://epicgamejam.com/sites/default/files/badge/2017-07/EPIC_yellow_supporter.svg) EPIC Yellow supporter  
+![](https://epicgamejam.com/sites/default/files/badges/wtf.svg) WTF !!!!!!  
+![](https://epicgamejam.com/sites/default/files/badge/2017-07/MuDA_0.svg) MuDA  
+![](https://epicgamejam.com/sites/default/files/badges/e_sportly.svg) E-Sporty  
+![](https://epicgamejam.com/sites/default/files/badge/2017-07/you_got_the_flow_baby.svg) You got the flow babe  
+![](https://epicgamejam.com/sites/default/files/badge/2017-07/eat_your_greens.svg) Healthy  
