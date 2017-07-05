@@ -15,16 +15,16 @@ The game is a local multiplayer game, where you can control a train and a unicor
 * grand-mother's cuisine
 * the world is made of cheese
 * diy
+* +1 at least?
 
 ## Earned Badges
-![](https://epicgamejam.com/sites/default/files/badges/SubthemesCount_5.svg) 5+ Subthemes  
+![](https://epicgamejam.com/sites/default/files/badges/SubthemesCount_10.svg) 10+ Subthemes  
 ![](https://epicgamejam.com/sites/default/files/badges/cuteness.svg) Game of the Internet  
-![](https://epicgamejam.com/sites/default/files/badges/broken.svg) Not a bug but a feature  
+![](https://epicgamejam.com/sites/default/files/badges/perfect_timing.svg) Perfect timing  
 ![](https://epicgamejam.com/sites/default/files/badges/multiplayer.svg) Friendship ruined  
+![](https://epicgamejam.com/sites/default/files/badges/headshot.svg) Time for Aimbot  
 ![](https://epicgamejam.com/sites/default/files/badges/long_title.svg) Google won't like it  
-![](https://epicgamejam.com/sites/default/files/badge/2017-07/EPIC_yellow_supporter.svg) EPIC Yellow supporter  
-![](https://epicgamejam.com/sites/default/files/badges/wtf.svg) WTF !!!!!!  
+![](https://epicgamejam.com/sites/default/files/badge/2017-07/yellow_supporter.svg) Yellow supporter  
 ![](https://epicgamejam.com/sites/default/files/badge/2017-07/MuDA_0.svg) MuDA  
-![](https://epicgamejam.com/sites/default/files/badges/e_sportly.svg) E-Sporty  
-![](https://epicgamejam.com/sites/default/files/badge/2017-07/you_got_the_flow_baby.svg) You got the flow babe  
+![](https://epicgamejam.com/sites/default/files/badges/groove.svg) Dat groove  
 ![](https://epicgamejam.com/sites/default/files/badge/2017-07/eat_your_greens.svg) Healthy  
