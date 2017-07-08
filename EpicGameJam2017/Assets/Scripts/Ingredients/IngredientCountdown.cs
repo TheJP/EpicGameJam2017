@@ -19,7 +19,7 @@ public class IngredientCountdown : MonoBehaviour
 
     public void RefreshCountdown(int countdown, Ingredient ingredient, HexagonCell hexagonCell)
     {
-        countdownStart = countdown;
+        countdownStart = GlobalData.VegiCountdown;
         this.ingredient = ingredient;
         this.hexagonCell = hexagonCell;
         startTime = Time.time;

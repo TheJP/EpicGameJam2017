@@ -29,9 +29,6 @@ public class Controller : MonoBehaviour
     [Tooltip("The UI text where the player score should be kept track of")]
     public Text PlayerScoreView;
 
-    [Tooltip("How many points a player needs to collect to win the game")]
-    public int WinningScore = 100;
-
     [Tooltip("The UI text the winner is announced in")]
     public Text WinningView;
 
@@ -134,7 +131,7 @@ public class Controller : MonoBehaviour
 
         foreach (var player in players)
         {
-            if (GlobalData.GetScore(player) >= WinningScore)
+            if (GlobalData.GetScore(player) >= GlobalData.PointsToWin)
             {
                 var playerColor = Constants.PlayerColors[player];
                 StartCoroutine(ReturnToMainMenu("Player " + player + " is the most loved Unicorn!", playerColor));

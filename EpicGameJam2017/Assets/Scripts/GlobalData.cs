@@ -25,6 +25,12 @@ public static class GlobalData
     private static readonly Dictionary<Players, int> playerScores = new Dictionary<Players, int>();
     private static Text playerScoreView;
 
+    private static int pointsToWin = 20;
+    public static int PointsToWin { get { return pointsToWin; } set { pointsToWin = value; } }
+
+    private static int vegiCountdown = 10;
+    public static int VegiCountdown { get { return vegiCountdown; } set { vegiCountdown = value; } }
+
     public static void SetPlayerScoreView(Text view)
     {
         playerScoreView = view;

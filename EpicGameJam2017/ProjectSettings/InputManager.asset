@@ -545,7 +545,7 @@ InputManager:
     dead: 0.19
     sensitivity: 1
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
     axis: 0
     joyNum: 1
@@ -609,7 +609,7 @@ InputManager:
     dead: 0.19
     sensitivity: 1
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
     axis: 0
     joyNum: 2
@@ -673,7 +673,7 @@ InputManager:
     dead: 0.19
     sensitivity: 1
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
     axis: 0
     joyNum: 3
@@ -726,7 +726,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Horizontal
+    m_Name: HorizontalG
     descriptiveName: Horizontal Player G
     descriptiveNegativeName: 
     negativeButton: 
@@ -737,7 +737,7 @@ InputManager:
     dead: 0.19
     sensitivity: 1
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
     axis: 0
     joyNum: 4
