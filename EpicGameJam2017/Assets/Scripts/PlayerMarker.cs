@@ -41,13 +41,13 @@ public class PlayerMarker : MonoBehaviour
         if (target == null) { return; }
         var direction = target.Position - transform.position;
         var distance = direction.magnitude;
-        if (distance <= speed)
+        if (distance <= speed * Time.deltaTime)
         {
             transform.position = target.Position;
         }
         else
         {
-            transform.position += (direction / distance) * speed;
+            transform.position += (direction / distance) * speed * Time.deltaTime;
         }
     }
 }
