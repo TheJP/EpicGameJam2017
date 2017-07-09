@@ -11,7 +11,6 @@ public class CannonTrain : MonoBehaviour
 
     private TrainColor trainColor;
 
-    // Use this for initialization
     void Start()
     {
         LookAt2D(rotationCenter);
@@ -19,7 +18,6 @@ public class CannonTrain : MonoBehaviour
         trainColor = GetComponentInChildren<TrainColor>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.RotateAround(rotationCenter, transform.forward, Time.deltaTime * rotationSpeed);

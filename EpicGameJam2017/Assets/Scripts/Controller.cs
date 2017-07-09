@@ -23,6 +23,9 @@ public class Controller : MonoBehaviour
     [Tooltip("CannonWaggon (train) prefab, which will be used to instantiate CannonWaggons for players")]
     public GameObject TrainPrefab;
 
+    [Tooltip("Player marker prefab, which will be used to instantiate one PlayerMarkers per player")]
+    public PlayerMarker playerMarkerPrefab;
+
     [Tooltip("Container with whose children's transforms serve as potential Startlocations and orientations for CannonWaggons")]
     public Transform CannonWaggonStartLocations;
 
@@ -78,20 +81,27 @@ public class Controller : MonoBehaviour
         ShuffleCannonWagonStartPositions();
 
         var nplayers = 0;
-        //Spawn unicorn and train for each player
+        // Spawn unicorn, train and marker for each player
         foreach (var player in players)
         {
+            // Spawn unicorn
             var randomPosition = hexagonGrid.transform.GetChild(Random.Range(0, hexagonGrid.transform.childCount)).position;
             randomPosition.z = 0;
             var unicorn = Instantiate(unicornPrefab, randomPosition, Quaternion.identity);
             unicorn.player = player;
             unicorns.Add(unicorn);
 
+            // Spawn train
             var trainTransform = CannonWaggonStartLocations.GetChild(nplayers);
             var train = Instantiate(TrainPrefab, trainTransform.position, trainTransform.rotation);
             train.GetComponentInChildren<CannonWaggon>().player = player;
 
             train.GetComponentInChildren<TrainColor>().SetColor(Constants.PlayerColors[player]);
+
+            // Spawn player marker
+            var playerMarker = Instantiate(playerMarkerPrefab);
+            playerMarker.SetPlayer(player);
+            playerMarker.playerObjects = new[] { unicorn.gameObject, train };
 
             nplayers++;
         }
@@ -142,11 +152,11 @@ public class Controller : MonoBehaviour
 
     public void FixedUpdate()
     {
-        foreach(var unicorn in unicorns)
+        foreach (var unicorn in unicorns)
         {
             var hexagonCell = FindClosestHexagonCell(null, unicorn.transform.position);
 
-            if(hexagonCell != null && hexagonCell.IsCheesed)
+            if (hexagonCell != null && hexagonCell.IsCheesed)
             {
                 unicorn.SetCheesed();
             }
@@ -155,12 +165,12 @@ public class Controller : MonoBehaviour
 
     private IEnumerator ReturnToMainMenu(string message, Color? color)
     {
-        if(color.HasValue)
+        if (color.HasValue)
         {
             WinningView.color = color.Value;
         }
 
-        for(var i = 0; i < 5; ++i)
+        for (var i = 0; i < 5; ++i)
         {
             WinningView.text = String.Format(message, 5 - i);
             yield return new WaitForSeconds(1.0f);
@@ -178,18 +188,18 @@ public class Controller : MonoBehaviour
     {
         var minimalDistance = float.PositiveInfinity;
         HexagonCell closest = null;
-        for(int i = hexagonGrid.transform.childCount - 1; i >= 0; --i)
+        for (int i = hexagonGrid.transform.childCount - 1; i >= 0; --i)
         {
             var child = hexagonGrid.transform.GetChild(i).gameObject.GetComponent<HexagonCell>();
             var distance = Vector2.SqrMagnitude(child.transform.position - position);
-            if(distance < minimalDistance && (!player.HasValue || child.Player.HasValue && child.Player == player))
+            if (distance < minimalDistance && (!player.HasValue || child.Player.HasValue && child.Player == player))
             {
                 minimalDistance = distance;
                 closest = child;
             }
         }
 
-        if(closest != null && Mathf.Sqrt(minimalDistance) < 2 * hexagonGrid.HexCellOuterRadius)
+        if (closest != null && Mathf.Sqrt(minimalDistance) < 2 * hexagonGrid.HexCellOuterRadius)
         {
             return closest;
         }

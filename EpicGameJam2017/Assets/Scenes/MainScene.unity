@@ -662,16 +662,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hexagonGrid: {fileID: 1571372487}
-  ingredientCountdownTime: 5
   countdownPrefab: {fileID: 114466871105353432, guid: 5973ea39a1f1ec444afe90061a42d081,
     type: 2}
   unicornPrefab: {fileID: 114262620751051784, guid: 270e46013d17e0947a5edbf5b48c6229,
     type: 2}
   TrainPrefab: {fileID: 1476112342345180, guid: a174693140f2f4249aaf6c56f5127db5,
     type: 2}
+  playerMarkerPrefab: {fileID: 114410418872499100, guid: 0b38a4a9c06db754791b1acc13347574,
+    type: 2}
   CannonWaggonStartLocations: {fileID: 2094637525}
   PlayerScoreView: {fileID: 2108741170}
-  WinningScore: 20
   WinningView: {fileID: 1895371388}
 --- !u!82 &480189414
 AudioSource:

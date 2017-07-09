@@ -50,7 +50,6 @@ public class MenuController : MonoBehaviour {
             //TODO: Inform User....
         } else
         {
-            Debug.Log("Start new Game!");
             //Give the List with Players to the MainScene to and start the Game.
             GlobalData.Players = this.players;
             SceneManager.LoadScene("MainScene");

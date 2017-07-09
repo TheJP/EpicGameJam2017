@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(AudioSource))]
-public class Unicorn : MonoBehaviour
+public class Unicorn : MonoBehaviour, PlayerMarkable
 {
     [Tooltip("Player which controls this unicorn")]
     public Players player;
@@ -62,6 +62,12 @@ public class Unicorn : MonoBehaviour
 
     /// <summary>Ingredient, which this unicorn currently carries.</summary>
     public Ingredient CarryIngredient { get { return ingredient; } }
+    
+    public bool ShouldBeMarked { get { return controlsActive; } }
+
+    public Players Player { get { return player; } }
+
+    public Vector3 Position { get { return transform.position; } }
 
     /// <summary>
     /// Stores the difference between unicorn and ability holder position,
