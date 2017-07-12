@@ -10,7 +10,7 @@ public static class GlobalData
 {
     private static System.Collections.Generic.List<Players> players = new System.Collections.Generic.List<Players>();
 
-    public static System.Collections.Generic.List<Players> Players
+    public static List<Players> Players
     {
         get
         {
@@ -39,27 +39,33 @@ public static class GlobalData
 
     private static void UpdatePlayerScoreView()
     {
-        if(playerScoreView == null)
+        int barLength = 10;
+        if (playerScoreView == null)
         {
             return;
         }
 
         var text = "";
-        foreach(var playerScore in playerScores)
+        foreach (var playerScore in playerScores)
         {
-            if(text.Length > 0)
+            if (text.Length > 0)
             {
                 text += "\r\n";
             }
 
             var playerColor = Constants.PlayerColors[playerScore.Key];
+            var playerScoreLength = (int)((playerScore.Value / (float)PointsToWin) * barLength);
+            var playerBar = new string('▀', playerScoreLength);
+            var bar = new string('▀', barLength - playerScoreLength);
             text += String.Format(
-                "<color=#{2:x2}{3:x2}{4:x2}ff>Player {0}: {1}</color>",
+                "<color=#{2:x2}{3:x2}{4:x2}ff>Player {0}:{1:00} {5}</color>{6}",
                 playerScore.Key,
                 playerScore.Value,
                 (int)(playerColor.r * 255),
                 (int)(playerColor.g * 255),
-                (int)(playerColor.b * 255));
+                (int)(playerColor.b * 255),
+                playerBar,
+                bar);
         }
         playerScoreView.text = text;
     }
@@ -67,7 +73,7 @@ public static class GlobalData
     public static int GetScore(Players player)
     {
         int score;
-        if(playerScores.TryGetValue(player, out score))
+        if (playerScores.TryGetValue(player, out score))
         {
             return score;
         }
@@ -77,7 +83,7 @@ public static class GlobalData
 
     public static void AddToScore(Players player, int score)
     {
-        if(playerScores.ContainsKey(player))
+        if (playerScores.ContainsKey(player))
         {
             playerScores[player] += score;
         }

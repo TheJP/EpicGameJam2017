@@ -21,19 +21,19 @@ public class Controller : MonoBehaviour
     public Unicorn unicornPrefab;
 
     [Tooltip("CannonWaggon (train) prefab, which will be used to instantiate CannonWaggons for players")]
-    public GameObject TrainPrefab;
+    public GameObject trainPrefab;
 
     [Tooltip("Player marker prefab, which will be used to instantiate one PlayerMarkers per player")]
     public PlayerMarker playerMarkerPrefab;
 
     [Tooltip("Container with whose children's transforms serve as potential Startlocations and orientations for CannonWaggons")]
-    public Transform CannonWaggonStartLocations;
+    public Transform cannonWaggonStartLocations;
 
     [Tooltip("The UI text where the player score should be kept track of")]
-    public Text PlayerScoreView;
+    public Text playerScoreView;
 
     [Tooltip("The UI text the winner is announced in")]
-    public Text WinningView;
+    public Text winningView;
 
     private Players[] players;
     private List<Unicorn> unicorns = new List<Unicorn>();
@@ -68,7 +68,7 @@ public class Controller : MonoBehaviour
         unicorns.Clear();
         players = GlobalData.Players.ToArray();
 
-        WinningView.text = "";
+        winningView.text = "";
         GlobalData.ClearScores();
 
         foreach (var player in players)
@@ -76,7 +76,7 @@ public class Controller : MonoBehaviour
             GlobalData.AddToScore(player, 0);
         }
 
-        GlobalData.SetPlayerScoreView(PlayerScoreView);
+        GlobalData.SetPlayerScoreView(playerScoreView);
 
         ShuffleCannonWagonStartPositions();
 
@@ -92,8 +92,8 @@ public class Controller : MonoBehaviour
             unicorns.Add(unicorn);
 
             // Spawn train
-            var trainTransform = CannonWaggonStartLocations.GetChild(nplayers);
-            var train = Instantiate(TrainPrefab, trainTransform.position, trainTransform.rotation);
+            var trainTransform = cannonWaggonStartLocations.GetChild(nplayers);
+            var train = Instantiate(trainPrefab, trainTransform.position, trainTransform.rotation);
             train.GetComponentInChildren<CannonWaggon>().player = player;
 
             train.GetComponentInChildren<TrainColor>().SetColor(Constants.PlayerColors[player]);
@@ -109,14 +109,14 @@ public class Controller : MonoBehaviour
 
     private void ShuffleCannonWagonStartPositions()
     {
-        Assert.IsTrue(CannonWaggonStartLocations.childCount >= players.Length);
+        Assert.IsTrue(cannonWaggonStartLocations.childCount >= players.Length);
 
-        int n = CannonWaggonStartLocations.childCount;
+        int n = cannonWaggonStartLocations.childCount;
         for (int i = 0; i < n; i++)
         {
             int r = i + (int)(Random.value * (n - i));
-            Transform t = CannonWaggonStartLocations.GetChild(r);
-            CannonWaggonStartLocations.GetChild(i).SetSiblingIndex(r);
+            Transform t = cannonWaggonStartLocations.GetChild(r);
+            cannonWaggonStartLocations.GetChild(i).SetSiblingIndex(r);
             t.SetSiblingIndex(i);
         }
     }
@@ -167,12 +167,12 @@ public class Controller : MonoBehaviour
     {
         if (color.HasValue)
         {
-            WinningView.color = color.Value;
+            winningView.color = color.Value;
         }
 
         for (var i = 0; i < 5; ++i)
         {
-            WinningView.text = String.Format(message, 5 - i);
+            winningView.text = String.Format(message, 5 - i);
             yield return new WaitForSeconds(1.0f);
         }
 
@@ -181,7 +181,7 @@ public class Controller : MonoBehaviour
 
     private bool IsGameFinished()
     {
-        return WinningView.text.Length > 0;
+        return winningView.text.Length > 0;
     }
 
     private HexagonCell FindClosestHexagonCell(Players? player, Vector3 position)
